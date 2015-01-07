@@ -14,11 +14,11 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
                        Graphing on iOS isn't simple. We wanted to help with that. This pod will give you some tools to make a simple line graph. In the future we hope add more types of graphs!
                        DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/FNKGraphs"
+  s.homepage         = "https://github.com/FitnessKeeper/FNKGraphs"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Phillip Connaughton" => "phillip.connaughton@runkeeper.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/FNKGraphs.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/FitnessKeeper/FNKGraphs.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '7.0'
