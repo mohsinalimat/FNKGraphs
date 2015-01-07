@@ -9,13 +9,10 @@
 
 Pod::Spec.new do |s|
   s.name             = "FNKGraphs"
-  s.version          = "0.1.0"
-  s.summary          = "A short description of FNKGraphs."
+  s.version          = "0.0.1"
+  s.summary          = "A library to make graphing easier"
   s.description      = <<-DESC
-                       An optional longer description of FNKGraphs
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
+                       Graphing on iOS isn't simple. We wanted to help with that. This pod will give you some tools to make a simple line graph. In the future we hope add more types of graphs!
                        DESC
   s.homepage         = "https://github.com/<GITHUB_USERNAME>/FNKGraphs"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
@@ -33,6 +30,5 @@ Pod::Spec.new do |s|
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.frameworks = 'UIKit'
 end
