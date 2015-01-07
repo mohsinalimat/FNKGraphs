@@ -1,15 +1,15 @@
 {
   "name": "FNKGraphs",
   "version": "0.1.0",
-  "summary": "A short description of FNKGraphs.",
-  "description": "                       An optional longer description of FNKGraphs\n\n                       * Markdown format.\n                       * Don't worry about the indent, we strip it!\n",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/FNKGraphs",
+  "summary": "A library to make graphing easier",
+  "description": "                       Graphing on iOS isn't simple. We wanted to help with that. This pod will give you some tools to make a simple line graph. In the future we hope add more types of graphs!\n",
+  "homepage": "https://github.com/FitnessKeeper/FNKGraphs",
   "license": "MIT",
   "authors": {
     "Phillip Connaughton": "phillip.connaughton@runkeeper.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/FNKGraphs.git",
+    "git": "https://github.com/FitnessKeeper/FNKGraphs.git",
     "tag": "0.1.0"
   },
   "platforms": {
