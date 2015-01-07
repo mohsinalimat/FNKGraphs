@@ -1,0 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'FNKGraphs', :exclusive => true do
+  pod "FNKGraphs", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "FNKGraphs", :path => "../"
+
+  
+end
