@@ -11,7 +11,6 @@
 @implementation FNKLineGraph (AverageLine)
 
 -(void)drawAverageLine:(CGFloat)yVal
-            parentView:(UIView*)view
 {
     if(self.averageLineColor)
     {
@@ -28,7 +27,7 @@
         layer.lineCap = @"round";
         layer.lineJoin = @"round";
         
-        [view.layer addSublayer:layer];
+        [self.parentView.layer addSublayer:layer];
         
         CABasicAnimation* pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
         pathAnimation.duration = 1;

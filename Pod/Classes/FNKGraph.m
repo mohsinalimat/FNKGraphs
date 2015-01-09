@@ -29,10 +29,9 @@
     return self;
 }
 
--(void)draw:(UIView*)view
-{
-    self.yLabelView = [self.yAxis addTicksToView:view];
-    self.xLabelView = [self.xAxis addTicksToView:view];
+-(void)draw
+{    
+    [self drawData];
 }
 
 -(void)drawAxii:(UIView*)view
@@ -40,6 +39,35 @@
     [self.yAxis drawAxis:view];
     
 //    [self.xAxis drawAxis:view];
+}
+
+-(void)drawData
+{
+    //Should be implemented by child class
+}
+
+-(void)setGraphWidth:(CGFloat)graphWidth
+{
+    _graphWidth = graphWidth;
+    [self.xAxis setGraphWidth:graphWidth];
+    [self.yAxis setGraphWidth:graphWidth];
+}
+
+-(void)setGraphHeight:(CGFloat)graphHeight
+{
+    _graphHeight = graphHeight;
+    [self.xAxis setGraphHeight:graphHeight];
+    [self.yAxis setGraphHeight:graphHeight];
+}
+
+-(CGFloat)valueAtPoint:(CGPoint)point
+{
+    return 0;
+}
+
+-(void)removeSelection
+{
+    
 }
 
 @end

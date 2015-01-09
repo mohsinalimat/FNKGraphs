@@ -16,9 +16,9 @@
 @interface FNKGraphsViewController : UIViewController
 
 @property (nonatomic, weak) id<FNKChartsViewDelegate> delegate;
-@property (nonatomic, strong) NSMutableArray* dataPointArray;
+@property (nonatomic, strong) NSMutableArray* dataArray;
 @property (nonatomic) CGFloat yPadding;
-@property (nonatomic,strong) FNKLineGraph* chart;
+@property (nonatomic, strong) FNKLineGraph* chart;
 @property (nonatomic, strong) FNKChartOverlayBars* chartOverlay;
 @property (nonatomic) BOOL fillGraph;
 

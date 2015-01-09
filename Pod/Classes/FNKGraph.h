@@ -21,11 +21,20 @@
 @property (nonatomic, strong) UIView* yLabelView;
 @property (nonatomic, strong) UIView* xLabelView;
 @property (nonatomic) CGFloat yPadding;
+@property (nonatomic) CGFloat graphHeight;
+@property (nonatomic) CGFloat graphWidth;
+
+@property (nonatomic, weak) UIView* parentView;
 
 -(FNKGraph*) initWithMarginLeft:(CGFloat)marginLeft marginRight:(CGFloat)marginRight marginTop:(CGFloat)marginTop marginBottom:(CGFloat)marginBottom;
 
--(void)draw:(UIView*)view;
+-(void)draw;
 
 -(void)drawAxii:(UIView*)view;
+
+//These functions must be implemented by subclasses
+-(void)drawData;
+-(CGFloat)valueAtPoint:(CGPoint)point;
+-(void)removeSelection;
 
 @end

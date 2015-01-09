@@ -10,6 +10,6 @@
 
 @interface FNKLineGraph (AverageLine)
 
--(void)drawAverageLine:(CGFloat)yVal parentView:(UIView*)view;
+-(void)drawAverageLine:(CGFloat)yVal;
 
 @end

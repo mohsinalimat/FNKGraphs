@@ -36,6 +36,15 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3n2-pO-SKC">
+                                <rect key="frame" x="128" y="487" width="64" height="30"/>
+                                <state key="normal" title="Compare">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loadGraphComparison:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="S1U-am-AAj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -43,6 +52,8 @@
                             <constraint firstItem="hjE-2K-rjz" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" constant="10" id="ETA-fl-HIZ"/>
                             <constraint firstItem="brT-iH-y7W" firstAttribute="top" secondItem="hjE-2K-rjz" secondAttribute="bottom" constant="249.5" id="HiR-BC-wAg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="brT-iH-y7W" secondAttribute="trailing" constant="-10" id="MYD-6w-HVu"/>
+                            <constraint firstItem="3n2-pO-SKC" firstAttribute="top" secondItem="jqH-aK-WW1" secondAttribute="bottom" constant="456" id="O8s-Vf-hjW"/>
+                            <constraint firstAttribute="centerX" secondItem="3n2-pO-SKC" secondAttribute="centerX" id="aaW-hv-jCG"/>
                             <constraint firstAttribute="centerX" secondItem="jqH-aK-WW1" secondAttribute="centerX" id="pb4-mi-IoA"/>
                             <constraint firstItem="jqH-aK-WW1" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="yEu-o7-j9X"/>
                         </constraints>

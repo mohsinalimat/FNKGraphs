@@ -21,4 +21,17 @@
 /* averageLine - This is the value where the average line will be. It is always horizontal */
 @property (nonatomic) double averageLine;
 
+@property (nonatomic, weak) CALayer* lineLayer;
+@property (nonatomic, weak) CALayer* comparisonLayer;
+
+@property (nonatomic) BOOL fillGraph;
+
+@property (nonatomic, strong) NSMutableArray* dataPointArray;
+
+-(void)showLineComparison:(NSMutableArray*)comparisonData color:(UIColor*)lineColor;
+
+-(void)loadData:(NSMutableArray*)data;
+
+-(void)willAppear;
+
 @end
