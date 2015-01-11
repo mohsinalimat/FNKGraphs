@@ -31,7 +31,7 @@
 -(void)addPaceChart
 {
     self.paceChartsVC = [[FNKGraphsViewController alloc] initWithFrame:CGRectMake(0, 70, 320, 160)];
-    [self.paceChartsVC setDataArray:[FNKPointValues addPointsPaceByDistanceOne]];
+    [self.paceChartsVC setDataArray:[FNKPointValues addPointsPaceByDistanceTwo]];
     self.paceChartsVC.yPadding = 50;
     
     //    [self.paceChartsVC addChartOverlay:[[FNKChartOverlayBars alloc] init]];
@@ -251,7 +251,7 @@
 
 - (IBAction)loadGraphComparison:(id)sender
 {
-    [self.paceChartsVC.chart showLineComparison:[FNKPointValues addPointsPaceByDistanceTwo] color:[UIColor redColor]];
+    [self.paceChartsVC.chart showLineComparison:[FNKPointValues addPointsPaceByDistanceOne] color:[UIColor redColor]];
 }
 
 @end

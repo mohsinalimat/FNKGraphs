@@ -21,8 +21,8 @@
 /* averageLine - This is the value where the average line will be. It is always horizontal */
 @property (nonatomic) double averageLine;
 
-@property (nonatomic, weak) CALayer* lineLayer;
-@property (nonatomic, weak) CALayer* comparisonLayer;
+@property (nonatomic, weak) CAShapeLayer* lineLayer;
+@property (nonatomic, weak) CAShapeLayer* comparisonLine;
 
 @property (nonatomic) BOOL fillGraph;
 

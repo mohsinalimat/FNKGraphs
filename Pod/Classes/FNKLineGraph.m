@@ -43,9 +43,6 @@
     self.originalData = [data copy];
     [self calcMaxMin:data];
     self.dataPointArray = [self normalizePoints:data];
-    self.xAxis.scaleFactor = self.xScaleFactor;
-    self.yAxis.scaleFactor = self.yScaleFactor;
-    self.yAxis.yAxisNum = self.yAxisNum;
 }
 
 -(double)scaleYValue:(double)value
@@ -90,7 +87,36 @@
 }
 
 
--(CALayer*)drawLine:(NSMutableArray*)data color:(UIColor*)color completion:(void (^)())completion
+-(CAShapeLayer*)drawLine:(NSMutableArray*)data color:(UIColor*)color completion:(void (^)())completion
+{
+    CAShapeLayer* layer = [[CAShapeLayer alloc] init];
+    layer.path = [self pathFromPoints:data].CGPath;
+    layer.fillColor = nil;
+    layer.strokeColor = color.CGColor;
+    layer.lineWidth = 2;
+    layer.lineCap = @"round";
+    layer.lineJoin = @"round";
+    
+    [self.parentView.layer insertSublayer:layer below:self.yLabelView.layer];
+    
+    [CATransaction begin];
+    [CATransaction setCompletionBlock:^{
+        completion();
+    }];
+    
+    CABasicAnimation* pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+    pathAnimation.duration = 1;
+    pathAnimation.fromValue = @(0);
+    pathAnimation.toValue = @(1);
+    
+    [layer addAnimation:pathAnimation forKey:@"strokeEnd"];
+    
+    [CATransaction commit];
+    
+    return layer;
+}
+
+-(UIBezierPath*)pathFromPoints:(NSMutableArray*)data
 {
     BOOL firstPoint = YES;
     
@@ -130,31 +156,7 @@
         }
     }
     
-    CAShapeLayer* layer = [[CAShapeLayer alloc] init];
-    layer.path = bezPath.CGPath;
-    layer.fillColor = nil;
-    layer.strokeColor = color.CGColor;
-    layer.lineWidth = 2;
-    layer.lineCap = @"round";
-    layer.lineJoin = @"round";
-    
-    [self.parentView.layer insertSublayer:layer below:self.yLabelView.layer];
-    
-    [CATransaction begin];
-    [CATransaction setCompletionBlock:^{
-        completion();
-    }];
-    
-    CABasicAnimation* pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-    pathAnimation.duration = 1;
-    pathAnimation.fromValue = @(0);
-    pathAnimation.toValue = @(1);
-    
-    [layer addAnimation:pathAnimation forKey:@"strokeEnd"];
-    
-    [CATransaction commit];
-    
-    return layer;
+    return bezPath;
 }
 
 -(CGFloat)valueAtPoint:(CGPoint)point
@@ -202,21 +204,47 @@
     [allData addObjectsFromArray:comparisonData];
     [self calcMaxMin:allData];
     
-    [self.lineLayer removeFromSuperlayer];
-    [self.comparisonLayer removeFromSuperlayer];
-    
     [self removeTicks];
     [self addTicks];
     
-    NSMutableArray* data = [self normalizePoints:comparisonData];
-    self.comparisonLayer = [self drawLine:data
-                                    color:lineColor
-                               completion:^{}];
-    self.lineLayer = [self drawLine:[self normalizePoints:self.originalData]
-                              color:self.lineStrokeColor
+    //Draw the new line
+    if(self.comparisonLine == nil)
+    {
+        NSMutableArray* data = [self normalizePoints:comparisonData];
+        self.comparisonLine = [self drawLine:data
+                                       color:lineColor
+                                  completion:^{}];
+    }
+    else //Animate the line transition
+    {
+        [self transitionLine:self.comparisonLine
+                        data:comparisonData];
+    }
+    
+    [self transitionLine:self.lineLayer
+                    data:self.originalData];
+}
 
-                         completion:^{
-                         }];
+-(void)transitionLine:(CAShapeLayer*)line data:(NSMutableArray*)data
+{
+    CGPathRef newPath = [self pathFromPoints:[self normalizePoints:data]].CGPath;
+    
+    [CATransaction begin];
+    [CATransaction setCompletionBlock:^{
+        //Need to do this, otherwise the next animation will start at the original value.
+        [line setPath:newPath];
+    }];
+    
+    CABasicAnimation *morph = [CABasicAnimation animationWithKeyPath:@"path"];
+    morph.duration  = 2; // Step 1
+    //    morph.fromValue = (__bridge id) line.path;
+    morph.toValue = (__bridge id) newPath;
+    morph.autoreverses = NO;
+    morph.fillMode = kCAFillModeForwards;
+    morph.removedOnCompletion = NO;
+    [line addAnimation:morph forKey:@"path"];
+    
+    [CATransaction commit];
 }
 
 -(void)calcMaxMin:(NSArray*)points
@@ -262,6 +290,10 @@
     
     self.xScaleFactor = self.graphWidth / self.xRange;
     self.yScaleFactor = self.graphHeight / self.yRange;
+    
+    self.xAxis.scaleFactor = self.xScaleFactor;
+    self.yAxis.scaleFactor = self.yScaleFactor;
+    self.yAxis.yAxisNum = self.yAxisNum;
 }
 
 -(NSMutableArray*)normalizePoints:(NSArray*)points
