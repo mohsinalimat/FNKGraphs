@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3D3BEEE21A60852000B6790C /* FNKPointValues.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3BEEE11A60852000B6790C /* FNKPointValues.m */; };
+		3D3BEEF11A62EA8B00B6790C /* FNKDemoListViewControllerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3BEEF01A62EA8B00B6790C /* FNKDemoListViewControllerTableViewController.m */; };
+		3D3BEEF51A62EC1700B6790C /* FNKDemoCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3BEEF41A62EC1700B6790C /* FNKDemoCellTableViewCell.m */; };
+		3D3BEEF81A62ED7F00B6790C /* FNKPieGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3BEEF71A62ED7F00B6790C /* FNKPieGraphViewController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -41,6 +44,12 @@
 		159F8996D848E830EB91057D /* Pods-FNKGraphs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FNKGraphs.release.xcconfig"; path = "Pods/Target Support Files/Pods-FNKGraphs/Pods-FNKGraphs.release.xcconfig"; sourceTree = "<group>"; };
 		3D3BEEE01A60852000B6790C /* FNKPointValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNKPointValues.h; sourceTree = "<group>"; };
 		3D3BEEE11A60852000B6790C /* FNKPointValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNKPointValues.m; sourceTree = "<group>"; };
+		3D3BEEEF1A62EA8B00B6790C /* FNKDemoListViewControllerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNKDemoListViewControllerTableViewController.h; sourceTree = "<group>"; };
+		3D3BEEF01A62EA8B00B6790C /* FNKDemoListViewControllerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNKDemoListViewControllerTableViewController.m; sourceTree = "<group>"; };
+		3D3BEEF31A62EC1700B6790C /* FNKDemoCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNKDemoCellTableViewCell.h; sourceTree = "<group>"; };
+		3D3BEEF41A62EC1700B6790C /* FNKDemoCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNKDemoCellTableViewCell.m; sourceTree = "<group>"; };
+		3D3BEEF61A62ED7F00B6790C /* FNKPieGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNKPieGraphViewController.h; sourceTree = "<group>"; };
+		3D3BEEF71A62ED7F00B6790C /* FNKPieGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNKPieGraphViewController.m; sourceTree = "<group>"; };
 		4360664245F08766E1B87A4F /* FNKGraphs.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FNKGraphs.podspec; path = ../FNKGraphs.podspec; sourceTree = "<group>"; };
 		50D6221771D1E5267D138620 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5835C73DDC3A4019C754E8F6 /* libPods-FNKGraphs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FNKGraphs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +118,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3D3BEEF21A62EBEF00B6790C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3D3BEEF31A62EC1700B6790C /* FNKDemoCellTableViewCell.h */,
+				3D3BEEF41A62EC1700B6790C /* FNKDemoCellTableViewCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +164,7 @@
 		6003F593195388D20070C39A /* FNKGraphs */ = {
 			isa = PBXGroup;
 			children = (
+				3D3BEEF21A62EBEF00B6790C /* Cell */,
 				6003F59C195388D20070C39A /* FNKAppDelegate.h */,
 				6003F59D195388D20070C39A /* FNKAppDelegate.m */,
 				6003F59F195388D20070C39A /* Main_iPhone.storyboard */,
@@ -156,6 +175,10 @@
 				6003F594195388D20070C39A /* Supporting Files */,
 				3D3BEEE01A60852000B6790C /* FNKPointValues.h */,
 				3D3BEEE11A60852000B6790C /* FNKPointValues.m */,
+				3D3BEEEF1A62EA8B00B6790C /* FNKDemoListViewControllerTableViewController.h */,
+				3D3BEEF01A62EA8B00B6790C /* FNKDemoListViewControllerTableViewController.m */,
+				3D3BEEF61A62ED7F00B6790C /* FNKPieGraphViewController.h */,
+				3D3BEEF71A62ED7F00B6790C /* FNKPieGraphViewController.m */,
 			);
 			path = FNKGraphs;
 			sourceTree = "<group>";
@@ -368,6 +391,9 @@
 			files = (
 				3D3BEEE21A60852000B6790C /* FNKPointValues.m in Sources */,
 				6003F59E195388D20070C39A /* FNKAppDelegate.m in Sources */,
+				3D3BEEF51A62EC1700B6790C /* FNKDemoCellTableViewCell.m in Sources */,
+				3D3BEEF81A62ED7F00B6790C /* FNKPieGraphViewController.m in Sources */,
+				3D3BEEF11A62EA8B00B6790C /* FNKDemoListViewControllerTableViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* FNKViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);

@@ -84,7 +84,7 @@
                                                                           views:viewDictionary];
     [self.view addConstraints:widthConstraints];
     
-    constraintString = [NSString stringWithFormat:@"V:|-70-[paceView(160)]"];
+    constraintString = [NSString stringWithFormat:@"V:|-100-[paceView(160)]"];
     NSArray *heightConstraints = [NSLayoutConstraint constraintsWithVisualFormat:constraintString
                                                                          options:0
                                                                          metrics:nil
