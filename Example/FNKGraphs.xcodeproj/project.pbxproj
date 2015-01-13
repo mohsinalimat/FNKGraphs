@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D25C0921A647D1E00FDC56B /* FNKDemoBarGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D25C0911A647D1E00FDC56B /* FNKDemoBarGraphViewController.m */; };
 		3D3BEEE21A60852000B6790C /* FNKPointValues.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3BEEE11A60852000B6790C /* FNKPointValues.m */; };
 		3D3BEEF11A62EA8B00B6790C /* FNKDemoListViewControllerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3BEEF01A62EA8B00B6790C /* FNKDemoListViewControllerTableViewController.m */; };
 		3D3BEEF51A62EC1700B6790C /* FNKDemoCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3BEEF41A62EC1700B6790C /* FNKDemoCellTableViewCell.m */; };
@@ -42,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		159F8996D848E830EB91057D /* Pods-FNKGraphs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FNKGraphs.release.xcconfig"; path = "Pods/Target Support Files/Pods-FNKGraphs/Pods-FNKGraphs.release.xcconfig"; sourceTree = "<group>"; };
+		3D25C0901A647D1E00FDC56B /* FNKDemoBarGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNKDemoBarGraphViewController.h; sourceTree = "<group>"; };
+		3D25C0911A647D1E00FDC56B /* FNKDemoBarGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNKDemoBarGraphViewController.m; sourceTree = "<group>"; };
 		3D3BEEE01A60852000B6790C /* FNKPointValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNKPointValues.h; sourceTree = "<group>"; };
 		3D3BEEE11A60852000B6790C /* FNKPointValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNKPointValues.m; sourceTree = "<group>"; };
 		3D3BEEEF1A62EA8B00B6790C /* FNKDemoListViewControllerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNKDemoListViewControllerTableViewController.h; sourceTree = "<group>"; };
@@ -179,6 +182,8 @@
 				3D3BEEF01A62EA8B00B6790C /* FNKDemoListViewControllerTableViewController.m */,
 				3D3BEEF61A62ED7F00B6790C /* FNKPieGraphViewController.h */,
 				3D3BEEF71A62ED7F00B6790C /* FNKPieGraphViewController.m */,
+				3D25C0901A647D1E00FDC56B /* FNKDemoBarGraphViewController.h */,
+				3D25C0911A647D1E00FDC56B /* FNKDemoBarGraphViewController.m */,
 			);
 			path = FNKGraphs;
 			sourceTree = "<group>";
@@ -393,6 +398,7 @@
 				6003F59E195388D20070C39A /* FNKAppDelegate.m in Sources */,
 				3D3BEEF51A62EC1700B6790C /* FNKDemoCellTableViewCell.m in Sources */,
 				3D3BEEF81A62ED7F00B6790C /* FNKPieGraphViewController.m in Sources */,
+				3D25C0921A647D1E00FDC56B /* FNKDemoBarGraphViewController.m in Sources */,
 				3D3BEEF11A62EA8B00B6790C /* FNKDemoListViewControllerTableViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* FNKViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,

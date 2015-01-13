@@ -1,24 +1,25 @@
 //
 //  FNKBar.m
-//  Pods
+//  FNKGraphs
 //
-//  Created by Phillip Connaughton on 1/13/15.
-//
+//  Created by Phillip Connaughton on 11/26/14.
+//  Copyright (c) 2014 fnk. All rights reserved.
 //
 
-#import "FNKBar.h"
+#import "FNKOverlayBar.h"
 
-@implementation FNKBar
+@implementation FNKOverlayBar
 
-//-(FNKBar*)initWithData:(FNKBarSectionData*)data frame:(CGRect)frame
-//{
-//    if(self = [super initWithFrame:frame])
-//    {
-//        self.data = data;
-//        self.adjustmentHeight = 5;
-//    }
-//    return self;
-//}
+
+-(FNKOverlayBar*)initWithData:(FNKChartOverlayData*)data frame:(CGRect)frame
+{
+    if(self = [super initWithFrame:frame])
+    {
+        self.data = data;
+        self.adjustmentHeight = 5;
+    }
+    return self;
+}
 
 
 -(void)updateBar:(BOOL)expand
@@ -51,6 +52,5 @@
     }
     
 }
-
 
 @end

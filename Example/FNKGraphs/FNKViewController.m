@@ -30,37 +30,37 @@
 
 -(void)addPaceChart
 {
-    self.paceChartsVC = [[FNKGraphsViewController alloc] initWithFrame:CGRectMake(0, 70, 320, 160)];
+    self.paceChartsVC = [[FNKGraphsLineGraphViewController alloc] initWithFrame:CGRectMake(0, 70, 320, 160)];
     [self.paceChartsVC setDataArray:[FNKPointValues addPointsPaceByDistanceTwo]];
     self.paceChartsVC.yPadding = 50;
     
     //    [self.paceChartsVC addChartOverlay:[[FNKChartOverlayBars alloc] init]];
     
     //Set custom colors for chart -- Not necessary as all charts will have defaults
-    self.paceChartsVC.chart.yAxis.strokeColor = [UIColor clearColor];
-    self.paceChartsVC.chart.yAxis.fillColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
-    self.paceChartsVC.chart.yAxis.tickFillColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
-    self.paceChartsVC.chart.yAxis.tickStrokeColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
-    self.paceChartsVC.chart.yAxis.tickType = FNKTickTypeBehind;
+    self.paceChartsVC.yAxis.strokeColor = [UIColor clearColor];
+    self.paceChartsVC.yAxis.fillColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
+    self.paceChartsVC.yAxis.tickFillColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
+    self.paceChartsVC.yAxis.tickStrokeColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
+    self.paceChartsVC.yAxis.tickType = FNKTickTypeBehind;
     
-    self.paceChartsVC.chart.xAxis.strokeColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
-    self.paceChartsVC.chart.xAxis.fillColor =[UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
-    self.paceChartsVC.chart.xAxis.tickFillColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
-    self.paceChartsVC.chart.xAxis.tickStrokeColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
+    self.paceChartsVC.xAxis.strokeColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
+    self.paceChartsVC.xAxis.fillColor =[UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
+    self.paceChartsVC.xAxis.tickFillColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
+    self.paceChartsVC.xAxis.tickStrokeColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
     
     UIColor* avColor = [UIColor blackColor];
-    [self.paceChartsVC.chart setAverageLineColor:[avColor colorWithAlphaComponent:0.2]];
-    [self.paceChartsVC.chart setAverageLineColor:[UIColor blackColor]];
+    [self.paceChartsVC setAverageLineColor:[avColor colorWithAlphaComponent:0.2]];
+    [self.paceChartsVC setAverageLineColor:[UIColor blackColor]];
     
     
-    self.paceChartsVC.chart.lineStrokeColor = [UIColor colorWithRed:0.48828125 green:0.83203125 blue:0.98828125 alpha:1.0];
+    self.paceChartsVC.lineStrokeColor = [UIColor colorWithRed:0.48828125 green:0.83203125 blue:0.98828125 alpha:1.0];
     
     __weak __typeof(self) safeSelf = self;
     
-    [self.paceChartsVC.chart.yAxis setTickFormat:^NSString *(CGFloat value) {
+    [self.paceChartsVC.yAxis setTickFormat:^NSString *(CGFloat value) {
         return [safeSelf durationFormat:value];
     }];
-    [self.paceChartsVC.chart.xAxis setTickFormat:^NSString *(CGFloat value) {
+    [self.paceChartsVC.xAxis setTickFormat:^NSString *(CGFloat value) {
         return [safeSelf milesFromMeters:value];
     }];
     
@@ -94,30 +94,30 @@
 
 -(void) addElevationChart
 {
-    self.elevationChartsVC = [[FNKGraphsViewController alloc] initWithFrame:CGRectMake(0, 320, 320, 160)];
+    self.elevationChartsVC = [[FNKGraphsLineGraphViewController alloc] initWithFrame:CGRectMake(0, 320, 320, 160)];
 //    self.elevationChartsVC.dataPointArray = [FNKPointValues addPointsElevationByDistanceOne];
     self.elevationChartsVC.yPadding = 0;
     
-    self.elevationChartsVC.chart.yAxis.strokeColor = [UIColor clearColor];
-    self.elevationChartsVC.chart.yAxis.fillColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
-    self.elevationChartsVC.chart.yAxis.tickFillColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
-    self.elevationChartsVC.chart.yAxis.tickStrokeColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
-    self.elevationChartsVC.chart.yAxis.tickType = FNKTickTypeBehind;
+    self.elevationChartsVC.yAxis.strokeColor = [UIColor clearColor];
+    self.elevationChartsVC.yAxis.fillColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
+    self.elevationChartsVC.yAxis.tickFillColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
+    self.elevationChartsVC.yAxis.tickStrokeColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
+    self.elevationChartsVC.yAxis.tickType = FNKTickTypeBehind;
     
-    self.elevationChartsVC.chart.xAxis.strokeColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
-    self.elevationChartsVC.chart.xAxis.fillColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
-    self.elevationChartsVC.chart.xAxis.tickFillColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
-    self.elevationChartsVC.chart.xAxis.tickStrokeColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
+    self.elevationChartsVC.xAxis.strokeColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
+    self.elevationChartsVC.xAxis.fillColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
+    self.elevationChartsVC.xAxis.tickFillColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
+    self.elevationChartsVC.xAxis.tickStrokeColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
     
-    self.elevationChartsVC.chart.lineStrokeColor = [UIColor colorWithRed:0.6640625 green:0.875 blue:0.39453125 alpha:1];
+    self.elevationChartsVC.lineStrokeColor = [UIColor colorWithRed:0.6640625 green:0.875 blue:0.39453125 alpha:1];
     
     __weak __typeof(self) safeSelf = self;
     
-    [self.elevationChartsVC.chart.yAxis setTickFormat:^NSString *(CGFloat val) {
+    [self.elevationChartsVC.yAxis setTickFormat:^NSString *(CGFloat val) {
         return [safeSelf elevationFormat:val];
     }];
     
-    [self.elevationChartsVC.chart.xAxis setTickFormat:^NSString *(CGFloat val) {
+    [self.elevationChartsVC.xAxis setTickFormat:^NSString *(CGFloat val) {
         return [safeSelf milesFromMeters:val];
     }];
     
@@ -251,7 +251,7 @@
 
 - (IBAction)loadGraphComparison:(id)sender
 {
-    [self.paceChartsVC.chart showLineComparison:[FNKPointValues addPointsPaceByDistanceOne] color:[UIColor redColor]];
+    [self.paceChartsVC showLineComparison:[FNKPointValues addPointsPaceByDistanceOne] color:[UIColor redColor]];
 }
 
 @end

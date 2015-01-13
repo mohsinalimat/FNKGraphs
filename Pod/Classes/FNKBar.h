@@ -1,22 +1,21 @@
 //
 //  FNKBar.h
-//  FNKGraphs
+//  Pods
 //
-//  Created by Phillip Connaughton on 11/26/14.
-//  Copyright (c) 2014 fnk. All rights reserved.
+//  Created by Phillip Connaughton on 1/13/15.
+//
 //
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "FNKChartOverlayData.h"
+#import "FNKBarSectionData.h"
 
 @interface FNKBar : UIView
 
 @property (nonatomic) CGFloat adjustmentHeight;
 @property (nonatomic) CGRect originalFrame;
-@property (nonatomic, strong) FNKChartOverlayData* data;
+//@property (nonatomic, strong) FNKBarSectionData* data;
 
--(FNKBar*)initWithData:(FNKChartOverlayData*)data frame:(CGRect)frame;
+//-(FNKBar*)initWithData:(FNKBarSectionData*)data frame:(CGRect)frame;
 -(void)updateBar:(BOOL)expand;
 
 @end

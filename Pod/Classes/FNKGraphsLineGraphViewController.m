@@ -1,16 +1,24 @@
 //
-//  FNKLineGraph.m
-//  FNKGraphs
+//  FNKGraphsLineGraphViewController.m
+//  Pods
 //
-//  Created by Phillip Connaughton on 11/26/14.
-//  Copyright (c) 2014 fnk. All rights reserved.
+//  Created by Phillip Connaughton on 1/11/15.
+//
 //
 
-#import "FNKLineGraph.h"
-#import "FNKLineGraph+AverageLine.h"
+#import "FNKGraphsLineGraphViewController.h"
 
-@interface FNKLineGraph()
+@interface FNKGraphsLineGraphViewController ()
 
+/* xAxis - The X axis of the graph. This cannot be assigned but it's properties can be*/
+@property (nonatomic,strong) FNKXAxis* xAxis;
+
+/* yAxis - The Y axis of the graph. This cannot be assigned but it's properties can be*/
+@property (nonatomic,strong) FNKYAxis* yAxis;
+
+@property (nonatomic, weak) CAShapeLayer* lineLayer;
+@property (nonatomic, weak) CAShapeLayer* comparisonLine;
+@property (nonatomic) BOOL fillGraph;
 @property (nonatomic) CGFloat yAxisNum;
 
 //Graph variables
@@ -19,30 +27,90 @@
 @property (nonatomic) CGFloat xRange;
 @property (nonatomic) CGFloat yRange;
 
-@property (nonatomic, strong) CAShapeLayer* selectedLineLayer;
-@property (nonatomic, strong) CAShapeLayer* selectedLineCircleLayer;
-@property (nonatomic, strong) NSMutableArray* originalData;
-
 @end
 
-@implementation FNKLineGraph
+@implementation FNKGraphsLineGraphViewController
 
--(FNKLineGraph*)initWithMarginLeft:(CGFloat)marginLeft marginRight:(CGFloat)marginRight marginTop:(CGFloat)marginTop marginBottom:(CGFloat)marginBottom
+#pragma mark view lifecycle
+
+-(void)initializers
 {
-    if(self = [super initWithMarginLeft:marginLeft marginRight:marginRight marginTop:marginTop marginBottom:marginBottom])
-    {
-        self.selectedLineLayer  = [CAShapeLayer layer];
-        self.selectedLineCircleLayer = [CAShapeLayer layer];
-    }
+    self.xAxis = [[FNKXAxis alloc] initWithMarginLeft:self.marginLeft marginRight:self.marginRight marginTop:self.marginTop marginBottom:self.marginBottom];
+    self.yAxis = [[FNKYAxis alloc] initWithMarginLeft:self.marginLeft marginRight:self.marginRight marginTop:self.marginTop marginBottom:self.marginBottom];
+    self.yAxis.ticks = 5;
+    self.xAxis.ticks = 5;
+    self.yPadding = 0;
+    self.selectedLineLayer  = [CAShapeLayer layer];
+    self.selectedLineCircleLayer = [CAShapeLayer layer];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
-    return self;
+    if(!self.hasDrawn)
+    {
+        self.xAxis.graphHeight = self.graphHeight;
+        self.yAxis.graphHeight = self.graphHeight;
+        
+        self.xAxis.graphWidth = self.graphWidth;
+        self.yAxis.graphWidth = self.graphWidth;
+        
+        self.selectedLineLayer.strokeColor = [UIColor clearColor].CGColor;
+        [self.view.layer addSublayer:self.selectedLineLayer];
+        
+        self.selectedLineCircleLayer.strokeColor = [UIColor clearColor].CGColor;
+        self.selectedLineCircleLayer.fillColor = [UIColor clearColor].CGColor;
+        [self.view.layer addSublayer:self.selectedLineCircleLayer];
+        
+        if(self.chartOverlay)
+        {
+            self.chartOverlay.marginBottom = self.marginBottom;
+            self.chartOverlay.marginTop = self.marginTop;
+            self.chartOverlay.marginRight = self.marginRight;
+            self.chartOverlay.marginLeft = self.marginLeft;
+            self.chartOverlay.graphWidth = self.graphWidth;
+            self.chartOverlay.graphHeight = self.graphHeight;
+        }
+    }
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    if(!self.hasDrawn)
+    {
+        __weak __typeof(self) safeSelf = self;
+        
+        [self drawAxii:self.view];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            [safeSelf loadData:self.dataArray];
+            [safeSelf drawData];
+            
+            if (safeSelf.chartOverlay != nil)
+            {
+                [safeSelf.chartOverlay drawInView:safeSelf.view];
+                safeSelf.yLabelView.userInteractionEnabled = false;
+            }
+            
+        });
+        self.hasDrawn = YES;
+    }
 }
 
 -(void)loadData:(NSMutableArray*)data
 {
     self.originalData = [data copy];
     [self calcMaxMin:data];
-    self.dataPointArray = [self normalizePoints:data];
+    self.dataArray = [self normalizePoints:data];
 }
 
 -(double)scaleYValue:(double)value
@@ -54,11 +122,11 @@
 -(void)willAppear
 {
     self.selectedLineLayer.strokeColor = [UIColor clearColor].CGColor;
-    [self.parentView.layer addSublayer:self.selectedLineLayer];
+    [self.view.layer addSublayer:self.selectedLineLayer];
     
     self.selectedLineCircleLayer.strokeColor = [UIColor clearColor].CGColor;
     self.selectedLineCircleLayer.fillColor = [UIColor clearColor].CGColor;
-    [self.parentView.layer addSublayer:self.selectedLineCircleLayer];
+    [self.view.layer addSublayer:self.selectedLineCircleLayer];
 }
 
 -(void)drawData
@@ -66,7 +134,7 @@
     [self addTicks];
     
     __weak __typeof(self) safeSelf = self;
-    self.lineLayer = [self drawLine:self.dataPointArray
+    self.lineLayer = [self drawLine:self.dataArray
                               color:self.lineStrokeColor
                          completion:^{
                              double yValue = [safeSelf scaleYValue:safeSelf.averageLine];
@@ -74,10 +142,17 @@
                          }];
 }
 
+-(void)drawAxii:(UIView*)view
+{
+    [self.yAxis drawAxis:view];
+    
+    //    [self.xAxis drawAxis:view];
+}
+
 -(void)addTicks
 {
-    self.yLabelView = [self.yAxis addTicksToView:self.parentView];
-    self.xLabelView = [self.xAxis addTicksToView:self.parentView];
+    self.yLabelView = [self.yAxis addTicksToView:self.view];
+    self.xLabelView = [self.xAxis addTicksToView:self.view];
 }
 
 -(void)removeTicks
@@ -97,7 +172,7 @@
     layer.lineCap = @"round";
     layer.lineJoin = @"round";
     
-    [self.parentView.layer insertSublayer:layer below:self.yLabelView.layer];
+    [self.view.layer insertSublayer:layer below:self.yLabelView.layer];
     
     [CATransaction begin];
     [CATransaction setCompletionBlock:^{
@@ -163,7 +238,7 @@
 {
     CGFloat xValue = point.x;
     CGFloat yVal = 0;
-    for (NSValue* val in self.dataPointArray)
+    for (NSValue* val in self.dataArray)
     {
         CGPoint point = [val CGPointValue];
         if(point.x >= xValue)
@@ -311,5 +386,99 @@
     return scaledPoints;
 }
 
+-(void)drawAverageLine:(CGFloat)yVal
+{
+    if(self.averageLineColor)
+    {
+        UIBezierPath* bezPath = [[UIBezierPath alloc] init];
+        [bezPath moveToPoint:CGPointMake(self.yAxis.marginLeft, yVal)];
+        [bezPath addLineToPoint:CGPointMake(self.xAxis.graphWidth + self.yAxis.marginLeft, yVal)];
+        
+        CAShapeLayer* layer = [[CAShapeLayer alloc] init];
+        layer.path = bezPath.CGPath;
+        layer.fillColor = self.averageLineColor.CGColor;
+        layer.strokeColor = self.averageLineColor.CGColor;
+        layer.lineWidth = 1;
+        [layer setLineDashPattern:@[@(3),@(5)]];
+        layer.lineCap = @"round";
+        layer.lineJoin = @"round";
+        
+        [self.view.layer addSublayer:layer];
+        
+        CABasicAnimation* pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+        pathAnimation.duration = 1;
+        pathAnimation.fromValue = @(0);
+        pathAnimation.toValue = @(1);
+        
+        [layer addAnimation:pathAnimation forKey:@"strokeEnd"];
+    }
+}
+
+#pragma mark gestures
+
+// we capture the touch move events by overriding touchesMoved method
+
+-(void)touchedGraphAtPoint:(CGPoint)point userGenerated:(BOOL)userGenerated
+{
+    //Take the x value and get the corresponding y value;
+    
+    CGFloat value = [self valueAtPoint:point];
+    
+    [self.delegate touchedGraph:self val:value point:point userGenerated:userGenerated];
+}
+
+-(void)handlePan:(UIPanGestureRecognizer*)recognizer
+{
+    CGPoint point = [recognizer locationInView:self.view];
+    
+    if(recognizer.state == UIGestureRecognizerStateEnded)
+    {
+        [self removeSelection];
+        [self.delegate graphTouchesEnded:self];
+    }
+    else
+    {
+        [self handleGesture:point];
+    }
+}
+
+-(void)handleTap:(UITapGestureRecognizer*)recognizer
+{
+    CGPoint point = [recognizer locationInView:self.view];
+    
+    [self handleGesture:point];
+}
+
+-(void) handleGesture:(CGPoint)point
+{
+    if(point.x > self.graphWidth + self.marginLeft || point.x < self.marginLeft)
+    {
+        [self removeSelection];
+        [self.delegate graphTouchesEnded:self];
+    }
+    else
+    {
+        [self touchedGraphAtPoint:point userGenerated:YES];
+        
+        FNKChartOverlayData* data = [self.chartOverlay touchAtPoint:point view:self.view];
+        
+        if (data != nil)
+        {
+            [self.delegate touchedBar:self data: data];
+        }
+    }
+}
+
+-(void) focusAtPoint:(CGPoint)point show:(BOOL)show
+{
+    if(show)
+    {
+        [self touchedGraphAtPoint:point userGenerated:NO];
+    }
+    else
+    {
+        [self removeSelection];
+    }
+}
 
 @end

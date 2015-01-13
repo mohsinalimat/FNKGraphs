@@ -59,11 +59,48 @@
                         <outlet property="view" destination="fg9-xD-yyB" id="qXn-vN-5Va"/>
                         <segue destination="vXZ-lx-hvc" kind="push" identifier="lineGraphPush" id="3xt-gH-kKz"/>
                         <segue destination="ncv-mE-vpj" kind="push" identifier="pieGraphPush" id="wz0-r4-r6i"/>
+                        <segue destination="aPp-1b-hYa" kind="push" identifier="barGraphPush" id="Uc8-k3-vpK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8n1-ew-CYv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="77" y="313"/>
+        </scene>
+        <!--Bar Graph-->
+        <scene sceneID="sEz-31-qQc">
+            <objects>
+                <viewController id="aPp-1b-hYa" customClass="FNKDemoBarGraphViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b5p-7h-DoS"/>
+                        <viewControllerLayoutGuide type="bottom" id="cg3-OV-FzQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Lqt-Pz-09K">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sIf-HV-NhX">
+                                <rect key="frame" x="0.0" y="100" width="320" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="YM3-OA-xH1"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="sIf-HV-NhX" secondAttribute="trailing" constant="-16" id="arS-Rk-cjm"/>
+                            <constraint firstItem="sIf-HV-NhX" firstAttribute="top" secondItem="b5p-7h-DoS" secondAttribute="bottom" constant="36" id="iHX-iL-KT8"/>
+                            <constraint firstItem="sIf-HV-NhX" firstAttribute="leading" secondItem="Lqt-Pz-09K" secondAttribute="leadingMargin" constant="-16" id="icB-gr-gQI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Bar Graph" id="hjN-a2-88S"/>
+                    <connections>
+                        <outlet property="barGraphContainer" destination="sIf-HV-NhX" id="G3l-UR-M2z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4qt-6m-TiS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="609" y="505"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dnr-IK-nls">
@@ -141,9 +178,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="575" y="83"/>
+            <point key="canvasLocation" x="609" y="-195"/>
         </scene>
-        <!--Pie Graph View Controller-->
+        <!--Pie Graph-->
         <scene sceneID="G9c-Ys-LhJ">
             <objects>
                 <viewController id="ncv-mE-vpj" customClass="FNKPieGraphViewController" sceneMemberID="viewController">
@@ -154,13 +191,38 @@
                     <view key="view" contentMode="scaleToFill" id="B5r-Wn-IKR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XMM-OD-YNP">
+                                <rect key="frame" x="20" y="100" width="280" height="280"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="280" id="FI1-9d-vdw"/>
+                                    <constraint firstAttribute="width" constant="280" id="oQ3-R5-7kt"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oji-mG-AV6">
+                                <rect key="frame" x="91" y="434" width="158" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XMM-OD-YNP" firstAttribute="leading" secondItem="B5r-Wn-IKR" secondAttribute="leadingMargin" constant="4" id="Fag-lI-DfG"/>
+                            <constraint firstItem="XMM-OD-YNP" firstAttribute="top" secondItem="wH9-O1-1LM" secondAttribute="bottom" constant="36" id="cgx-v9-nZk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XMM-OD-YNP" secondAttribute="trailing" constant="4" id="uY3-ev-1IO"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Orf-AV-Tno"/>
+                    <navigationItem key="navigationItem" title="Pie Graph" id="Orf-AV-Tno"/>
+                    <connections>
+                        <outlet property="degreesLabel" destination="Oji-mG-AV6" id="njf-p7-JRb"/>
+                        <outlet property="pieContainerView" destination="XMM-OD-YNP" id="xWR-Zs-xy5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tva-w4-yZB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="546" y="730"/>
+            <point key="canvasLocation" x="609" y="1185"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -1,6 +1,6 @@
 {
   "name": "FNKGraphs",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "summary": "A library to make graphing easier",
   "description": "                       Graphing on iOS isn't simple. We wanted to help with that. This pod will give you some tools to make a simple line graph. In the future we hope add more types of graphs!\n",
   "homepage": "https://github.com/FitnessKeeper/FNKGraphs",
@@ -10,10 +10,10 @@
   },
   "source": {
     "git": "https://github.com/FitnessKeeper/FNKGraphs.git",
-    "tag": "0.1.0"
+    "tag": "0.2.1"
   },
   "platforms": {
-    "ios": "7.0"
+    "ios": "6.0"
   },
   "requires_arc": true,
   "source_files": "Pod/Classes",

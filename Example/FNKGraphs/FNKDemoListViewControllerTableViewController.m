@@ -11,6 +11,8 @@
 
 #define kFNKDemoLineGraph 0
 #define kFNKDemoPieGraph 1
+#define kFNKDemoBarGraph 2
+#define kFNKDemoInteractiveGraph 3
 
 @interface FNKDemoListViewControllerTableViewController ()
 
@@ -40,7 +42,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return 3;
 }
 
 
@@ -54,6 +56,14 @@
     else if(indexPath.row == kFNKDemoPieGraph)
     {
         [cell.demoTitle setText:@"Pie Graph"];
+    }
+    else if(indexPath.row == kFNKDemoBarGraph)
+    {
+        [cell.demoTitle setText:@"Bar Graph"];
+    }
+    else if(indexPath.row == kFNKDemoInteractiveGraph)
+    {
+        [cell.demoTitle setText:@"Interactive Graphs"];
     }
     
     return cell;
@@ -69,29 +79,10 @@
     {
         [self performSegueWithIdentifier:@"pieGraphPush" sender:self];
     }
+    else if(indexPath.row == kFNKDemoBarGraph)
+    {
+        [self performSegueWithIdentifier:@"barGraphPush" sender:self];
+    }
     
 }
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
 @end

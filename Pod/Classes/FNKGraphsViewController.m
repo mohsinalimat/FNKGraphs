@@ -7,7 +7,6 @@
 //
 
 #import "FNKGraphsViewController.h"
-#import "FNKLineGraph.h"
 #import "FNKChartOverlayBars.h"
 #import "FNKChartOverlayData.h"
 
@@ -22,8 +21,6 @@
 
 @property (nonatomic) BOOL drawBars;
 
-@property (nonatomic) BOOL hasDrawn;
-
 @end
 
 @implementation FNKGraphsViewController
@@ -36,37 +33,37 @@
                     marginTop:5
                  marginBottom:5
                    graphWidth:frame.size.width - 10 - 10
-                  graphHeight:frame.size.height - 5 - 5
-                     yPadding:0];
+                  graphHeight:frame.size.height - 5 - 5];
 }
 
--(FNKGraphsViewController*)initWithRect:(CGRect)rect marginLeft:(CGFloat)marginLeft marginRight:(CGFloat)marginRight marginTop:(CGFloat) marginTop marginBottom:(CGFloat)marginBottom graphWidth:(CGFloat)graphWidth graphHeight:(CGFloat)graphHeight yPadding:(CGFloat)yPadding
+-(FNKGraphsViewController*)initWithRect:(CGRect)rect marginLeft:(CGFloat)marginLeft marginRight:(CGFloat)marginRight marginTop:(CGFloat) marginTop marginBottom:(CGFloat)marginBottom graphWidth:(CGFloat)graphWidth graphHeight:(CGFloat)graphHeight
 {
-    if( self = [super init])
-    {
-        self.yPadding = yPadding;
+    if(self = [super init])
+    {        
         self.marginLeft = marginLeft;
         self.marginRight = marginRight;
         self.marginTop = marginTop;
         self.marginBottom = marginBottom;
         self.graphWidth = graphWidth;
         self.graphHeight = graphHeight;
-        
-        self.yPadding = yPadding;
+
         self.drawBars = false;
         
-        self.chart = [[FNKLineGraph alloc] initWithMarginLeft:marginLeft marginRight:marginRight marginTop:marginTop marginBottom:marginBottom];
-        
-        self.chart.xAxis.ticks = 5;
-        self.chart.yAxis.ticks = 5;
-        
+        [self initializers];
     }
     return self;
+}
+
+-(void)initializers
+{
+    
 }
 
 -(void)viewDidLoad
 {    
     [super viewDidLoad];
+    
+    [self.view setUserInteractionEnabled:YES];
     
     UIPanGestureRecognizer* panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
     [self.view addGestureRecognizer:panGesture];
@@ -86,22 +83,6 @@
         
         self.graphHeight = height;
         self.graphWidth = width;
-        
-        [self.chart setGraphHeight:height];
-        [self.chart setGraphWidth:width];
-        [self.chart setParentView:self.view];
-        
-        [self.chart willAppear];
-        
-        if(self.chartOverlay)
-        {
-            self.chartOverlay.marginBottom = self.marginBottom;
-            self.chartOverlay.marginTop = self.marginTop;
-            self.chartOverlay.marginRight = self.marginRight;
-            self.chartOverlay.marginLeft = self.marginLeft;
-            self.chartOverlay.graphWidth = self.graphWidth;
-            self.chartOverlay.graphHeight = self.graphHeight;
-        }
     }
 }
 
@@ -110,59 +91,16 @@
     self.chartOverlay = chartOverlay;
 }
 
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-    if(!self.hasDrawn)
-    {
-        [self.chart drawAxii:self.view];
-        
-        __weak __typeof(self) safeSelf = self;
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [safeSelf loadData];
-        });
-        self.hasDrawn = YES;
-    }
-}
-
--(void)loadData
-{
-    [self.chart loadData:self.dataArray];
-    [self.chart draw];
-    
-    if (self.chartOverlay != nil)
-    {
-        [self.chartOverlay drawInView:self.view];
-        self.chart.yLabelView.userInteractionEnabled = false;
-    }
-}
-
 // we capture the touch move events by overriding touchesMoved method
 
 -(void)touchedGraphAtPoint:(CGPoint)point userGenerated:(BOOL)userGenerated
 {
-    //Take the x value and get the corresponding y value;
-    
-    CGFloat value = [self.chart valueAtPoint:point];
-    
-    [self.delegate touchedGraph:self val:value point:point userGenerated:userGenerated];
+    //ViewController should override
 }
 
 -(void)handlePan:(UIPanGestureRecognizer*)recognizer
 {
-    CGPoint point = [recognizer locationInView:self.view];
-    
-    if(recognizer.state == UIGestureRecognizerStateEnded)
-    {
-        [self.chart removeSelection];
-        [self.delegate graphTouchesEnded:self];
-    }
-    else
-    {
-        [self handleGesture:point];
-    }
+    //ViewController should override
 }
 
 -(void)handleTap:(UITapGestureRecognizer*)recognizer
@@ -174,34 +112,12 @@
 
 -(void) handleGesture:(CGPoint)point
 {
-    if(point.x > self.graphWidth + self.marginLeft || point.x < self.marginLeft)
-    {
-        [self.chart removeSelection];
-        [self.delegate graphTouchesEnded:self];
-    }
-    else
-    {
-        [self touchedGraphAtPoint:point userGenerated:YES];
-        
-        FNKChartOverlayData* data = [self.chartOverlay touchAtPoint:point view:self.view];
-        
-        if (data != nil)
-        {
-            [self.delegate touchedBar:self data: data];
-        }
-    }
+    //ViewController should override
 }
 
 -(void) focusAtPoint:(CGPoint)point show:(BOOL)show
 {
-    if(show)
-    {
-        [self touchedGraphAtPoint:point userGenerated:NO];
-    }
-    else
-    {
-        [self.chart removeSelection];
-    }
+    //ViewController should override
 }
 
 @end
