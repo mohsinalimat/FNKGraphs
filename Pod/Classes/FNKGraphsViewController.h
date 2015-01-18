@@ -23,7 +23,7 @@
 @property (readonly, nonatomic) CGFloat graphHeight;
 @property (nonatomic) BOOL hasDrawn;
 
-@property (nonatomic, strong) NSMutableArray* originalData;
+@property (nonatomic, strong) NSMutableArray* graphData;
 @property (nonatomic, strong) NSMutableArray* dataArray;
 
 @property (nonatomic, weak) id<FNKChartsViewDelegate> delegate;
@@ -38,7 +38,10 @@
 @end
 
 @protocol FNKChartsViewDelegate
--(void)touchedGraph:(FNKGraphsViewController*)chart val:(CGFloat)val point:(CGPoint)point userGenerated:(BOOL)userGenerated;
+-(void)touchedGraph:(FNKGraphsViewController*)chart val:(CGFloat)value point:(CGPoint)point userGenerated:(BOOL)userGenerated;
 -(void)graphTouchesEnded:(FNKGraphsViewController*)chart;
 -(void)touchedBar:(FNKGraphsViewController*)chart data:(FNKChartOverlayData*)data;
+
+//Returns -1 as the index if no slices are selected
+-(void)pieSliceSelected:(FNKGraphsViewController*)chart sliceIndex:(int)sliceIndex;
 @end

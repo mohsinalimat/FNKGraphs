@@ -60,11 +60,12 @@
                         <segue destination="vXZ-lx-hvc" kind="push" identifier="lineGraphPush" id="3xt-gH-kKz"/>
                         <segue destination="ncv-mE-vpj" kind="push" identifier="pieGraphPush" id="wz0-r4-r6i"/>
                         <segue destination="aPp-1b-hYa" kind="push" identifier="barGraphPush" id="Uc8-k3-vpK"/>
+                        <segue destination="V6G-FV-MDt" kind="push" identifier="interactiveGraphPush" id="20S-Ue-IuU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8n1-ew-CYv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="77" y="313"/>
+            <point key="canvasLocation" x="147" y="327"/>
         </scene>
         <!--Bar Graph-->
         <scene sceneID="sEz-31-qQc">
@@ -101,6 +102,113 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4qt-6m-TiS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="609" y="505"/>
+        </scene>
+        <!--Interactive-->
+        <scene sceneID="ZNN-VP-Y0d">
+            <objects>
+                <viewController id="V6G-FV-MDt" customClass="FNKDemoInteractiveGraphsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HFI-4c-mEY"/>
+                        <viewControllerLayoutGuide type="bottom" id="z3K-Pu-QfX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oKI-XX-enM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kfM-OI-SYv">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wuT-dX-q2J">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nu6-Hm-evC" userLabel="Pie Chart Conainer">
+                                                <rect key="frame" x="20" y="49" width="280" height="220"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="220" id="shO-g9-zji"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRF-gp-amF" userLabel="Line Graph Container">
+                                                <rect key="frame" x="20" y="301" width="280" height="106"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="106" id="g7D-Da-cOM"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pmP-hr-2iX" userLabel="Bar Graph Container">
+                                                <rect key="frame" x="20" y="455.5" width="280" height="106"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average rainfall by month" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eJ-ta-wze">
+                                                <rect key="frame" x="62" y="427" width="195" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rainfall by day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pa6-C2-lxR">
+                                                <rect key="frame" x="104" y="279" width="112.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rainfall by weekday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wf-cV-p3A">
+                                                <rect key="frame" x="83" y="20" width="153" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="pmP-hr-2iX" secondAttribute="trailing" constant="20" id="2Eh-xL-eAX"/>
+                                            <constraint firstItem="pmP-hr-2iX" firstAttribute="width" secondItem="hRF-gp-amF" secondAttribute="width" id="36C-Cu-zJJ"/>
+                                            <constraint firstItem="nu6-Hm-evC" firstAttribute="top" secondItem="4wf-cV-p3A" secondAttribute="bottom" constant="8.5" id="7ax-4g-8Jl"/>
+                                            <constraint firstAttribute="centerX" secondItem="4wf-cV-p3A" secondAttribute="centerX" id="C0h-Oc-2BC"/>
+                                            <constraint firstAttribute="centerX" secondItem="1eJ-ta-wze" secondAttribute="centerX" id="D4X-88-RoF"/>
+                                            <constraint firstItem="hRF-gp-amF" firstAttribute="top" secondItem="pa6-C2-lxR" secondAttribute="bottom" constant="2" id="Eer-ir-RRI"/>
+                                            <constraint firstItem="pa6-C2-lxR" firstAttribute="top" secondItem="nu6-Hm-evC" secondAttribute="bottom" constant="10" id="JFB-sK-rOY"/>
+                                            <constraint firstAttribute="centerX" secondItem="pa6-C2-lxR" secondAttribute="centerX" id="Sjb-BE-DZ1"/>
+                                            <constraint firstAttribute="trailing" secondItem="nu6-Hm-evC" secondAttribute="trailing" constant="20" id="WXP-ke-Uyb"/>
+                                            <constraint firstItem="hRF-gp-amF" firstAttribute="width" secondItem="nu6-Hm-evC" secondAttribute="width" id="Xfj-OD-4UX"/>
+                                            <constraint firstItem="pmP-hr-2iX" firstAttribute="leading" secondItem="wuT-dX-q2J" secondAttribute="leading" constant="20" id="Yf7-JK-zFa"/>
+                                            <constraint firstItem="pmP-hr-2iX" firstAttribute="height" secondItem="hRF-gp-amF" secondAttribute="height" id="Yyw-FG-P10"/>
+                                            <constraint firstItem="pmP-hr-2iX" firstAttribute="top" secondItem="1eJ-ta-wze" secondAttribute="bottom" constant="8" id="alg-sF-K68"/>
+                                            <constraint firstAttribute="trailing" secondItem="hRF-gp-amF" secondAttribute="trailing" constant="20" id="frk-VJ-WIb"/>
+                                            <constraint firstItem="4wf-cV-p3A" firstAttribute="top" secondItem="wuT-dX-q2J" secondAttribute="top" constant="20" id="hkg-AP-Sqv"/>
+                                            <constraint firstAttribute="bottom" secondItem="pmP-hr-2iX" secondAttribute="bottom" constant="40" id="jEl-hm-AS5"/>
+                                            <constraint firstItem="1eJ-ta-wze" firstAttribute="top" secondItem="hRF-gp-amF" secondAttribute="bottom" constant="20" id="krn-m5-T6o"/>
+                                            <constraint firstItem="nu6-Hm-evC" firstAttribute="leading" secondItem="wuT-dX-q2J" secondAttribute="leading" constant="20" id="rob-JQ-BXW"/>
+                                            <constraint firstItem="hRF-gp-amF" firstAttribute="leading" secondItem="wuT-dX-q2J" secondAttribute="leading" constant="20" id="zAz-Fj-Q04"/>
+                                        </constraints>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="wuT-dX-q2J" firstAttribute="top" secondItem="kfM-OI-SYv" secondAttribute="top" id="Kaa-Lg-tt0"/>
+                                    <constraint firstAttribute="height" secondItem="wuT-dX-q2J" secondAttribute="height" id="R12-kr-rVl"/>
+                                    <constraint firstItem="wuT-dX-q2J" firstAttribute="leading" secondItem="kfM-OI-SYv" secondAttribute="leading" id="cEa-bh-yIZ"/>
+                                    <constraint firstAttribute="width" secondItem="nu6-Hm-evC" secondAttribute="width" constant="40" id="fRQ-1F-7IJ"/>
+                                    <constraint firstAttribute="width" secondItem="wuT-dX-q2J" secondAttribute="width" id="uYh-az-OZz"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kfM-OI-SYv" firstAttribute="top" secondItem="oKI-XX-enM" secondAttribute="topMargin" id="13f-Pj-FnR"/>
+                            <constraint firstItem="z3K-Pu-QfX" firstAttribute="top" secondItem="kfM-OI-SYv" secondAttribute="bottom" id="lPt-ka-Ct6"/>
+                            <constraint firstItem="kfM-OI-SYv" firstAttribute="leading" secondItem="oKI-XX-enM" secondAttribute="leadingMargin" constant="-16" id="t0J-UV-J1w"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kfM-OI-SYv" secondAttribute="trailing" constant="-16" id="v7m-0J-I9c"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Interactive" id="y0J-kZ-qOd"/>
+                    <connections>
+                        <outlet property="barGraphContainer" destination="pmP-hr-2iX" id="Jkr-Yh-c3q"/>
+                        <outlet property="lineGraphContainer" destination="hRF-gp-amF" id="01k-KO-pCA"/>
+                        <outlet property="pieChartContainer" destination="nu6-Hm-evC" id="fgH-rE-9xM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B0n-uz-2gL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="609" y="-686"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dnr-IK-nls">

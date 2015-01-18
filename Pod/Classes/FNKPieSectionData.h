@@ -15,6 +15,8 @@
 @property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) UIColor* color;
 @property (nonatomic, strong) CAShapeLayer* slice;
+@property (nonatomic, strong) NSNumber* sliceValue;
+
 
 +(FNKPieSectionData*) pieSectionWithName:(NSString*)name color:(UIColor*)color percentage:(CGFloat)percentage;
 

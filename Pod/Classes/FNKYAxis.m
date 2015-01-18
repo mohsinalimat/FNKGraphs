@@ -85,7 +85,7 @@
         //Okay those are the ticks. Now we need the labels
         UILabel* tickLabel = [[UILabel alloc] init];
         
-        CGFloat originalVal = ((self.marginTop + self.graphHeight - yVal) / self.scaleFactor) + self.yAxisNum;
+        CGFloat originalVal = ((self.marginTop + self.graphHeight - yVal) / self.scaleFactor) + self.axisMin;
         tickLabel.text = self.tickFormat(originalVal);
         [tickLabel sizeToFit];
         tickLabel.frame = CGRectMake(0, yVal-5, tickLabel.frame.size.width, 10);

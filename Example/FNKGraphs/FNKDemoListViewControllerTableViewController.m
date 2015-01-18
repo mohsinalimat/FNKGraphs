@@ -42,7 +42,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 4;
 }
 
 
@@ -82,6 +82,10 @@
     else if(indexPath.row == kFNKDemoBarGraph)
     {
         [self performSegueWithIdentifier:@"barGraphPush" sender:self];
+    }
+    else if(indexPath.row == kFNKDemoInteractiveGraph)
+    {
+        [self performSegueWithIdentifier:@"interactiveGraphPush" sender:self];
     }
     
 }

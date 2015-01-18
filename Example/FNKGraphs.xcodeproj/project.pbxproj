@@ -8,10 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		3D25C0921A647D1E00FDC56B /* FNKDemoBarGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D25C0911A647D1E00FDC56B /* FNKDemoBarGraphViewController.m */; };
+		3D25C0A01A65820400FDC56B /* FNKDemoInteractiveGraphsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D25C09F1A65820400FDC56B /* FNKDemoInteractiveGraphsViewController.m */; };
+		3D25C0A61A65876500FDC56B /* FNKWeatherDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D25C0A51A65876500FDC56B /* FNKWeatherDay.m */; };
+		3D25C0AA1A65884000FDC56B /* JsonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D25C0A91A65884000FDC56B /* JsonUtils.m */; };
 		3D3BEEE21A60852000B6790C /* FNKPointValues.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3BEEE11A60852000B6790C /* FNKPointValues.m */; };
 		3D3BEEF11A62EA8B00B6790C /* FNKDemoListViewControllerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3BEEF01A62EA8B00B6790C /* FNKDemoListViewControllerTableViewController.m */; };
 		3D3BEEF51A62EC1700B6790C /* FNKDemoCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3BEEF41A62EC1700B6790C /* FNKDemoCellTableViewCell.m */; };
 		3D3BEEF81A62ED7F00B6790C /* FNKPieGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3BEEF71A62ED7F00B6790C /* FNKPieGraphViewController.m */; };
+		3DE2E21A1A659A4500B9B515 /* BostonWeather.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DE2E2191A659A4500B9B515 /* BostonWeather.json */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -45,6 +49,12 @@
 		159F8996D848E830EB91057D /* Pods-FNKGraphs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FNKGraphs.release.xcconfig"; path = "Pods/Target Support Files/Pods-FNKGraphs/Pods-FNKGraphs.release.xcconfig"; sourceTree = "<group>"; };
 		3D25C0901A647D1E00FDC56B /* FNKDemoBarGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNKDemoBarGraphViewController.h; sourceTree = "<group>"; };
 		3D25C0911A647D1E00FDC56B /* FNKDemoBarGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNKDemoBarGraphViewController.m; sourceTree = "<group>"; };
+		3D25C09E1A65820400FDC56B /* FNKDemoInteractiveGraphsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNKDemoInteractiveGraphsViewController.h; sourceTree = "<group>"; };
+		3D25C09F1A65820400FDC56B /* FNKDemoInteractiveGraphsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNKDemoInteractiveGraphsViewController.m; sourceTree = "<group>"; };
+		3D25C0A41A65876500FDC56B /* FNKWeatherDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNKWeatherDay.h; sourceTree = "<group>"; };
+		3D25C0A51A65876500FDC56B /* FNKWeatherDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNKWeatherDay.m; sourceTree = "<group>"; };
+		3D25C0A81A65884000FDC56B /* JsonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonUtils.h; sourceTree = "<group>"; };
+		3D25C0A91A65884000FDC56B /* JsonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonUtils.m; sourceTree = "<group>"; };
 		3D3BEEE01A60852000B6790C /* FNKPointValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNKPointValues.h; sourceTree = "<group>"; };
 		3D3BEEE11A60852000B6790C /* FNKPointValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNKPointValues.m; sourceTree = "<group>"; };
 		3D3BEEEF1A62EA8B00B6790C /* FNKDemoListViewControllerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNKDemoListViewControllerTableViewController.h; sourceTree = "<group>"; };
@@ -53,6 +63,7 @@
 		3D3BEEF41A62EC1700B6790C /* FNKDemoCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNKDemoCellTableViewCell.m; sourceTree = "<group>"; };
 		3D3BEEF61A62ED7F00B6790C /* FNKPieGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNKPieGraphViewController.h; sourceTree = "<group>"; };
 		3D3BEEF71A62ED7F00B6790C /* FNKPieGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNKPieGraphViewController.m; sourceTree = "<group>"; };
+		3DE2E2191A659A4500B9B515 /* BostonWeather.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BostonWeather.json; sourceTree = "<group>"; };
 		4360664245F08766E1B87A4F /* FNKGraphs.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FNKGraphs.podspec; path = ../FNKGraphs.podspec; sourceTree = "<group>"; };
 		50D6221771D1E5267D138620 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5835C73DDC3A4019C754E8F6 /* libPods-FNKGraphs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FNKGraphs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +132,25 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3D25C0A11A65872800FDC56B /* Sample Data */ = {
+			isa = PBXGroup;
+			children = (
+				3DE2E2191A659A4500B9B515 /* BostonWeather.json */,
+				3D25C0A41A65876500FDC56B /* FNKWeatherDay.h */,
+				3D25C0A51A65876500FDC56B /* FNKWeatherDay.m */,
+			);
+			name = "Sample Data";
+			sourceTree = "<group>";
+		};
+		3D25C0A71A6587D800FDC56B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3D25C0A81A65884000FDC56B /* JsonUtils.h */,
+				3D25C0A91A65884000FDC56B /* JsonUtils.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		3D3BEEF21A62EBEF00B6790C /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +197,8 @@
 		6003F593195388D20070C39A /* FNKGraphs */ = {
 			isa = PBXGroup;
 			children = (
+				3D25C0A71A6587D800FDC56B /* Utils */,
+				3D25C0A11A65872800FDC56B /* Sample Data */,
 				3D3BEEF21A62EBEF00B6790C /* Cell */,
 				6003F59C195388D20070C39A /* FNKAppDelegate.h */,
 				6003F59D195388D20070C39A /* FNKAppDelegate.m */,
@@ -184,6 +216,8 @@
 				3D3BEEF71A62ED7F00B6790C /* FNKPieGraphViewController.m */,
 				3D25C0901A647D1E00FDC56B /* FNKDemoBarGraphViewController.h */,
 				3D25C0911A647D1E00FDC56B /* FNKDemoBarGraphViewController.m */,
+				3D25C09E1A65820400FDC56B /* FNKDemoInteractiveGraphsViewController.h */,
+				3D25C09F1A65820400FDC56B /* FNKDemoInteractiveGraphsViewController.m */,
 			);
 			path = FNKGraphs;
 			sourceTree = "<group>";
@@ -311,6 +345,7 @@
 			files = (
 				6003F5A4195388D20070C39A /* Main_iPad.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				3DE2E21A1A659A4500B9B515 /* BostonWeather.json in Resources */,
 				6003F5A1195388D20070C39A /* Main_iPhone.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -400,8 +435,11 @@
 				3D3BEEF81A62ED7F00B6790C /* FNKPieGraphViewController.m in Sources */,
 				3D25C0921A647D1E00FDC56B /* FNKDemoBarGraphViewController.m in Sources */,
 				3D3BEEF11A62EA8B00B6790C /* FNKDemoListViewControllerTableViewController.m in Sources */,
+				3D25C0A01A65820400FDC56B /* FNKDemoInteractiveGraphsViewController.m in Sources */,
+				3D25C0A61A65876500FDC56B /* FNKWeatherDay.m in Sources */,
 				6003F5A7195388D20070C39A /* FNKViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				3D25C0AA1A65884000FDC56B /* JsonUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

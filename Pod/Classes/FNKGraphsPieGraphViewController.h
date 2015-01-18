@@ -10,4 +10,10 @@
 
 @interface FNKGraphsPieGraphViewController : FNKGraphsViewController
 
+@property (nonatomic, copy) int (^numberOfSlices)();
+@property (nonatomic, copy) NSInteger (^sliceForObject)(id object);
+@property (nonatomic, copy) CGFloat (^valueForObject)(id object);
+@property (nonatomic, copy) UIColor* (^colorForSlice)(int sliceNum);
+@property (nonatomic, copy) NSString* (^nameForSlice)(int sliceNum);
+
 @end

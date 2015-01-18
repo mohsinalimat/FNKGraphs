@@ -23,6 +23,7 @@ typedef enum {
 @property (nonatomic) CGFloat graphHeight;
 @property (nonatomic) CGFloat graphWidth;
 @property (nonatomic) CGFloat scaleFactor;
+@property (nonatomic) CGFloat axisMin;
 
 @property (nonatomic) FNKTickType tickType;
 

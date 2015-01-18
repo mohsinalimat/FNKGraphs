@@ -20,6 +20,7 @@
 @property (nonatomic, weak) CAShapeLayer* comparisonLine;
 @property (nonatomic) BOOL fillGraph;
 @property (nonatomic) CGFloat yAxisNum;
+@property (nonatomic) CGFloat xAxisNum;
 
 //Graph variables
 @property (nonatomic) CGFloat xScaleFactor;
@@ -108,9 +109,14 @@
 
 -(void)loadData:(NSMutableArray*)data
 {
-    self.originalData = [data copy];
-    [self calcMaxMin:data];
-    self.dataArray = [self normalizePoints:data];
+    self.graphData = [NSMutableArray array];
+    for(id obj in data)
+    {
+        [self.graphData addObject:[NSValue valueWithCGPoint:self.pointForObject(obj)]];
+    }
+    
+    [self calcMaxMin:self.graphData];
+    self.graphData = [self normalizePoints:self.graphData];
 }
 
 -(double)scaleYValue:(double)value
@@ -134,7 +140,7 @@
     [self addTicks];
     
     __weak __typeof(self) safeSelf = self;
-    self.lineLayer = [self drawLine:self.dataArray
+    self.lineLayer = [self drawLine:self.graphData
                               color:self.lineStrokeColor
                          completion:^{
                              double yValue = [safeSelf scaleYValue:safeSelf.averageLine];
@@ -160,7 +166,6 @@
     [self.yLabelView removeFromSuperview];
     [self.xLabelView removeFromSuperview];
 }
-
 
 -(CAShapeLayer*)drawLine:(NSMutableArray*)data color:(UIColor*)color completion:(void (^)())completion
 {
@@ -238,7 +243,7 @@
 {
     CGFloat xValue = point.x;
     CGFloat yVal = 0;
-    for (NSValue* val in self.dataArray)
+    for (NSValue* val in self.graphData)
     {
         CGPoint point = [val CGPointValue];
         if(point.x >= xValue)
@@ -272,10 +277,10 @@
     self.selectedLineCircleLayer.strokeColor = [UIColor clearColor].CGColor;
 }
 
--(void)showLineComparison:(NSMutableArray*)comparisonData color:(UIColor*)lineColor
+-(void)showLineComparison:(NSMutableArray*)comparisonData color:(UIColor*)lineColor duration:(CGFloat)duration
 {
     //Okay so now we need to run all of the data thru the normalizer again and get a new max and min for the graph
-    NSMutableArray* allData = [NSMutableArray arrayWithArray:self.originalData];
+    NSMutableArray* allData = [NSMutableArray arrayWithArray:self.graphData];
     [allData addObjectsFromArray:comparisonData];
     [self calcMaxMin:allData];
     
@@ -293,14 +298,57 @@
     else //Animate the line transition
     {
         [self transitionLine:self.comparisonLine
-                        data:comparisonData];
+                        data:comparisonData
+                    duration:duration];
     }
     
     [self transitionLine:self.lineLayer
-                    data:self.originalData];
+                    data:self.graphData
+                duration:duration];
 }
 
--(void)transitionLine:(CAShapeLayer*)line data:(NSMutableArray*)data
+-(void)filterLine:(NSMutableArray*)filteredData duration:(CGFloat)duration
+{
+    if(filteredData)
+    {
+        NSMutableArray* filteredGraphData = [NSMutableArray array];
+        
+        for(id obj in filteredData)
+        {
+            [filteredGraphData addObject:[NSValue valueWithCGPoint:self.pointForObject(obj)]];
+        }
+        
+        [self calcMaxMin:filteredGraphData];
+        
+        [self removeTicks];
+        [self addTicks];
+        
+        [self transitionLine:self.lineLayer
+                        data:filteredGraphData
+                    duration:duration];
+    }
+    else
+    {
+        [self.graphData removeAllObjects];
+        
+        for(id obj in self.dataArray)
+        {
+            [self.graphData addObject:[NSValue valueWithCGPoint:self.pointForObject(obj)]];
+        }
+        
+        [self calcMaxMin:self.graphData];
+        
+        [self removeTicks];
+        [self addTicks];
+        
+        [self transitionLine:self.lineLayer
+                        data:self.graphData
+                    duration:duration];
+        
+    }
+}
+
+-(void)transitionLine:(CAShapeLayer*)line data:(NSMutableArray*)data duration:(CGFloat)duration
 {
     CGPathRef newPath = [self pathFromPoints:[self normalizePoints:data]].CGPath;
     
@@ -311,7 +359,7 @@
     }];
     
     CABasicAnimation *morph = [CABasicAnimation animationWithKeyPath:@"path"];
-    morph.duration  = 2; // Step 1
+    morph.duration  = duration; // Step 1
     //    morph.fromValue = (__bridge id) line.path;
     morph.toValue = (__bridge id) newPath;
     morph.autoreverses = NO;
@@ -356,6 +404,7 @@
     minY = minY - self.yPadding;
     
     self.yAxisNum = minY;
+    self.xAxisNum = minX;
     
     maxY = maxY + self.yPadding;
     
@@ -368,7 +417,8 @@
     
     self.xAxis.scaleFactor = self.xScaleFactor;
     self.yAxis.scaleFactor = self.yScaleFactor;
-    self.yAxis.yAxisNum = self.yAxisNum;
+    self.yAxis.axisMin = self.yAxisNum;
+    self.xAxis.axisMin = self.xAxisNum;
 }
 
 -(NSMutableArray*)normalizePoints:(NSArray*)points
@@ -378,7 +428,7 @@
     for (NSValue* val in points)
     {
         CGPoint point = [val CGPointValue];
-        CGFloat xVal = (point.x * self.xScaleFactor) + self.yAxis.marginLeft;
+        CGFloat xVal = ((point.x- self.xAxisNum) * self.xScaleFactor ) + self.yAxis.marginLeft;
         CGFloat yVal = [self scaleYValue:point.y];
         [scaledPoints addObject:[NSValue valueWithCGPoint:CGPointMake(xVal,yVal)]];
     }

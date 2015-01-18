@@ -19,6 +19,7 @@
 @property (nonatomic) CGFloat radius;
 @property (nonatomic) CGPoint center;
 @property (nonatomic) FNKPieSectionData* selectedSlice;
+@property (nonatomic) int selectedSliceIndex;
 
 @end
 
@@ -56,7 +57,36 @@
 
 -(void)drawGraph
 {
-    [self drawPie:self.dataArray
+    int numSlices = self.numberOfSlices();
+    self.graphData = [NSMutableArray array];
+    
+    for(int i = 0 ; i < numSlices ; i++)
+    {
+        FNKPieSectionData* data = [[FNKPieSectionData alloc] init];
+        [self.graphData addObject:data];
+    }
+    
+    CGFloat totalValue = 0.0;
+    for(id data in self.dataArray)
+    {
+        NSInteger sliceNum = self.sliceForObject(data);
+        FNKPieSectionData* sectionData = [self.graphData objectAtIndex:sliceNum];
+        
+        CGFloat objectValue = self.valueForObject(data);
+        [sectionData setSliceValue:@(sectionData.sliceValue.floatValue + objectValue)];
+        totalValue += objectValue;
+    }
+    
+    int i = 0;
+    for(FNKPieSectionData* data in self.graphData)
+    {
+        [data setPercentage:(data.sliceValue.floatValue / totalValue)];
+        [data setColor:self.colorForSlice(i)];
+        [data setName:self.nameForSlice(i)];
+        i++;
+    }
+    
+    [self drawPie:self.graphData
        completion:^{
        }];
 }
@@ -136,6 +166,7 @@
     //Clear out the previous selection
     if([data isEqual:self.selectedSlice])
     {
+        self.selectedSliceIndex = -1;
         self.selectedSlice = nil;
     }
     else
@@ -143,7 +174,9 @@
         self.selectedSlice = data;
     }
     
-    for(FNKPieSectionData* d in self.dataArray)
+    int index = 0;
+    
+    for(FNKPieSectionData* d in self.graphData)
     {
         if(self.selectedSlice != nil)
         {
@@ -165,6 +198,7 @@
             }
             else
             {
+                self.selectedSliceIndex = index;
                 CABasicAnimation *colorAnimation = [CABasicAnimation animationWithKeyPath:@"fillColor"];
                 colorAnimation.toValue = (id)d.color.CGColor;
                 [colorAnimation setRemovedOnCompletion:NO];
@@ -178,7 +212,6 @@
                 [widthAnimation setFillMode:kCAFillModeForwards];
                 
                 [d.slice addAnimation:widthAnimation forKey:nil];
-                
             }
         }
         else
@@ -197,11 +230,13 @@
             
             [d.slice addAnimation:widthAnimation forKey:nil];
         }
+        
+        index++;
     }
     
     //Okay let's select that section of the graph
     
-    [self.delegate touchedGraph:self val:value point:point userGenerated:userGenerated];
+    [self.delegate pieSliceSelected:self sliceIndex:self.selectedSliceIndex];
 }
 
 -(void)handlePan:(UIPanGestureRecognizer*)recognizer
@@ -274,7 +309,7 @@
 -(FNKPieSectionData*)dataForDegree:(CGFloat)degrees
 {
     CGFloat start = 0;
-    for(FNKPieSectionData* sectionData in self.dataArray)
+    for(FNKPieSectionData* sectionData in self.graphData)
     {
         CGFloat end = 360*sectionData.percentage + start;
         

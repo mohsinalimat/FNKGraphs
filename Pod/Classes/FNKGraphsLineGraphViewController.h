@@ -35,6 +35,11 @@
 
 @property (nonatomic) CGFloat yPadding;
 
--(void)showLineComparison:(NSMutableArray*)comparisonData color:(UIColor*)lineColor;
+@property (nonatomic, copy) CGPoint (^pointForObject)(id object);
+@property (nonatomic, copy) CGFloat (^valueForObject)(id object);
+
+-(void)showLineComparison:(NSMutableArray*)comparisonData color:(UIColor*)lineColor duration:(CGFloat)duration;
+
+-(void)filterLine:(NSMutableArray*)filteredData duration:(CGFloat)duration;
 
 @end

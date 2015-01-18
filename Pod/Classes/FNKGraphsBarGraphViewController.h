@@ -31,4 +31,6 @@
 
 @property (nonatomic) NSNumber* yMin;
 
+-(void)filterBars:(NSMutableArray*)filteredData duration:(CGFloat)duration;
+
 @end

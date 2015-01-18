@@ -113,6 +113,8 @@
     
 }
 
+#pragma mark Data functions
+
 -(NSMutableArray*)getData
 {
     NSMutableArray* data = [NSMutableArray array];

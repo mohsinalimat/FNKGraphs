@@ -51,7 +51,14 @@
         //Okay those are the ticks. Now we need the labels
         
         UILabel* tickLabel = [[UILabel alloc] init];
-        tickLabel.text = self.tickFormat((xVal - self.marginLeft) / self.scaleFactor);
+        if(self.scaleFactor == 0)
+        {
+            tickLabel.text = self.tickFormat((xVal - self.marginLeft));
+        }
+        else
+        {
+            tickLabel.text = self.tickFormat((xVal - self.marginLeft) / self.scaleFactor);
+        }
         [tickLabel sizeToFit];
         CGFloat textWidth = tickLabel.frame.size.width;
         tickLabel.frame = CGRectMake( xVal - textWidth/2, yVal + 5, textWidth, 10);

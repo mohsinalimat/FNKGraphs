@@ -71,14 +71,14 @@
         self.xAxis.graphWidth = self.graphWidth;
         self.yAxis.graphWidth = self.graphWidth;
         
-        self.originalData = [NSMutableArray array];
+        self.graphData = [NSMutableArray array];
         self.buckets = [NSMutableArray array];
         
         //Convert all of the data to be sectionData
         for(id data in self.dataArray)
         {
             int bucket = self.bucketForObject(data);
-            [self.originalData addObject:[FNKBarSectionData barSectionData:data bucket:bucket]];
+            [self.graphData addObject:[FNKBarSectionData barSectionData:data bucket:bucket]];
         }
         
         //Initialize all the values to 0
@@ -88,7 +88,7 @@
         }
         
         //Increment the info
-        for(FNKBarSectionData* data in self.originalData)
+        for(FNKBarSectionData* data in self.graphData)
         {
             CGFloat val = self.valueForObject(data.data);
             NSNumber* num = (NSNumber*)[self.buckets objectAtIndex:data.bucket];
@@ -98,6 +98,7 @@
         [self drawAxii:self.view];
         [self calcMaxMin:self.buckets];
         [self drawGraph];
+        [self addTicks];
     }
 }
 
@@ -150,6 +151,37 @@
     [self.xAxis drawAxis:view];
 }
 
+-(void)addTicks
+{
+    self.yLabelView = [self.yAxis addTicksToView:self.view];
+    self.xLabelView = [self.xAxis addTicksToView:self.view];
+}
+
+-(void)removeTicks
+{
+    [self.yLabelView removeFromSuperview];
+    [self.xLabelView removeFromSuperview];
+}
+
+-(void)transitionBar:(NSMutableArray*)data duration:(CGFloat)duration
+{
+    int i = 0;
+    for(FNKBar* bar in self.barsArray)
+    {
+        NSNumber* barData = [data objectAtIndex:i];
+        [UIView animateWithDuration:duration
+                              delay:0
+                            options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             bar.frame = CGRectMake(bar.originalFrame.origin.x, bar.originalFrame.origin.y, bar.originalFrame.size.width, -barData.floatValue * self.yScaleFactor);
+                         }
+                         completion:^(BOOL finished) {
+                             
+                         }];
+        i++;
+    }
+}
+
 #pragma mark max min calculations
 
 -(void)calcMaxMin:(NSArray*)buckets
@@ -188,7 +220,51 @@
     self.yScaleFactor = self.graphHeight / self.yRange;
     
     self.yAxis.scaleFactor = self.yScaleFactor;
-    self.yAxis.yAxisNum = self.yAxisNum;
+    self.yAxis.axisMin = self.yAxisNum;
+}
+
+-(void)filterBars:(NSMutableArray*)filteredData duration:(CGFloat)duration
+{
+    if(filteredData)
+    {
+        NSMutableArray* filteredBuckets = [NSMutableArray array];
+        NSMutableArray* filteredGraphData = [NSMutableArray array];
+        
+        //Convert all of the data to be sectionData
+        for(id data in filteredData)
+        {
+            int bucket = self.bucketForObject(data);
+            [filteredGraphData addObject:[FNKBarSectionData barSectionData:data bucket:bucket]];
+        }
+        
+        //Initialize all the values to 0
+        for(int i = 0; i < self.numberOfBuckets() ; i++)
+        {
+            [filteredBuckets addObject:@(0)];
+        }
+        
+        //Increment the info
+        for(FNKBarSectionData* data in filteredGraphData)
+        {
+            CGFloat val = self.valueForObject(data.data);
+            NSNumber* num = (NSNumber*)[filteredBuckets objectAtIndex:data.bucket];
+            [filteredBuckets replaceObjectAtIndex:data.bucket withObject:@(val + num.floatValue)];
+        }
+        
+        [self calcMaxMin:filteredBuckets];
+        [self transitionBar:filteredBuckets duration:duration];
+        
+        [self removeTicks];
+        [self addTicks];
+    }
+    else
+    {
+        [self calcMaxMin:self.buckets];
+        [self transitionBar:self.buckets duration:duration];
+        
+        [self removeTicks];
+        [self addTicks];
+    }
 }
 
 #pragma mark Handle touches
