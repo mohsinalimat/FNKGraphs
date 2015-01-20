@@ -72,18 +72,13 @@
     [self.view addGestureRecognizer:tapGesture];
 }
 
--(void)viewWillAppear:(BOOL)animated
+-(void) drawGraph
 {
-    [super viewWillAppear:animated];
+    CGFloat height = self.view.frame.size.height - self.marginTop - self.marginBottom;
+    CGFloat width = self.view.frame.size.width - self.marginLeft - self.marginRight;
     
-    if(!self.hasDrawn)
-    {
-        CGFloat height = self.view.frame.size.height - self.marginTop - self.marginBottom;
-        CGFloat width = self.view.frame.size.width - self.marginLeft - self.marginRight;
-        
-        self.graphHeight = height;
-        self.graphWidth = width;
-    }
+    self.graphHeight = height;
+    self.graphWidth = width;
 }
 
 -(void) addChartOverlay:(FNKChartOverlayBars*)chartOverlay

@@ -59,49 +59,6 @@
 {
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    if(!self.hasDrawn)
-    {
-        self.xAxis.graphHeight = self.graphHeight;
-        self.yAxis.graphHeight = self.graphHeight;
-        
-        self.xAxis.graphWidth = self.graphWidth;
-        self.yAxis.graphWidth = self.graphWidth;
-        
-        self.graphData = [NSMutableArray array];
-        self.buckets = [NSMutableArray array];
-        
-        //Convert all of the data to be sectionData
-        for(id data in self.dataArray)
-        {
-            int bucket = self.bucketForObject(data);
-            [self.graphData addObject:[FNKBarSectionData barSectionData:data bucket:bucket]];
-        }
-        
-        //Initialize all the values to 0
-        for(int i = 0; i < self.numberOfBuckets() ; i++)
-        {
-            [self.buckets addObject:@(0)];
-        }
-        
-        //Increment the info
-        for(FNKBarSectionData* data in self.graphData)
-        {
-            CGFloat val = self.valueForObject(data.data);
-            NSNumber* num = (NSNumber*)[self.buckets objectAtIndex:data.bucket];
-            [self.buckets replaceObjectAtIndex:data.bucket withObject:@(val + num.floatValue)];
-        }
-        
-        [self drawAxii:self.view];
-        [self calcMaxMin:self.buckets];
-        [self drawGraph];
-        [self addTicks];
-    }
-}
-
 -(void)removeSelection
 {
 }
@@ -110,6 +67,42 @@
 
 -(void)drawGraph
 {
+    [super drawGraph];
+    
+    self.xAxis.graphHeight = self.graphHeight;
+    self.yAxis.graphHeight = self.graphHeight;
+    
+    self.xAxis.graphWidth = self.graphWidth;
+    self.yAxis.graphWidth = self.graphWidth;
+    
+    self.graphData = [NSMutableArray array];
+    self.buckets = [NSMutableArray array];
+    
+    //Convert all of the data to be sectionData
+    for(id data in self.dataArray)
+    {
+        int bucket = self.bucketForObject(data);
+        [self.graphData addObject:[FNKBarSectionData barSectionData:data bucket:bucket]];
+    }
+    
+    //Initialize all the values to 0
+    for(int i = 0; i < self.numberOfBuckets() ; i++)
+    {
+        [self.buckets addObject:@(0)];
+    }
+    
+    //Increment the info
+    for(FNKBarSectionData* data in self.graphData)
+    {
+        CGFloat val = self.valueForObject(data.data);
+        NSNumber* num = (NSNumber*)[self.buckets objectAtIndex:data.bucket];
+        [self.buckets replaceObjectAtIndex:data.bucket withObject:@(val + num.floatValue)];
+    }
+    
+    [self drawAxii:self.view];
+    [self calcMaxMin:self.buckets];
+    [self addTicks];
+    
     //There are a couple of steps here
     //First we need to figure out the width of the bars
     CGFloat barWidth = ((self.graphWidth - self.marginLeft - self.marginRight) / self.buckets.count) - self.barPadding/2;

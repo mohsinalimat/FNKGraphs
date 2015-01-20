@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "FNKGraphs"
-  s.version          = "0.2.2"
+  s.version          = "0.2.3"
   s.summary          = "A library to make graphing easier"
   s.description      = <<-DESC
                        Graphing on iOS isn't simple. We wanted to help with that. This pod will give you some tools to make a simple line graph. In the future we hope add more types of graphs!

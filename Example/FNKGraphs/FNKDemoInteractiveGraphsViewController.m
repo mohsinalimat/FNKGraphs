@@ -29,6 +29,14 @@
     [self addBarChart];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.pieGraphVC drawGraph];
+    [self.lineGraphVC drawGraph];
+    [self.barGraphVC drawGraph];
+}
+
 //rainfall by day of week
 -(void)addPieChart
 {
@@ -119,6 +127,10 @@
     
     self.pieGraphVC.delegate = self;
     
+    [self.pieGraphVC setSliceBorderColor:[UIColor lightGrayColor]];
+    [self.pieGraphVC setSliceLabelColor:[UIColor grayColor]];
+    [self.pieGraphVC setSliceLabelFont:[UIFont systemFontOfSize:12.0f]];
+    
     [self addChildViewController:self.pieGraphVC];
     
     [self.pieChartContainer addSubview:self.pieGraphVC.view];
@@ -128,14 +140,14 @@
     pieView.translatesAutoresizingMaskIntoConstraints = NO;
     
     NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(pieView);
-    NSString *constraintString = [NSString stringWithFormat:@"|-10-[pieView]-10-|"];
+    NSString *constraintString = [NSString stringWithFormat:@"|-40-[pieView]-40-|"];
     NSArray *widthConstraints = [NSLayoutConstraint constraintsWithVisualFormat:constraintString
                                                                         options:0
                                                                         metrics:nil
                                                                           views:viewDictionary];
     [self.pieChartContainer addConstraints:widthConstraints];
     
-    constraintString = [NSString stringWithFormat:@"V:|-10-[pieView]-10-|"];
+    constraintString = [NSString stringWithFormat:@"V:|-40-[pieView]-40-|"];
     NSArray *heightConstraints = [NSLayoutConstraint constraintsWithVisualFormat:constraintString
                                                                          options:0
                                                                          metrics:nil

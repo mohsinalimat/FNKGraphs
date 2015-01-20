@@ -50,61 +50,49 @@
     // Do any additional setup after loading the view.
 }
 
--(void)viewWillAppear:(BOOL)animated
+-(void)drawGraph
 {
-    [super viewWillAppear:animated];
+    [super drawGraph];
     
-    if(!self.hasDrawn)
+    self.xAxis.graphHeight = self.graphHeight;
+    self.yAxis.graphHeight = self.graphHeight;
+    
+    self.xAxis.graphWidth = self.graphWidth;
+    self.yAxis.graphWidth = self.graphWidth;
+    
+    self.selectedLineLayer.strokeColor = [UIColor clearColor].CGColor;
+    [self.view.layer addSublayer:self.selectedLineLayer];
+    
+    self.selectedLineCircleLayer.strokeColor = [UIColor clearColor].CGColor;
+    self.selectedLineCircleLayer.fillColor = [UIColor clearColor].CGColor;
+    [self.view.layer addSublayer:self.selectedLineCircleLayer];
+    
+    if(self.chartOverlay)
     {
-        self.xAxis.graphHeight = self.graphHeight;
-        self.yAxis.graphHeight = self.graphHeight;
+        self.chartOverlay.marginBottom = self.marginBottom;
+        self.chartOverlay.marginTop = self.marginTop;
+        self.chartOverlay.marginRight = self.marginRight;
+        self.chartOverlay.marginLeft = self.marginLeft;
+        self.chartOverlay.graphWidth = self.graphWidth;
+        self.chartOverlay.graphHeight = self.graphHeight;
+    }
+    
+    __weak __typeof(self) safeSelf = self;
+    
+    [self drawAxii:self.view];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
-        self.xAxis.graphWidth = self.graphWidth;
-        self.yAxis.graphWidth = self.graphWidth;
+        [safeSelf loadData:self.dataArray];
+        [safeSelf drawData];
         
-        self.selectedLineLayer.strokeColor = [UIColor clearColor].CGColor;
-        [self.view.layer addSublayer:self.selectedLineLayer];
-        
-        self.selectedLineCircleLayer.strokeColor = [UIColor clearColor].CGColor;
-        self.selectedLineCircleLayer.fillColor = [UIColor clearColor].CGColor;
-        [self.view.layer addSublayer:self.selectedLineCircleLayer];
-        
-        if(self.chartOverlay)
+        if (safeSelf.chartOverlay != nil)
         {
-            self.chartOverlay.marginBottom = self.marginBottom;
-            self.chartOverlay.marginTop = self.marginTop;
-            self.chartOverlay.marginRight = self.marginRight;
-            self.chartOverlay.marginLeft = self.marginLeft;
-            self.chartOverlay.graphWidth = self.graphWidth;
-            self.chartOverlay.graphHeight = self.graphHeight;
+            [safeSelf.chartOverlay drawInView:safeSelf.view];
+            safeSelf.yLabelView.userInteractionEnabled = false;
         }
-    }
-}
-
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-    if(!self.hasDrawn)
-    {
-        __weak __typeof(self) safeSelf = self;
         
-        [self drawAxii:self.view];
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
-            [safeSelf loadData:self.dataArray];
-            [safeSelf drawData];
-            
-            if (safeSelf.chartOverlay != nil)
-            {
-                [safeSelf.chartOverlay drawInView:safeSelf.view];
-                safeSelf.yLabelView.userInteractionEnabled = false;
-            }
-            
-        });
-        self.hasDrawn = YES;
-    }
+    });
 }
 
 -(void)loadData:(NSMutableArray*)data

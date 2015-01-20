@@ -34,18 +34,6 @@
 {
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    if(!self.hasDrawn)
-    {
-        self.radius = self.graphHeight >= self.graphWidth ? self.graphWidth / 2 : self.graphHeight / 2;
-        self.center = CGPointMake(self.graphWidth/2, self.graphHeight/2);
-        [self drawGraph];
-    }
-}
-
 -(void)willAppear
 {
     
@@ -57,6 +45,11 @@
 
 -(void)drawGraph
 {
+    [super drawGraph];
+    
+    self.radius = self.graphHeight >= self.graphWidth ? self.graphWidth / 2 : self.graphHeight / 2;
+    self.center = CGPointMake(self.graphWidth/2, self.graphHeight/2);
+    
     int numSlices = self.numberOfSlices();
     self.graphData = [NSMutableArray array];
     
@@ -131,7 +124,7 @@
 {
     CAShapeLayer *slice = [CAShapeLayer layer];
     slice.fillColor = color.CGColor;
-    slice.strokeColor = [UIColor blackColor].CGColor;
+    slice.strokeColor = self.sliceBorderColor.CGColor;
     slice.lineWidth = sliceLineWidth;
     slice.path = [self createPieSliceWithCenter:self.center radius:self.radius startAngle:startAngle endAngle:endAngle];
     
@@ -146,8 +139,9 @@
     CGFloat labelY = self.center.y + self.radius * sin(DEG2RAD(-labelAngle));
     
     UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(labelX-50, labelY-10, 100, 20)];
-    [label setTextColor:[UIColor blackColor]];
+    [label setTextColor:self.sliceLabelColor];
     [label setText:data.name];
+    [label setFont:self.sliceLabelFont];
     
     [label setTextAlignment:NSTextAlignmentCenter];
     [self.view addSubview:label];
@@ -241,18 +235,7 @@
 
 -(void)handlePan:(UIPanGestureRecognizer*)recognizer
 {
-    //ViewController should override
-    CGPoint point = [recognizer locationInView:self.view];
-    
-    if(recognizer.state == UIGestureRecognizerStateEnded)
-    {
-        [self removeSelection];
-        [self.delegate graphTouchesEnded:self];
-    }
-    else
-    {
-        [self handleGesture:point];
-    }
+    //Pie graphs will not implement this
 }
 
 -(void)handleTap:(UITapGestureRecognizer*)recognizer

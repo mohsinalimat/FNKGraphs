@@ -35,9 +35,12 @@
 
 -(void) focusAtPoint:(CGPoint)point show:(BOOL)show;
 
+-(void) drawGraph;
+
 @end
 
 @protocol FNKChartsViewDelegate
+@optional
 -(void)touchedGraph:(FNKGraphsViewController*)chart val:(CGFloat)value point:(CGPoint)point userGenerated:(BOOL)userGenerated;
 -(void)graphTouchesEnded:(FNKGraphsViewController*)chart;
 -(void)touchedBar:(FNKGraphsViewController*)chart data:(FNKChartOverlayData*)data;

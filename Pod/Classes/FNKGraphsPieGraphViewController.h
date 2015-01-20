@@ -15,5 +15,9 @@
 @property (nonatomic, copy) CGFloat (^valueForObject)(id object);
 @property (nonatomic, copy) UIColor* (^colorForSlice)(int sliceNum);
 @property (nonatomic, copy) NSString* (^nameForSlice)(int sliceNum);
+@property (nonatomic, strong) UIColor* sliceLabelColor;
+@property (nonatomic, strong) UIColor* sliceBorderColor;
+@property (nonatomic, strong) UIFont* sliceLabelFont;
+
 
 @end

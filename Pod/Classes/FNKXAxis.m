@@ -29,7 +29,7 @@
 {
     CGFloat tickInterval = self.graphWidth / self.ticks;
     
-    UIView* labelView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, view.frame.size.width, 20)];
+    UIView* labelView = [[UIView alloc] initWithFrame:CGRectMake(0, view.frame.size.height - 20, view.frame.size.width, 20)];
     
     for (int index = 0 ; index < self.ticks+1 ; index++)
     {
@@ -57,7 +57,7 @@
         }
         else
         {
-            tickLabel.text = self.tickFormat((xVal - self.marginLeft) / self.scaleFactor);
+            tickLabel.text = self.tickFormat(((xVal - self.marginLeft) / self.scaleFactor) + self.axisMin);
         }
         [tickLabel sizeToFit];
         CGFloat textWidth = tickLabel.frame.size.width;
