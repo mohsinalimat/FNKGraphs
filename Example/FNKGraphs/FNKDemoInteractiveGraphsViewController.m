@@ -254,6 +254,9 @@
         return day.percipitation;
     }];
     
+    [self.barGraphVC setMinDate:((FNKWeatherDay*)[self.dataSet firstObject]).date];
+    [self.barGraphVC setMaxDate:((FNKWeatherDay*)[self.dataSet lastObject]).date];
+    
     self.barGraphVC.yAxis.strokeColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
     self.barGraphVC.yAxis.fillColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
     self.barGraphVC.yAxis.tickFillColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];

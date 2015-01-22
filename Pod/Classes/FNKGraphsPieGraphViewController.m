@@ -11,8 +11,10 @@
 
 #define DEG2RAD(angle) angle*M_PI/180.0
 #define radiansToDegrees( radians ) ( ( radians ) * ( 180.0 / M_PI ) )
-#define sliceLineWidth 1
-#define selectedSliceLineWidth 2
+#define fnkSliceLineWidth 1
+#define fnkSelectedSliceLineWidth 2
+#define fnkMinPercentForLabel .04
+#define fnkLabelAnimationDuration .3
 
 @interface FNKGraphsPieGraphViewController ()
 
@@ -93,7 +95,7 @@
     {
         CGFloat end = 360*sectionData.percentage + start;
         sectionData.slice = [self createPieSlice:start endAngle:end color:sectionData.color];
-        [self addLabelForSlice:sectionData startAngle:start endAngle:end];
+        sectionData.sliceLabel = [self addLabelForSlice:sectionData startAngle:start endAngle:end];
         start = end;
     }
     
@@ -125,14 +127,14 @@
     CAShapeLayer *slice = [CAShapeLayer layer];
     slice.fillColor = color.CGColor;
     slice.strokeColor = self.sliceBorderColor.CGColor;
-    slice.lineWidth = sliceLineWidth;
+    slice.lineWidth = fnkSliceLineWidth;
     slice.path = [self createPieSliceWithCenter:self.center radius:self.radius startAngle:startAngle endAngle:endAngle];
     
     [self.view.layer insertSublayer:slice atIndex:0];
     return slice;
 }
 
--(void)addLabelForSlice:(FNKPieSectionData*) data startAngle:(CGFloat)startAngle endAngle:(CGFloat)endAngle
+-(UILabel*)addLabelForSlice:(FNKPieSectionData*) data startAngle:(CGFloat)startAngle endAngle:(CGFloat)endAngle
 {
     CGFloat labelAngle = startAngle + (endAngle - startAngle)/2;
     CGFloat labelX = self.center.x + self.radius * cos(DEG2RAD(labelAngle));
@@ -143,8 +145,14 @@
     [label setText:data.name];
     [label setFont:self.sliceLabelFont];
     
+    if(data.percentage < fnkMinPercentForLabel)
+    {
+        [label setAlpha:0.0];
+    }
+    
     [label setTextAlignment:NSTextAlignmentCenter];
     [self.view addSubview:label];
+    return label;
 }
 
 #pragma mark Handle touches
@@ -184,11 +192,19 @@
                 [d.slice addAnimation:colorAnimation forKey:nil];
                 
                 CABasicAnimation *widthAnimation = [CABasicAnimation animationWithKeyPath:@"lineWidth"];
-                widthAnimation.toValue = (id)[NSNumber numberWithInt:sliceLineWidth];
+                widthAnimation.toValue = (id)[NSNumber numberWithInt:fnkSliceLineWidth];
                 [widthAnimation setRemovedOnCompletion:NO];
                 [widthAnimation setFillMode:kCAFillModeForwards];
                 
                 [d.slice addAnimation:widthAnimation forKey:nil];
+                
+                if(d.sliceLabel.alpha == 1.0)
+                {
+                    [UIView animateWithDuration:.2
+                                     animations:^{
+                                         [d.sliceLabel setAlpha:0.0];
+                                     }];
+                }
             }
             else
             {
@@ -201,11 +217,19 @@
                 [d.slice addAnimation:colorAnimation forKey:nil];
                 
                 CABasicAnimation *widthAnimation = [CABasicAnimation animationWithKeyPath:@"lineWidth"];
-                widthAnimation.toValue = (id)[NSNumber numberWithInt:selectedSliceLineWidth];
+                widthAnimation.toValue = (id)[NSNumber numberWithInt:fnkSelectedSliceLineWidth];
                 [widthAnimation setRemovedOnCompletion:NO];
                 [widthAnimation setFillMode:kCAFillModeForwards];
                 
                 [d.slice addAnimation:widthAnimation forKey:nil];
+                
+                if(d.sliceLabel.alpha == 0.0)
+                {
+                    [UIView animateWithDuration:.2
+                                     animations:^{
+                                         [d.sliceLabel setAlpha:1.0];
+                                     }];
+                }
             }
         }
         else
@@ -218,11 +242,26 @@
             [d.slice addAnimation:colorAnimation forKey:nil];
             
             CABasicAnimation *widthAnimation = [CABasicAnimation animationWithKeyPath:@"lineWidth"];
-            widthAnimation.toValue = (id)[NSNumber numberWithInt:sliceLineWidth];
+            widthAnimation.toValue = (id)[NSNumber numberWithInt:fnkSliceLineWidth];
             [widthAnimation setRemovedOnCompletion:NO];
             [widthAnimation setFillMode:kCAFillModeForwards];
             
             [d.slice addAnimation:widthAnimation forKey:nil];
+            
+            if(d.percentage > fnkMinPercentForLabel && d.sliceLabel.alpha == 0.0)
+            {
+                [UIView animateWithDuration:.2
+                                 animations:^{
+                                     [d.sliceLabel setAlpha:1.0];
+                                 }];
+            }
+            else if(d.percentage < fnkMinPercentForLabel)
+            {
+                [UIView animateWithDuration:.2
+                                 animations:^{
+                                     [d.sliceLabel setAlpha:0.0];
+                                 }];
+            }
         }
         
         index++;

@@ -29,6 +29,7 @@
 @property (nonatomic) CGFloat yAxisNum;
 
 @property (nonatomic) CGFloat barPadding;
+@property (nonatomic) CGFloat barWidth;
 
 @property (nonatomic, strong) NSMutableArray* barsArray;
 
@@ -101,11 +102,12 @@
     
     [self drawAxii:self.view];
     [self calcMaxMin:self.buckets];
-    [self addTicks];
     
     //There are a couple of steps here
     //First we need to figure out the width of the bars
-    CGFloat barWidth = ((self.graphWidth - self.marginLeft - self.marginRight) / self.buckets.count) - self.barPadding/2;
+    self.barWidth = (self.graphWidth / self.buckets.count) - self.barPadding;
+    
+    [self addTicks];
     
     self.barsArray = [NSMutableArray array];
     
@@ -113,8 +115,8 @@
     
     for(NSNumber* barData in self.buckets)
     {
-        CGFloat x = index*barWidth + index*self.barPadding;
-        FNKBar* barView = [[FNKBar alloc] initWithFrame:CGRectMake(x + self.marginLeft, self.marginTop + self.graphHeight, barWidth, 0)];
+        CGFloat x = index * (self.barWidth + self.barPadding);
+        FNKBar* barView = [[FNKBar alloc] initWithFrame:CGRectMake(x + self.marginLeft, self.marginTop + self.graphHeight, self.barWidth, 0)];
         barView.backgroundColor = self.barColor;
         barView.alpha = 0.1;
         [self.view addSubview:barView];
@@ -127,7 +129,7 @@
                               delay:delay
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
-                             barView.originalFrame = CGRectMake(x + self.marginLeft, self.marginTop + self.graphHeight, barWidth, -barData.floatValue * self.yScaleFactor);
+                             barView.originalFrame = CGRectMake(x + self.marginLeft, self.marginTop + self.graphHeight, self.barWidth, -barData.floatValue * self.yScaleFactor);
                              barView.frame = barView.originalFrame;
                          }
                          completion:^(BOOL finished) {
@@ -147,7 +149,22 @@
 -(void)addTicks
 {
     self.yLabelView = [self.yAxis addTicksToView:self.view];
-    self.xLabelView = [self.xAxis addTicksToView:self.view];
+    
+    __weak __typeof(self) safeSelf = self;
+    self.xLabelView = [self.xAxis addTicksToView:self.view tickFormat:^NSString *(CGFloat value) {
+        //Need to figure out which bar we are closest to.
+        int bar = (int)(value/(safeSelf.barPadding + safeSelf.barWidth));
+        
+        //maxDate - minDate = days between
+        NSInteger daysBetween = [safeSelf daysBetweenMinDate:safeSelf.minDate maxDate:safeSelf.maxDate calendar:[NSCalendar currentCalendar]];
+        
+        //daysBetween/barNumbers = days per bar
+        CGFloat daysPerBar = daysBetween / safeSelf.numberOfBuckets();
+        
+        //date = minDate + daysPerBar*Bar;
+        NSDate* date = [safeSelf dateByAddingDays:safeSelf.minDate numDays:(daysPerBar*bar)];
+        return safeSelf.xAxis.tickFormat([date timeIntervalSince1970]);
+    }];
 }
 
 -(void)removeTicks
@@ -321,5 +338,30 @@
     return yValue;
 }
 
+- (NSInteger) daysBetweenMinDate:(NSDate*)minDate maxDate:(NSDate*)maxDate calendar:(NSCalendar*)calendar
+{
+    /*
+     * NOTE: Compliments of one of the solutions in this SO post:
+     *  http://stackoverflow.com/questions/4739483/number-of-days-between-two-nsdates
+     *
+     * It wasn't the accepted solution because the accepted solution sucked. :-P This one was
+     * upvoted a lot (including by me. :)).
+     */
+    NSDate *fromDate;
+    NSDate *toDate;
+    
+    [calendar rangeOfUnit: NSCalendarUnitDay startDate: &fromDate interval: NULL forDate: minDate];
+    [calendar rangeOfUnit: NSCalendarUnitDay startDate: &toDate interval: NULL forDate: maxDate];
+    NSDateComponents *difference = [calendar components: NSCalendarUnitDay fromDate: fromDate toDate: toDate options: 0];
+    
+    return [difference day];
+}
+
+- (NSDate*) dateByAddingDays:(NSDate*)startDate numDays:(NSInteger) numDays
+{
+    NSDateComponents* dateComp = [[NSDateComponents alloc] init];
+    [dateComp setDay: numDays];
+    return [[NSCalendar currentCalendar] dateByAddingComponents: dateComp toDate:startDate options: 0];
+}
 
 @end

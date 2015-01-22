@@ -251,7 +251,7 @@
 
 - (IBAction)loadGraphComparison:(id)sender
 {
-    [self.paceChartsVC showLineComparison:[FNKPointValues addPointsPaceByDistanceOne] color:[UIColor redColor]];
+//    [self.paceChartsVC showLineComparison:[FNKPointValues addPointsPaceByDistanceOne] color:[UIColor redColor]];
 }
 
 @end
