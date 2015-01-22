@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-#import <FNKGraphs/FNKGraphsViewController.h>
+#import <FNKGraphs/FNKGraphsLineGraphViewController.h>
 
-@interface FNKViewController : UIViewController
+@interface FNKViewController : UIViewController<FNKChartsViewDelegate>
 
 
-@property (nonatomic, strong) FNKGraphsViewController* paceChartsVC;
-@property (nonatomic, strong) FNKGraphsViewController* elevationChartsVC;
+@property (nonatomic, strong) FNKGraphsLineGraphViewController* paceChartsVC;
+@property (nonatomic, strong) FNKGraphsLineGraphViewController* elevationChartsVC;
 @property (strong, nonatomic) IBOutlet UILabel *paceLabel;
 @property (strong, nonatomic) IBOutlet UILabel *elevationLabel;
 @property (strong, nonatomic) IBOutlet UILabel *songLabel;

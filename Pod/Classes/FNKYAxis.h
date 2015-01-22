@@ -10,6 +10,4 @@
 
 @interface FNKYAxis : FNKAxis
 
-@property (nonatomic) CGFloat yAxisNum;
-
 @end

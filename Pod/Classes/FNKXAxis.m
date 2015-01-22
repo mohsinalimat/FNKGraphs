@@ -27,9 +27,14 @@
 
 -(UIView*) addTicksToView:(UIView*) view
 {
+    return [self addTicksToView:view tickFormat:nil];
+}
+
+-(UIView*) addTicksToView:(UIView*) view tickFormat:(NSString* (^)(CGFloat value))graphTickFormat
+{
     CGFloat tickInterval = self.graphWidth / self.ticks;
     
-    UIView* labelView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, view.frame.size.width, 20)];
+    UIView* labelView = [[UIView alloc] initWithFrame:CGRectMake(0, view.frame.size.height, view.frame.size.width, 20)];
     
     for (int index = 0 ; index < self.ticks+1 ; index++)
     {
@@ -51,10 +56,21 @@
         //Okay those are the ticks. Now we need the labels
         
         UILabel* tickLabel = [[UILabel alloc] init];
-        tickLabel.text = self.tickFormat((xVal - self.marginLeft) / self.scaleFactor);
+        if(graphTickFormat != nil)
+        {
+            tickLabel.text = graphTickFormat(xVal);
+        }
+        else if(self.scaleFactor == 0)
+        {
+            tickLabel.text = self.tickFormat((xVal - self.marginLeft));
+        }
+        else
+        {
+            tickLabel.text = self.tickFormat(((xVal - self.marginLeft) / self.scaleFactor) + self.axisMin);
+        }
         [tickLabel sizeToFit];
         CGFloat textWidth = tickLabel.frame.size.width;
-        tickLabel.frame = CGRectMake( xVal - textWidth/2, yVal + 5, textWidth, 10);
+        tickLabel.frame = CGRectMake( xVal - textWidth/2, 0, textWidth, 10);
         tickLabel.textAlignment = NSTextAlignmentCenter;
         tickLabel.font = self.tickFont;
         [labelView addSubview:tickLabel];

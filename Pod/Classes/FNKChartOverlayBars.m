@@ -8,7 +8,7 @@
 
 #import "FNKChartOverlayBars.h"
 #import "FNKChartOverlayData.h"
-#import "FNKBar.h"
+#import "FNKOverlayBar.h"
 
 @implementation FNKChartOverlayBars
 
@@ -22,7 +22,7 @@
     for (int index = 0 ; index < bars ; index++)
     {
         FNKChartOverlayData* data = (FNKChartOverlayData*)[self.dataSet objectAtIndex:index];
-        FNKBar* barView = [[FNKBar alloc] initWithData:data frame:CGRectMake(data.x + self.marginLeft, self.graphHeight + self.marginTop, data.width, 0)];
+        FNKOverlayBar* barView = [[FNKOverlayBar alloc] initWithData:data frame:CGRectMake(data.x + self.marginLeft, self.graphHeight + self.marginTop, data.width, 0)];
         barView.backgroundColor = [self randomColor];
         barView.alpha = 0.1;
         [view insertSubview:barView atIndex:6];
@@ -74,7 +74,7 @@
 -(FNKChartOverlayData*)touchAtPoint:(CGPoint)point view:(UIView*)view
 {
     FNKChartOverlayData* touchedData = nil;
-    for (FNKBar* barView in self.barsArray)
+    for (FNKOverlayBar* barView in self.barsArray)
     {
         CGPoint cPoint = [view convertPoint:point toView: barView];
         BOOL expand = [barView pointInside:cPoint withEvent: nil];

@@ -71,7 +71,7 @@
 {
     CGFloat tickInterval = self.graphHeight / self.ticks;
     
-    UIView* labelView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, view.frame.size.width, 20)];
+    UIView* labelView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40,  view.frame.size.height)];
     
     for (int index = 0 ; index < self.ticks ; index++)
     {
@@ -85,7 +85,7 @@
         //Okay those are the ticks. Now we need the labels
         UILabel* tickLabel = [[UILabel alloc] init];
         
-        CGFloat originalVal = ((self.marginTop + self.graphHeight - yVal) / self.scaleFactor) + self.yAxisNum;
+        CGFloat originalVal = ((self.marginTop + self.graphHeight - yVal) / self.scaleFactor) + self.axisMin;
         tickLabel.text = self.tickFormat(originalVal);
         [tickLabel sizeToFit];
         tickLabel.frame = CGRectMake(0, yVal-5, tickLabel.frame.size.width, 10);
