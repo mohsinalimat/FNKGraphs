@@ -49,6 +49,6 @@
 
 -(CGPoint)normalizedPointForObject:(id)object;
 
-
+-(void)drawGraph:(void (^) (void))completion;
 
 @end

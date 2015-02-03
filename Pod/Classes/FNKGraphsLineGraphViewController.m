@@ -55,6 +55,11 @@
 
 -(void)drawGraph
 {
+    [self drawGraph:nil];
+}
+
+-(void)drawGraph:(void (^) (void))completion
+{
     [super drawGraph];
     
     self.xAxis.graphHeight = self.graphHeight;
@@ -87,7 +92,7 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
         [safeSelf loadData:self.dataArray];
-        [safeSelf drawData];
+        [safeSelf drawData:completion];
         
         if (safeSelf.chartOverlay != nil)
         {
@@ -126,7 +131,7 @@
     [self.view.layer addSublayer:self.selectedLineCircleLayer];
 }
 
--(void)drawData
+-(void)drawData:(void (^)(void))completion
 {
     [self addTicks];
     
@@ -136,6 +141,11 @@
                          completion:^{
                              double yValue = [safeSelf scaleYValue:safeSelf.averageLine];
                              [safeSelf drawAverageLine:yValue];
+
+                             if(completion)
+                             {
+                                 completion();
+                             }
                          }];
 }
 
