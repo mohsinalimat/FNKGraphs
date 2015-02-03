@@ -478,12 +478,17 @@
     for (NSValue* val in points)
     {
         CGPoint point = [val CGPointValue];
-        CGFloat xVal = ((point.x- self.xAxisNum) * self.xScaleFactor ) + self.yAxis.marginLeft;
-        CGFloat yVal = [self scaleYValue:point.y];
-        [scaledPoints addObject:[NSValue valueWithCGPoint:CGPointMake(xVal,yVal)]];
+        [scaledPoints addObject:[NSValue valueWithCGPoint:[self normalizedPoint:point]]];
     }
     
     return scaledPoints;
+}
+
+-(CGPoint)normalizedPoint:(CGPoint)point
+{
+    CGFloat xVal = ((point.x- self.xAxisNum) * self.xScaleFactor ) + self.yAxis.marginLeft;
+    CGFloat yVal = [self scaleYValue:point.y];
+    return CGPointMake(xVal,yVal);
 }
 
 -(void)drawAverageLine:(CGFloat)yVal
@@ -512,6 +517,11 @@
         
         [layer addAnimation:pathAnimation forKey:@"strokeEnd"];
     }
+}
+
+-(CGPoint)normalizedPointForObject:(id)object
+{
+    return [self normalizedPoint:self.pointForObject(object)];
 }
 
 #pragma mark gestures

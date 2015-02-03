@@ -47,6 +47,8 @@
 
 -(void)filterLine:(NSMutableArray*)filteredData duration:(CGFloat)duration;
 
+-(CGPoint)normalizedPointForObject:(id)object;
+
 
 
 @end
