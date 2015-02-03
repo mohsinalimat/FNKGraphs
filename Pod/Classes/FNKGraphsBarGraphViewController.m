@@ -118,14 +118,14 @@
         CGFloat x = index * (self.barWidth + self.barPadding);
         FNKBar* barView = [[FNKBar alloc] initWithFrame:CGRectMake(x + self.marginLeft, self.marginTop + self.graphHeight, self.barWidth, 0)];
         barView.backgroundColor = self.barColor;
-        barView.alpha = 0.1;
+        barView.alpha = 1.0;
         [self.view addSubview:barView];
         
         [self.barsArray addObject:barView];
         
-        double delay = 0.1*index;
+        double delay = 0.05*index;
         
-        [UIView animateWithDuration:2
+        [UIView animateWithDuration:1
                               delay:delay
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{

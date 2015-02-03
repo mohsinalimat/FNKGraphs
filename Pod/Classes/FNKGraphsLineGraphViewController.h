@@ -38,8 +38,15 @@
 @property (nonatomic, copy) CGPoint (^pointForObject)(id object);
 @property (nonatomic, copy) CGFloat (^valueForObject)(id object);
 
+#pragma mark customGraph features
+@property (nonatomic) BOOL circleAtLinePoints;
+@property (nonatomic, strong) UIColor* circleAtLinePointColor;
+@property (nonatomic, strong) UIColor* circleAtLinePointFillColor;
+
 -(void)showLineComparison:(NSMutableArray*)comparisonData color:(UIColor*)lineColor duration:(CGFloat)duration;
 
 -(void)filterLine:(NSMutableArray*)filteredData duration:(CGFloat)duration;
+
+
 
 @end

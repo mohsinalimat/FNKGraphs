@@ -22,10 +22,15 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     [self addPaceChart];
-    
-//    [self addElevationChart];
+    [self addElevationChart];
     
     [self.view layoutIfNeeded];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self.paceChartsVC drawGraph];
+    [self.elevationChartsVC drawGraph];
 }
 
 -(void)addPaceChart
@@ -34,7 +39,7 @@
     [self.paceChartsVC setDataArray:[FNKPointValues addPointsPaceByDistanceTwo]];
     self.paceChartsVC.yPadding = 50;
     
-    //    [self.paceChartsVC addChartOverlay:[[FNKChartOverlayBars alloc] init]];
+//        [self.paceChartsVC addChartOverlay:[[FNKChartOverlayBars alloc] init]];
     
     //Set custom colors for chart -- Not necessary as all charts will have defaults
     self.paceChartsVC.yAxis.strokeColor = [UIColor clearColor];
@@ -51,9 +56,18 @@
     UIColor* avColor = [UIColor blackColor];
     [self.paceChartsVC setAverageLineColor:[avColor colorWithAlphaComponent:0.2]];
     [self.paceChartsVC setAverageLineColor:[UIColor blackColor]];
+    [self.paceChartsVC setCircleAtLinePoints:YES];
+    
+    [self.paceChartsVC setPointForObject:^CGPoint(id dataPoint) {
+        NSValue* val = (NSValue*) dataPoint;
+        return [val CGPointValue];
+    }];
     
     
     self.paceChartsVC.lineStrokeColor = [UIColor colorWithRed:0.48828125 green:0.83203125 blue:0.98828125 alpha:1.0];
+    [self.paceChartsVC setCircleAtLinePointColor:[UIColor colorWithRed:0.48828125 green:0.83203125 blue:0.98828125 alpha:1.0]];
+    [self.paceChartsVC setCircleAtLinePointFillColor:[UIColor whiteColor]];
+    
     
     __weak __typeof(self) safeSelf = self;
     
@@ -77,7 +91,7 @@
     paceView.translatesAutoresizingMaskIntoConstraints = NO;
     
     NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(paceView);
-    NSString *constraintString = [NSString stringWithFormat:@"|[paceView]|"];
+    NSString *constraintString = [NSString stringWithFormat:@"|-10-[paceView]-10-|"];
     NSArray *widthConstraints = [NSLayoutConstraint constraintsWithVisualFormat:constraintString
                                                                         options:0
                                                                         metrics:nil
@@ -95,7 +109,7 @@
 -(void) addElevationChart
 {
     self.elevationChartsVC = [[FNKGraphsLineGraphViewController alloc] initWithFrame:CGRectMake(0, 320, 320, 160)];
-//    self.elevationChartsVC.dataPointArray = [FNKPointValues addPointsElevationByDistanceOne];
+    [self.elevationChartsVC setDataArray:[FNKPointValues addPointsElevationByDistanceOne]];
     self.elevationChartsVC.yPadding = 0;
     
     self.elevationChartsVC.yAxis.strokeColor = [UIColor clearColor];
@@ -112,6 +126,11 @@
     self.elevationChartsVC.lineStrokeColor = [UIColor colorWithRed:0.6640625 green:0.875 blue:0.39453125 alpha:1];
     
     __weak __typeof(self) safeSelf = self;
+    
+    [self.elevationChartsVC setPointForObject:^CGPoint(id dataPoint) {
+        NSValue* val = (NSValue*) dataPoint;
+        return [val CGPointValue];
+    }];
     
     [self.elevationChartsVC.yAxis setTickFormat:^NSString *(CGFloat val) {
         return [safeSelf elevationFormat:val];
