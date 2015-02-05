@@ -26,7 +26,7 @@
 
 -(void)addBarGraph
 {
-    self.barGraphVC = [[FNKGraphsBarGraphViewController alloc] initWithFrame:CGRectMake(0, 70, 320, 160)];
+    self.barGraphVC = [[FNKGraphsHistogramGraphViewController alloc] initWithFrame:CGRectMake(0, 70, 320, 160)];
     
     
     [self.barGraphVC setDataArray:[self getData]];

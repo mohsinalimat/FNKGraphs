@@ -11,7 +11,7 @@
 #import "FNKXAxis.h"
 #import "FNKYAxis.h"
 
-@interface FNKGraphsBarGraphViewController : FNKGraphsViewController
+@interface FNKGraphsHistogramGraphViewController : FNKGraphsViewController
 
 @property (nonatomic, strong) UIColor* barColor;
 

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <FNKGraphs/FNKGraphsBarGraphViewController.h>
+#import <FNKGraphs/FNKGraphsHistogramGraphViewController.h>
 #import <FNKGraphs/FNKGraphsPieGraphViewController.h>
 #import <FNKGraphs/FNKGraphsLineGraphViewController.h>
 
@@ -19,5 +19,5 @@
 
 @property (nonatomic, strong) FNKGraphsPieGraphViewController* pieGraphVC;
 @property (nonatomic, strong) FNKGraphsLineGraphViewController* lineGraphVC;
-@property (nonatomic, strong) FNKGraphsBarGraphViewController* barGraphVC;
+@property (nonatomic, strong) FNKGraphsHistogramGraphViewController* barGraphVC;
 @end

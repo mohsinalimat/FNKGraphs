@@ -6,11 +6,11 @@
 //
 //
 
-#import "FNKGraphsBarGraphViewController.h"
+#import "FNKGraphsHistogramGraphViewController.h"
 #import "FNKBarSectionData.h"
 #import "FNKBar.h"
 
-@interface FNKGraphsBarGraphViewController ()
+@interface FNKGraphsHistogramGraphViewController ()
 
 @property (nonatomic) CGFloat radius;
 @property (nonatomic) CGPoint center;
@@ -34,7 +34,7 @@
 
 @end
 
-@implementation FNKGraphsBarGraphViewController
+@implementation FNKGraphsHistogramGraphViewController
 
 #pragma mark life cycles
 

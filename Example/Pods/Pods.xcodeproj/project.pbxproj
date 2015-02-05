@@ -12,7 +12,7 @@
 		0D19761B3A549AAE2DE439AF /* FNKGraphsLineGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4B5E0D479C6DCE0E492666 /* FNKGraphsLineGraphViewController.m */; };
 		13BFAB0FAF890DF3FA65D5C2 /* FNKChartOverlayBars.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0F37BD2FF0C9D9EF4D2450 /* FNKChartOverlayBars.m */; };
 		16741AC4C5A932CB11D75CFD /* FNKXAxis.h in Headers */ = {isa = PBXBuildFile; fileRef = CDEE8810788FCB28B702B19B /* FNKXAxis.h */; };
-		1A84D13C74293E54875CC197 /* FNKGraphsBarGraphViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = BFA8FF107D693F8A3B1118E5 /* FNKGraphsBarGraphViewController.h */; };
+		1A84D13C74293E54875CC197 /* FNKGraphsHistogramGraphViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = BFA8FF107D693F8A3B1118E5 /* FNKGraphsHistogramGraphViewController.h */; };
 		27CCF9E72954EE2C254A7339 /* Pods-Tests-FNKGraphs-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D624CCF331956D2BF244AD /* Pods-Tests-FNKGraphs-dummy.m */; };
 		2CCFDA4E94C347546E19A028 /* FNKGraphsLineGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4B5E0D479C6DCE0E492666 /* FNKGraphsLineGraphViewController.m */; };
 		2D4FBBCA8DD250D66646F2D5 /* FNKOverlayBar.h in Headers */ = {isa = PBXBuildFile; fileRef = E4C45A00A9BEA08CDFC61E37 /* FNKOverlayBar.h */; };
@@ -46,7 +46,7 @@
 		92C6BF140B5A2F21AAA71A2B /* FNKAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = F148A3B2B08800EF20E44DC6 /* FNKAxis.m */; };
 		98E7D09A98238F7304EDA0A7 /* FNKGraphsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4E78FDE57062426A9B285 /* FNKGraphsViewController.m */; };
 		9B2414CEB8A6169862AE3F92 /* FNKGraphsPieGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C2B4AC6137A8A11446DA08 /* FNKGraphsPieGraphViewController.m */; };
-		A31DB7C8B4AA557DCF493764 /* FNKGraphsBarGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E1AB56D4FF6D320160AF53 /* FNKGraphsBarGraphViewController.m */; };
+		A31DB7C8B4AA557DCF493764 /* FNKGraphsHistogramGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E1AB56D4FF6D320160AF53 /* FNKGraphsHistogramGraphViewController.m */; };
 		A41354B846578A49BAC0F9A1 /* FNKPieSectionData.h in Headers */ = {isa = PBXBuildFile; fileRef = CE18679D884938FA3A7897A7 /* FNKPieSectionData.h */; };
 		AC8CC610476908DFB5336677 /* FNKGraphsPieGraphViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E1459BFCB2AF894AA438AB51 /* FNKGraphsPieGraphViewController.h */; };
 		AE3E33D18844310B514594F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA5DEBE29DD0E1E3DB4AC03 /* Foundation.framework */; };
@@ -62,13 +62,13 @@
 		C44849B5ACEF81D6EE61D219 /* FNKYAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = 05434F122954748DEC8B9232 /* FNKYAxis.m */; };
 		C621F9A26E724953A22636A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA5DEBE29DD0E1E3DB4AC03 /* Foundation.framework */; };
 		CB8FD2F6E0294114C62CD3B1 /* FNKChartOverlayData.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BCB4D7EC252D5292CFA53D9 /* FNKChartOverlayData.h */; };
-		D3B9846F05B51E26CDFE5A14 /* FNKGraphsBarGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E1AB56D4FF6D320160AF53 /* FNKGraphsBarGraphViewController.m */; };
+		D3B9846F05B51E26CDFE5A14 /* FNKGraphsHistogramGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E1AB56D4FF6D320160AF53 /* FNKGraphsHistogramGraphViewController.m */; };
 		D5F7800EE90AF9243598666C /* FNKGraphsLineGraphViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A30F762421F82A2B9DAF2F0D /* FNKGraphsLineGraphViewController.h */; };
 		D653450FC7A10D6740BAB723 /* FNKXAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0562EA98B24C57A71ABAC63B /* FNKXAxis.m */; };
 		D824AA73F698AF9816368C67 /* FNKChartOverlayBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 336F7C44D96D0F06247B15BC /* FNKChartOverlayBase.h */; };
 		EAF83AE111ED19275C1A51CE /* FNKGraphsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B7D2B3697118F9FA5ED12097 /* FNKGraphsViewController.h */; };
 		EB41531F380C4D37E3A4A843 /* FNKXAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0562EA98B24C57A71ABAC63B /* FNKXAxis.m */; };
-		EE78FD8EEF3AD1A311C1D41A /* FNKGraphsBarGraphViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = BFA8FF107D693F8A3B1118E5 /* FNKGraphsBarGraphViewController.h */; };
+		EE78FD8EEF3AD1A311C1D41A /* FNKGraphsHistogramGraphViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = BFA8FF107D693F8A3B1118E5 /* FNKGraphsHistogramGraphViewController.h */; };
 		F31F5E526D87ABDE27B1FE77 /* FNKChartOverlayBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ED16CFBD4B461363A2475B4 /* FNKChartOverlayBase.m */; };
 /* End PBXBuildFile section */
 
@@ -146,14 +146,14 @@
 		A837E930CD6510B4FE0646BD /* Pods-FNKGraphs-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FNKGraphs-environment.h"; sourceTree = "<group>"; };
 		B71653E7E24624074953B586 /* FNKBarSectionData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FNKBarSectionData.h; sourceTree = "<group>"; };
 		B7D2B3697118F9FA5ED12097 /* FNKGraphsViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FNKGraphsViewController.h; sourceTree = "<group>"; };
-		BFA8FF107D693F8A3B1118E5 /* FNKGraphsBarGraphViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FNKGraphsBarGraphViewController.h; sourceTree = "<group>"; };
+		BFA8FF107D693F8A3B1118E5 /* FNKGraphsHistogramGraphViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FNKGraphsHistogramGraphViewController.h; sourceTree = "<group>"; };
 		CDEE8810788FCB28B702B19B /* FNKXAxis.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FNKXAxis.h; sourceTree = "<group>"; };
 		CE18679D884938FA3A7897A7 /* FNKPieSectionData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FNKPieSectionData.h; sourceTree = "<group>"; };
 		D0C2B4AC6137A8A11446DA08 /* FNKGraphsPieGraphViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FNKGraphsPieGraphViewController.m; sourceTree = "<group>"; };
 		DEBF499CF983EE73DCDE1452 /* Pods-FNKGraphs-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FNKGraphs-acknowledgements.markdown"; sourceTree = "<group>"; };
 		E1459BFCB2AF894AA438AB51 /* FNKGraphsPieGraphViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FNKGraphsPieGraphViewController.h; sourceTree = "<group>"; };
 		E4C45A00A9BEA08CDFC61E37 /* FNKOverlayBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FNKOverlayBar.h; sourceTree = "<group>"; };
-		E6E1AB56D4FF6D320160AF53 /* FNKGraphsBarGraphViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FNKGraphsBarGraphViewController.m; sourceTree = "<group>"; };
+		E6E1AB56D4FF6D320160AF53 /* FNKGraphsHistogramGraphViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FNKGraphsHistogramGraphViewController.m; sourceTree = "<group>"; };
 		ED3047D923E07115AE3516BF /* Pods-FNKGraphs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FNKGraphs.debug.xcconfig"; sourceTree = "<group>"; };
 		EE0D44F1BB73FC43DFDD7673 /* Pods-FNKGraphs-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FNKGraphs-acknowledgements.plist"; sourceTree = "<group>"; };
 		EF4B5E0D479C6DCE0E492666 /* FNKGraphsLineGraphViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FNKGraphsLineGraphViewController.m; sourceTree = "<group>"; };
@@ -322,8 +322,8 @@
 				5ED16CFBD4B461363A2475B4 /* FNKChartOverlayBase.m */,
 				6BCB4D7EC252D5292CFA53D9 /* FNKChartOverlayData.h */,
 				9E22E9C3ACD9D30F68BA6B47 /* FNKChartOverlayData.m */,
-				BFA8FF107D693F8A3B1118E5 /* FNKGraphsBarGraphViewController.h */,
-				E6E1AB56D4FF6D320160AF53 /* FNKGraphsBarGraphViewController.m */,
+				BFA8FF107D693F8A3B1118E5 /* FNKGraphsHistogramGraphViewController.h */,
+				E6E1AB56D4FF6D320160AF53 /* FNKGraphsHistogramGraphViewController.m */,
 				A30F762421F82A2B9DAF2F0D /* FNKGraphsLineGraphViewController.h */,
 				EF4B5E0D479C6DCE0E492666 /* FNKGraphsLineGraphViewController.m */,
 				E1459BFCB2AF894AA438AB51 /* FNKGraphsPieGraphViewController.h */,
@@ -387,7 +387,7 @@
 				37227C20D8E519B9225AEE28 /* FNKChartOverlayBars.h in Headers */,
 				6A5AA6F942FD29AA53423C49 /* FNKChartOverlayBase.h in Headers */,
 				CB8FD2F6E0294114C62CD3B1 /* FNKChartOverlayData.h in Headers */,
-				1A84D13C74293E54875CC197 /* FNKGraphsBarGraphViewController.h in Headers */,
+				1A84D13C74293E54875CC197 /* FNKGraphsHistogramGraphViewController.h in Headers */,
 				7D85D760807E95ABC4D03346 /* FNKGraphsLineGraphViewController.h in Headers */,
 				AC8CC610476908DFB5336677 /* FNKGraphsPieGraphViewController.h in Headers */,
 				EAF83AE111ED19275C1A51CE /* FNKGraphsViewController.h in Headers */,
@@ -407,7 +407,7 @@
 				7E1AE63B93093E1A221FAAF1 /* FNKChartOverlayBars.h in Headers */,
 				D824AA73F698AF9816368C67 /* FNKChartOverlayBase.h in Headers */,
 				BF65578FC8A6CE10C751A2B0 /* FNKChartOverlayData.h in Headers */,
-				EE78FD8EEF3AD1A311C1D41A /* FNKGraphsBarGraphViewController.h in Headers */,
+				EE78FD8EEF3AD1A311C1D41A /* FNKGraphsHistogramGraphViewController.h in Headers */,
 				D5F7800EE90AF9243598666C /* FNKGraphsLineGraphViewController.h in Headers */,
 				BD40395AFB502A633A87AD00 /* FNKGraphsPieGraphViewController.h in Headers */,
 				8BE26AFAA55E34A90C30BDD4 /* FNKGraphsViewController.h in Headers */,
@@ -605,7 +605,7 @@
 				623ADFE9E30949A545D8456D /* FNKChartOverlayBars.m in Sources */,
 				5C37C5D5E317F063089F5658 /* FNKChartOverlayBase.m in Sources */,
 				549D795ECC6F8438DDB1DE29 /* FNKChartOverlayData.m in Sources */,
-				A31DB7C8B4AA557DCF493764 /* FNKGraphsBarGraphViewController.m in Sources */,
+				A31DB7C8B4AA557DCF493764 /* FNKGraphsHistogramGraphViewController.m in Sources */,
 				0D19761B3A549AAE2DE439AF /* FNKGraphsLineGraphViewController.m in Sources */,
 				9B2414CEB8A6169862AE3F92 /* FNKGraphsPieGraphViewController.m in Sources */,
 				98E7D09A98238F7304EDA0A7 /* FNKGraphsViewController.m in Sources */,
@@ -634,7 +634,7 @@
 				13BFAB0FAF890DF3FA65D5C2 /* FNKChartOverlayBars.m in Sources */,
 				F31F5E526D87ABDE27B1FE77 /* FNKChartOverlayBase.m in Sources */,
 				3439CE06DD172F1FD90E82BA /* FNKChartOverlayData.m in Sources */,
-				D3B9846F05B51E26CDFE5A14 /* FNKGraphsBarGraphViewController.m in Sources */,
+				D3B9846F05B51E26CDFE5A14 /* FNKGraphsHistogramGraphViewController.m in Sources */,
 				2CCFDA4E94C347546E19A028 /* FNKGraphsLineGraphViewController.m in Sources */,
 				C1F645FF34F5CA4EEF7B0119 /* FNKGraphsPieGraphViewController.m in Sources */,
 				BC9345EEB6B11C3AED837C8C /* FNKGraphsViewController.m in Sources */,

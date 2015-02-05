@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <FNKGraphs/FNKGraphsBarGraphViewController.h>
+#import <FNKGraphs/FNKGraphsHistogramGraphViewController.h>
 
 @interface FNKDemoBarGraphViewController : UIViewController<FNKChartsViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIView* barGraphContainer;
-@property (nonatomic, strong) FNKGraphsBarGraphViewController* barGraphVC;
+@property (nonatomic, strong) FNKGraphsHistogramGraphViewController* barGraphVC;
 
 @end
