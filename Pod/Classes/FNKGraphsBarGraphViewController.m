@@ -28,7 +28,6 @@
 @property (nonatomic) CGFloat yRange;
 @property (nonatomic) CGFloat yAxisNum;
 
-@property (nonatomic) CGFloat barPadding;
 @property (nonatomic) CGFloat barWidth;
 
 @property (nonatomic, strong) NSMutableArray* barsArray;
@@ -45,10 +44,10 @@
     self.yAxis = [[FNKYAxis alloc] initWithMarginLeft:self.marginLeft marginRight:self.marginRight marginTop:self.marginTop marginBottom:self.marginBottom];
     self.yAxis.ticks = 5;
     self.xAxis.ticks = 5;
-
+    
     self.barPadding = 5;
     self.yMin = @(0);
-
+    
 }
 
 - (void)viewDidLoad {
@@ -116,6 +115,7 @@
     for(NSNumber* barData in self.buckets)
     {
         CGFloat x = index * (self.barWidth + self.barPadding);
+        
         FNKBar* barView = [[FNKBar alloc] initWithFrame:CGRectMake(x + self.marginLeft, self.marginTop + self.graphHeight, self.barWidth, 0)];
         barView.backgroundColor = self.barColor;
         barView.alpha = 1.0;
@@ -277,6 +277,14 @@
     }
 }
 
+-(void)resetBarColors
+{
+    for(FNKBar* bar in self.barsArray)
+    {
+        [bar setBackgroundColor:[UIColor colorWithRed:0.239 green:0.71 blue:0.996 alpha:1.0]];
+    }
+}
+
 #pragma mark Handle touches
 
 // we capture the touch move events by overriding touchesMoved method
@@ -332,7 +340,7 @@
 -(CGFloat)valueAtPoint:(CGPoint)point
 {
     //This function handles selecting a piece of the pie
-    CGFloat xValue = point.x - self.center.x;
+//    CGFloat xValue = point.x - self.center.x;
     CGFloat yValue = point.y - self.center.y;
     
     return yValue;

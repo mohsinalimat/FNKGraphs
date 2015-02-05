@@ -33,6 +33,10 @@
 @property (nonatomic) NSDate* minDate;
 @property (nonatomic) NSDate* maxDate;
 
+@property (nonatomic) CGFloat barPadding;
+
 -(void)filterBars:(NSMutableArray*)filteredData duration:(CGFloat)duration;
+
+-(void)resetBarColors;
 
 @end
