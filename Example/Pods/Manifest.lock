@@ -1,5 +1,5 @@
 PODS:
-  - FNKGraphs (0.2.1)
+  - FNKGraphs (0.2.10)
 
 DEPENDENCIES:
   - FNKGraphs (from `../`)
@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  FNKGraphs: b8b6fe8e287356187e4f5626add569b785fe45f4
+  FNKGraphs: a20f6356d2bc890f058ea0c5df9f22ecf5f64968
 
 COCOAPODS: 0.36.0.beta.1
