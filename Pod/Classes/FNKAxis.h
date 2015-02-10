@@ -24,6 +24,9 @@ typedef enum {
 @property (nonatomic) CGFloat graphWidth;
 @property (nonatomic) CGFloat scaleFactor;
 @property (nonatomic) CGFloat axisMin;
+@property (nonatomic, strong) NSNumber* overridingMax;
+@property (nonatomic, strong) NSNumber* overridingMin;
+
 
 @property (nonatomic) FNKTickType tickType;
 

@@ -19,8 +19,6 @@
 @property (nonatomic, weak) CAShapeLayer* lineLayer;
 @property (nonatomic, weak) CAShapeLayer* comparisonLine;
 @property (nonatomic) BOOL fillGraph;
-@property (nonatomic) CGFloat yAxisNum;
-@property (nonatomic) CGFloat xAxisNum;
 
 //Graph variables
 @property (nonatomic) CGFloat xScaleFactor;
@@ -118,7 +116,7 @@
 -(double)scaleYValue:(double)value
 {
     //yVal needs to be the inverse bc of iOS coordinates
-    return self.graphHeight + self.yAxis.marginTop - ((value - self.yAxisNum) * self.yScaleFactor);
+    return self.graphHeight + self.yAxis.marginTop - ((value - self.yAxis.axisMin) * self.yScaleFactor);
 }
 
 -(void)willAppear
@@ -141,7 +139,7 @@
                          completion:^{
                              double yValue = [safeSelf scaleYValue:safeSelf.averageLine];
                              [safeSelf drawAverageLine:yValue];
-
+                             
                              if(completion)
                              {
                                  completion();
@@ -314,7 +312,7 @@
     self.selectedLineCircleLayer.fillColor = self.lineStrokeColor.CGColor;
     self.selectedLineCircleLayer.strokeColor = self.lineStrokeColor.CGColor;
     
-    return ((self.yAxis.marginTop + self.graphHeight - yVal) / self.yScaleFactor) + self.yAxisNum;
+    return ((self.yAxis.marginTop + self.graphHeight - yVal) / self.yScaleFactor) + self.yAxis.axisMin;
 }
 
 -(void)removeSelection
@@ -461,11 +459,27 @@
         }
     }
     
+    if(self.yAxis.overridingMin)
+    {
+        minY = self.yAxis.overridingMin.floatValue;
+    }
+    
+    if(self.yAxis.overridingMax)
+    {
+        maxY = self.yAxis.overridingMax.floatValue;
+    }
+    
+    if(self.xAxis.overridingMin)
+    {
+        minX = self.xAxis.overridingMin.floatValue;
+    }
+    
+    if(self.xAxis.overridingMax)
+    {
+        maxX = self.xAxis.overridingMax.floatValue;
+    }
+    
     minY = minY - self.yPadding;
-    
-    self.yAxisNum = minY;
-    self.xAxisNum = minX;
-    
     maxY = maxY + self.yPadding;
     
     //Okay so now we have the min's and max's
@@ -477,8 +491,8 @@
     
     self.xAxis.scaleFactor = self.xScaleFactor;
     self.yAxis.scaleFactor = self.yScaleFactor;
-    self.yAxis.axisMin = self.yAxisNum;
-    self.xAxis.axisMin = self.xAxisNum;
+    self.yAxis.axisMin = minY;
+    self.xAxis.axisMin = minX;
 }
 
 -(NSMutableArray*)normalizePoints:(NSArray*)points
@@ -496,7 +510,7 @@
 
 -(CGPoint)normalizedPoint:(CGPoint)point
 {
-    CGFloat xVal = ((point.x- self.xAxisNum) * self.xScaleFactor ) + self.yAxis.marginLeft;
+    CGFloat xVal = ((point.x- self.xAxis.axisMin) * self.xScaleFactor ) + self.yAxis.marginLeft;
     CGFloat yVal = [self scaleYValue:point.y];
     return CGPointMake(xVal,yVal);
 }
