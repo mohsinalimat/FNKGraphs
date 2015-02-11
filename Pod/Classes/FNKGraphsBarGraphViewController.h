@@ -31,4 +31,8 @@
 
 -(void)resetBarColors;
 
+-(void)drawGraph:(void (^) (void))completion;
+
+-(double)scaleYValue:(double)value;
+
 @end

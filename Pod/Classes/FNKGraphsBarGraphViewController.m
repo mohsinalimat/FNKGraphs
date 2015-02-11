@@ -62,6 +62,11 @@
 
 -(void)drawGraph
 {
+    [self drawGraph:nil];
+}
+
+-(void)drawGraph:(void (^) (void))completion
+{
     [super drawGraph];
     
     self.xAxis.graphHeight = self.graphHeight;
@@ -91,6 +96,8 @@
     
     int index = 0;
     
+    dispatch_group_t animationGroup = dispatch_group_create();
+    
     for(NSNumber* barData in self.graphData)
     {
         CGFloat x = index * (self.barWidth + self.barPadding);
@@ -104,18 +111,35 @@
         
         double delay = 0.05*index;
         
+        dispatch_group_enter(animationGroup);
         [UIView animateWithDuration:1
                               delay:delay
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
-                             barView.originalFrame = CGRectMake(x + self.marginLeft, self.marginTop + self.graphHeight, self.barWidth, -barData.floatValue * self.yScaleFactor);
+                             barView.originalFrame = CGRectMake(x + self.marginLeft, self.marginTop + self.graphHeight, self.barWidth, -[self scaleYValue:barData.floatValue]);
                              barView.frame = barView.originalFrame;
                          }
                          completion:^(BOOL finished) {
-                             
+                             dispatch_group_leave(animationGroup);
                          }];
         index++;
     }
+    
+    __weak __typeof(self) safeSelf = self;
+    self.xLabelView = [self.xAxis addTicksToView:self.view
+                                          atBars:self.barsArray
+                                      tickFormat:^NSString *(int index) {
+                                          id objc = [safeSelf.dataArray objectAtIndex:index];
+                                          CGFloat labelValue = safeSelf.labelValueForObject(objc);
+                                          return safeSelf.xAxis.tickFormat(labelValue);
+                                      }];
+    
+    dispatch_group_notify(animationGroup, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        if(completion)
+        {
+            completion();
+        }
+    });
 }
 
 -(void)drawAxii:(UIView*)view
@@ -128,13 +152,6 @@
 -(void)addTicks
 {
     self.yLabelView = [self.yAxis addTicksToView:self.view];
-    
-//    __weak __typeof(self) safeSelf = self;
-    self.xLabelView = [self.xAxis addTicksToView:self.view
-                                      tickFormat:^NSString *(CGFloat value) {
-                                          //TODO: Need to determine an actual value here
-                                          return @"axis val";
-                                      }];
 }
 
 -(void)removeTicks
@@ -153,7 +170,7 @@
                               delay:0
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
-                             bar.frame = CGRectMake(bar.originalFrame.origin.x, bar.originalFrame.origin.y, bar.originalFrame.size.width, -barData.floatValue * self.yScaleFactor);
+                             bar.frame = CGRectMake(bar.originalFrame.origin.x, bar.originalFrame.origin.y, bar.originalFrame.size.width, -[self scaleYValue:barData.floatValue]);
                          }
                          completion:^(BOOL finished) {
                              
@@ -184,9 +201,14 @@
     
     //If the user has defined a yMin then we shoudl use that.
     //This allows us to have the value start at 0.
-    if(self.yAxis.overridingMin)
+    if(self.yAxis.overridingMin.floatValue < minY)
     {
         minY = self.yAxis.overridingMin.floatValue;
+    }
+    
+    if(self.yAxis.overridingMax.floatValue > maxY)
+    {
+        maxY = self.yAxis.overridingMax.floatValue;
     }
     
     //Okay so now we have the min's and max's
@@ -196,6 +218,11 @@
     
     self.yAxis.scaleFactor = self.yScaleFactor;
     self.yAxis.axisMin = minY;
+}
+
+-(double)scaleYValue:(double)value
+{
+    return value * self.yScaleFactor;
 }
 
 -(void)resetBarColors

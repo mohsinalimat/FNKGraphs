@@ -13,5 +13,6 @@
 @interface FNKXAxis : FNKAxis
 
 -(UIView*) addTicksToView:(UIView*) view tickFormat:(NSString* (^)(CGFloat value))graphTickFormat;
+-(UIView*) addTicksToView:(UIView*) view atBars:(NSArray*)bars tickFormat:(NSString* (^)(int index))graphTickFormat;
 
 @end
