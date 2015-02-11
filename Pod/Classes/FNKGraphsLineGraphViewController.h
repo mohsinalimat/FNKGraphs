@@ -51,4 +51,8 @@
 
 -(void)drawGraph:(void (^) (void))completion;
 
+-(void)drawTrendLine:(UIColor*)color;
+
+-(void)drawTrendLine:(UIColor*)color startPoint:(CGPoint)startPoint;
+
 @end

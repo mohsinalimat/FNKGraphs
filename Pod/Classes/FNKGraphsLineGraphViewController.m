@@ -543,6 +543,81 @@
     }
 }
 
+-(void)drawTrendLine:(UIColor*)color
+{
+    [self drawTrendLine:color startPoint:CGPointMake(0, 0)];
+}
+
+-(void)drawTrendLine:(UIColor*)color startPoint:(CGPoint)startPoint
+{
+    //        Consider this data set of three (x,y) points: (1,3) (2, 5) (3,6.5). Let n = the number of data points, in this case 3.
+    //        Step 2
+    //        Let a equal n times the summation of all x-values multiplied by their corresponding y-values, like so: a = 3 x {(1 x 3) +( 2 x 5) + (3 x 6.5)} = 97.5
+    //        Step 3
+    //        Let b equal the sum of all x-values times the sum of all y-values, like so: b = (1 + 2 + 3) x (3 + 5 + 6.5) = 87
+    //        Step 4
+    //        Let c equal n times the sum of all squared x-values, like so: c = 3 x (1^2 + 2^2 + 3^2) = 42
+    //        Step 5
+    //        Let d equal the squared sum of all x-values, like so: d = (1 + 2 + 3)^2 = 36
+    //        Step 6
+    //        Plug the values that you calculated for a, b, c, and d into the following equation to calculate the slope, m, of the regression line: slope = m = (a - b) / (c - d) = (97.5 - 87) / (42 - 36) = 10.5 / 6 = 1.75
+    
+    CGFloat a = 0;
+    CGFloat b = 0;
+    CGFloat c = 0;
+    CGFloat d = 0;
+    CGFloat sumX = 0;
+    CGFloat sumY = 0;
+    
+    for (NSValue* val in self.normalizedGraphData)
+    {
+        CGPoint point = [val CGPointValue];
+        
+        a += point.x * point.y;
+        sumX += point.x;
+        sumY += point.y;
+        c += point.x * point.x;
+    }
+    
+    a = a * self.normalizedGraphData.count;
+    b = sumX * sumY;
+    c = c * self.normalizedGraphData.count;
+    d = sumX * sumX;
+    
+    CGFloat slope = (a - b) / (c - d);
+    
+    CGPoint p1 = [[self.normalizedGraphData firstObject] CGPointValue];
+    
+    CGFloat yIntercept = p1.y - slope * p1.x;
+    
+    CGFloat endX = self.graphWidth;
+    CGFloat y2 = slope * endX + yIntercept;
+    
+    CGPoint endPoint = CGPointMake(endX, y2);
+    
+    UIBezierPath* bezPath = [[UIBezierPath alloc] init];
+    [bezPath moveToPoint:startPoint];
+    [bezPath addLineToPoint:endPoint];
+    
+    CAShapeLayer* layer = [[CAShapeLayer alloc] init];
+    layer.path = bezPath.CGPath;
+    layer.fillColor = color.CGColor;
+    layer.strokeColor = color.CGColor;
+    layer.lineWidth = 2;
+    [layer setLineDashPattern:@[@(3),@(5)]];
+    layer.lineCap = @"round";
+    layer.lineJoin = @"round";
+    
+    [self.view.layer addSublayer:layer];
+    
+    CABasicAnimation* pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+    pathAnimation.duration = 1;
+    pathAnimation.fromValue = @(0);
+    pathAnimation.toValue = @(1);
+    
+    [layer addAnimation:pathAnimation forKey:@"strokeEnd"];
+}
+
 -(CGPoint)normalizedPointForObject:(id)object
 {
     return [self normalizedPoint:self.pointForObject(object)];
