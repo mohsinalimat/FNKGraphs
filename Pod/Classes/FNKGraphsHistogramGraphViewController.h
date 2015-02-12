@@ -46,7 +46,7 @@
 @property (nonatomic) CGFloat barPadding;
 
 /* Pass in new data and the bars will animate to their new positins */
--(void)filterBars:(NSMutableArray*)filteredData duration:(CGFloat)duration;
+-(void)filterBars:(NSMutableArray*)filteredData duration:(CGFloat)duration completion:(void (^)(void))completion;
 
 /* When using the bar graph in a UITableViewCell you might have to reset the bar colors when the cell is clicked*/
 -(void)resetBarColors;
