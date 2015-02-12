@@ -58,8 +58,6 @@
 
 -(void)drawGraph:(void (^) (void))completion
 {
-    [super drawGraph];
-    
     self.xAxis.graphHeight = self.graphHeight;
     self.yAxis.graphHeight = self.graphHeight;
     
@@ -209,7 +207,10 @@
             }
         }
         
-        completion();
+        if(completion)
+        {
+            completion();
+        }
         
     }];
     
@@ -235,7 +236,7 @@
     {
         [bezPath moveToPoint:CGPointMake(0, self.graphHeight)];
         
-        CGPoint lastPoint;
+        CGPoint lastPoint = CGPointMake(0, self.graphHeight);
         
         for (NSValue* val in data)
         {
@@ -322,7 +323,7 @@
     self.selectedLineCircleLayer.strokeColor = [UIColor clearColor].CGColor;
 }
 
--(void)showLineComparison:(NSMutableArray*)comparisonData color:(UIColor*)lineColor duration:(CGFloat)duration
+-(void)showLineComparison:(NSMutableArray*)comparisonData color:(UIColor*)lineColor duration:(CGFloat)duration completion:(void (^)(void))completion
 {
     NSMutableArray* cData = [NSMutableArray array];
     
@@ -340,29 +341,49 @@
     [self removeTicks];
     [self addTicks];
     
+    dispatch_group_t animationGroup = dispatch_group_create();
+    
     //Draw the new line
     if(self.comparisonLine == nil)
     {
+        dispatch_group_enter(animationGroup);
         NSMutableArray* data = [self normalizePoints:cData];
         self.comparisonLine = [self drawLine:data
                                        color:lineColor
-                                  completion:^{}];
+                                  completion:^{
+                                      dispatch_group_leave(animationGroup);
+                                  }];
     }
     else //Animate the line transition
     {
+        dispatch_group_enter(animationGroup);
         NSMutableArray* data = [self normalizePoints:cData];
         [self transitionLine:self.comparisonLine
                         data:data
-                    duration:duration];
+                    duration:duration
+                  completion:^{
+                      dispatch_group_leave(animationGroup);
+                  }];
     }
     
+    dispatch_group_enter(animationGroup);
     self.normalizedGraphData = [self normalizePoints:self.graphData];
     [self transitionLine:self.lineLayer
                     data:self.normalizedGraphData
-                duration:duration];
+                duration:duration
+              completion:^{
+                  dispatch_group_leave(animationGroup);
+              }];
+    
+    dispatch_group_notify(animationGroup, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+       if(completion)
+       {
+           completion();
+       }
+    });
 }
 
--(void)filterLine:(NSMutableArray*)filteredData duration:(CGFloat)duration
+-(void)filterLine:(NSMutableArray*)filteredData duration:(CGFloat)duration completion:(void (^)(void))completion
 {
     if(filteredData)
     {
@@ -381,7 +402,13 @@
         
         [self transitionLine:self.lineLayer
                         data:self.filteredGraphData
-                    duration:duration];
+                    duration:duration
+                  completion:^{
+                      if(completion)
+                      {
+                          completion();
+                      }
+                  }];
     }
     else
     {
@@ -401,12 +428,18 @@
         
         [self transitionLine:self.lineLayer
                         data:self.normalizedGraphData
-                    duration:duration];
+                    duration:duration
+                  completion:^{
+                      if(completion)
+                      {
+                          completion();
+                      }
+                  }];
         
     }
 }
 
--(void)transitionLine:(CAShapeLayer*)line data:(NSMutableArray*)data duration:(CGFloat)duration
+-(void)transitionLine:(CAShapeLayer*)line data:(NSMutableArray*)data duration:(CGFloat)duration completion:(void (^)())completion
 {
     CGPathRef newPath = [self pathFromPoints:data].CGPath;
     
@@ -414,6 +447,10 @@
     [CATransaction setCompletionBlock:^{
         //Need to do this, otherwise the next animation will start at the original value.
         [line setPath:newPath];
+        if(completion)
+        {
+            completion();
+        }
     }];
     
     CABasicAnimation *morph = [CABasicAnimation animationWithKeyPath:@"path"];
@@ -543,12 +580,12 @@
     }
 }
 
--(void)drawTrendLine:(UIColor*)color
+-(void)drawTrendLine:(UIColor*)color completion:(void (^) (void))completion
 {
-    [self drawTrendLine:color startPoint:CGPointMake(0, 0)];
+    [self drawTrendLine:color startPoint:CGPointMake(0, 0) completion:completion];
 }
 
--(void)drawTrendLine:(UIColor*)color startPoint:(CGPoint)startPoint
+-(void)drawTrendLine:(UIColor*)color startPoint:(CGPoint)startPoint completion:(void (^) (void))completion
 {
     //        Consider this data set of three (x,y) points: (1,3) (2, 5) (3,6.5). Let n = the number of data points, in this case 3.
     //        Step 2
@@ -610,12 +647,17 @@
     
     [self.view.layer addSublayer:layer];
     
+    [CATransaction begin];
+    [CATransaction setCompletionBlock:completion];
+    
     CABasicAnimation* pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
     pathAnimation.duration = 1;
     pathAnimation.fromValue = @(0);
     pathAnimation.toValue = @(1);
     
     [layer addAnimation:pathAnimation forKey:@"strokeEnd"];
+    
+    [CATransaction commit];
 }
 
 -(CGPoint)normalizedPointForObject:(id)object
@@ -633,7 +675,10 @@
     
     CGFloat value = [self valueAtPoint:point];
     
-    [self.delegate touchedGraph:self val:value point:point userGenerated:userGenerated];
+    if(self.delegate)
+    {
+        [self.delegate touchedGraph:self val:value point:point userGenerated:userGenerated];
+    }
 }
 
 -(void)handlePan:(UIPanGestureRecognizer*)recognizer
@@ -643,7 +688,11 @@
     if(recognizer.state == UIGestureRecognizerStateEnded)
     {
         [self removeSelection];
-        [self.delegate graphTouchesEnded:self];
+        
+        if(self.delegate)
+        {
+            [self.delegate graphTouchesEnded:self];
+        }
     }
     else
     {
@@ -663,7 +712,11 @@
     if(point.x > self.graphWidth + self.marginLeft || point.x < self.marginLeft)
     {
         [self removeSelection];
-        [self.delegate graphTouchesEnded:self];
+        
+        if(self.delegate)
+        {
+            [self.delegate graphTouchesEnded:self];
+        }
     }
     else
     {
@@ -671,7 +724,7 @@
         
         FNKChartOverlayData* data = [self.chartOverlay touchAtPoint:point view:self.view];
         
-        if (data != nil)
+        if (data != nil && self.delegate)
         {
             [self.delegate touchedBar:self data: data];
         }

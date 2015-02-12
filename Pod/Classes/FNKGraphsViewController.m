@@ -72,7 +72,7 @@
     [self.view addGestureRecognizer:tapGesture];
 }
 
--(void) drawGraph
+-(void) drawGraph:(void (^) (void))completion
 {
     CGFloat height = self.view.frame.size.height - self.marginTop - self.marginBottom;
     CGFloat width = self.view.frame.size.width - self.marginLeft - self.marginRight;

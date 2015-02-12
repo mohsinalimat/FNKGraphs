@@ -43,16 +43,19 @@
 @property (nonatomic, strong) UIColor* circleAtLinePointColor;
 @property (nonatomic, strong) UIColor* circleAtLinePointFillColor;
 
--(void)showLineComparison:(NSMutableArray*)comparisonData color:(UIColor*)lineColor duration:(CGFloat)duration;
+/* Displays a comparison line*/
+-(void)showLineComparison:(NSMutableArray*)comparisonData color:(UIColor*)lineColor duration:(CGFloat)duration completion:(void (^) (void))completion;
 
--(void)filterLine:(NSMutableArray*)filteredData duration:(CGFloat)duration;
+/* Filters the line graph down to the new set of data*/
+-(void)filterLine:(NSMutableArray*)filteredData duration:(CGFloat)duration completion:(void (^)(void))completion;
 
+/* Returns the point that an object would exist at in the graph*/
 -(CGPoint)normalizedPointForObject:(id)object;
 
--(void)drawGraph:(void (^) (void))completion;
+/* Draws a linear trend line that starts at the left and extends to the right side*/
+-(void)drawTrendLine:(UIColor*)color completion:(void (^) (void))completion;
 
--(void)drawTrendLine:(UIColor*)color;
-
--(void)drawTrendLine:(UIColor*)color startPoint:(CGPoint)startPoint;
+/* Draws a linear trend line that starts a specific point in the graph and runs all the way to the right side*/
+-(void)drawTrendLine:(UIColor*)color startPoint:(CGPoint)startPoint completion:(void (^) (void))completion;
 
 @end

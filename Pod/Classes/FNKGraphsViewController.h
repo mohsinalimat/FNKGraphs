@@ -35,7 +35,7 @@
 
 -(void) focusAtPoint:(CGPoint)point show:(BOOL)show;
 
--(void) drawGraph;
+-(void) drawGraph:(void (^) (void))completion;
 
 @end
 

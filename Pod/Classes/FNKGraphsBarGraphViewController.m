@@ -12,9 +12,6 @@
 
 @interface FNKGraphsBarGraphViewController ()
 
-@property (nonatomic) CGFloat radius;
-@property (nonatomic) CGPoint center;
-
 /* xAxis - The X axis of the graph. This cannot be assigned but it's properties can be*/
 @property (nonatomic,strong) FNKXAxis* xAxis;
 
@@ -45,17 +42,9 @@
     self.barPadding = 5;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
--(void)setupLocalVars
-{
-}
-
--(void)removeSelection
-{
 }
 
 #pragma mark Drawing
@@ -67,7 +56,7 @@
 
 -(void)drawGraph:(void (^) (void))completion
 {
-    [super drawGraph];
+    [super drawGraph:completion];
     
     self.xAxis.graphHeight = self.graphHeight;
     self.yAxis.graphHeight = self.graphHeight;
@@ -100,23 +89,26 @@
     
     for(NSNumber* barData in self.graphData)
     {
-        CGFloat x = index * (self.barWidth + self.barPadding);
+        //Ensure there is at least some padding
+        CGFloat x = index * (self.barWidth + self.barPadding) + self.barPadding;
         
         FNKBar* barView = [[FNKBar alloc] initWithFrame:CGRectMake(x + self.marginLeft, self.marginTop + self.graphHeight, self.barWidth, 0)];
         barView.backgroundColor = self.barColor;
         barView.alpha = 1.0;
-        [self.view addSubview:barView];
+        [self.view insertSubview:barView belowSubview:self.yLabelView];
         
         [self.barsArray addObject:barView];
         
         double delay = 0.05*index;
         
         dispatch_group_enter(animationGroup);
+        
+        __weak __typeof(self) safeSelf = self;
         [UIView animateWithDuration:1
                               delay:delay
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
-                             barView.originalFrame = CGRectMake(x + self.marginLeft, self.marginTop + self.graphHeight, self.barWidth, -[self scaleYValue:barData.floatValue]);
+                             barView.originalFrame = CGRectMake(x + safeSelf.marginLeft, safeSelf.marginTop + safeSelf.graphHeight, safeSelf.barWidth, -[safeSelf scaleYValue:barData.floatValue]);
                              barView.frame = barView.originalFrame;
                          }
                          completion:^(BOOL finished) {
@@ -160,23 +152,34 @@
     [self.xLabelView removeFromSuperview];
 }
 
--(void)transitionBar:(NSMutableArray*)data duration:(CGFloat)duration
+-(void)transitionBar:(NSMutableArray*)data duration:(CGFloat)duration completion:(void (^)(void))completion
 {
+    dispatch_group_t animationGroup = dispatch_group_create();
     int i = 0;
     for(FNKBar* bar in self.barsArray)
     {
         NSNumber* barData = [data objectAtIndex:i];
+        
+        dispatch_group_enter(animationGroup);
+        __weak __typeof(self) safeSelf = self;
         [UIView animateWithDuration:duration
                               delay:0
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
-                             bar.frame = CGRectMake(bar.originalFrame.origin.x, bar.originalFrame.origin.y, bar.originalFrame.size.width, -[self scaleYValue:barData.floatValue]);
+                             bar.frame = CGRectMake(bar.originalFrame.origin.x, bar.originalFrame.origin.y, bar.originalFrame.size.width, -[safeSelf scaleYValue:barData.floatValue]);
                          }
                          completion:^(BOOL finished) {
-                             
+                             dispatch_group_leave(animationGroup);
                          }];
         i++;
     }
+    
+    dispatch_group_notify(animationGroup, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        if(completion)
+        {
+            completion();
+        }
+    });
 }
 
 #pragma mark max min calculations
@@ -231,67 +234,6 @@
     {
         [bar setBackgroundColor:[UIColor colorWithRed:0.239 green:0.71 blue:0.996 alpha:1.0]];
     }
-}
-
-#pragma mark Handle touches
-
-// we capture the touch move events by overriding touchesMoved method
-
--(void)touchedGraphAtPoint:(CGPoint)point userGenerated:(BOOL)userGenerated
-{
-    CGFloat value = [self valueAtPoint:point];
-    
-    [self.delegate touchedGraph:self val:value point:point userGenerated:userGenerated];
-}
-
--(void)handlePan:(UIPanGestureRecognizer*)recognizer
-{
-    //ViewController should override
-    CGPoint point = [recognizer locationInView:self.view];
-    
-    if(recognizer.state == UIGestureRecognizerStateEnded)
-    {
-        [self removeSelection];
-        [self.delegate graphTouchesEnded:self];
-    }
-    else
-    {
-        [self handleGesture:point];
-    }
-}
-
--(void)handleTap:(UITapGestureRecognizer*)recognizer
-{
-    CGPoint point = [recognizer locationInView:self.view];
-    
-    [self handleGesture:point];
-}
-
--(void) handleGesture:(CGPoint)point
-{
-    if(point.x > self.graphWidth + self.marginLeft || point.x < self.marginLeft)
-    {
-        [self removeSelection];
-        [self.delegate graphTouchesEnded:self];
-    }
-    else
-    {
-        [self touchedGraphAtPoint:point userGenerated:YES];
-    }
-}
-
--(void) focusAtPoint:(CGPoint)point show:(BOOL)show
-{
-    //ViewController should override
-}
-
--(CGFloat)valueAtPoint:(CGPoint)point
-{
-    //This function handles selecting a piece of the pie
-    //    CGFloat xValue = point.x - self.center.x;
-    CGFloat yValue = point.y - self.center.y;
-    
-    return yValue;
 }
 
 @end

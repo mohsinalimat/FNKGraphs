@@ -45,10 +45,8 @@
 {
 }
 
--(void)drawGraph
+-(void)drawGraph:(void (^) (void))completion
 {
-    [super drawGraph];
-    
     self.radius = self.graphHeight >= self.graphWidth ? self.graphWidth / 2 : self.graphHeight / 2;
     self.center = CGPointMake(self.graphWidth/2, self.graphHeight/2);
     
@@ -81,12 +79,11 @@
         i++;
     }
     
-    [self drawPie:self.graphData
-       completion:^{
-       }];
+    [self drawPie:self.graphData];
+    completion();
 }
 
--(CAShapeLayer*)drawPie:(NSMutableArray*)data completion:(void (^)())completion
+-(CAShapeLayer*)drawPie:(NSMutableArray*)data
 {
     CAShapeLayer* layer = [[CAShapeLayer alloc] init];
     
@@ -269,7 +266,10 @@
     
     //Okay let's select that section of the graph
     
-    [self.delegate pieSliceSelected:self sliceIndex:self.selectedSliceIndex];
+    if(self.delegate)
+    {
+        [self.delegate pieSliceSelected:self sliceIndex:self.selectedSliceIndex];
+    }
 }
 
 -(void)handlePan:(UIPanGestureRecognizer*)recognizer
@@ -289,7 +289,11 @@
     if(point.x > self.graphWidth + self.marginLeft || point.x < self.marginLeft)
     {
         [self removeSelection];
-        [self.delegate graphTouchesEnded:self];
+        
+        if(self.delegate)
+        {
+            [self.delegate graphTouchesEnded:self];
+        }
     }
     else
     {

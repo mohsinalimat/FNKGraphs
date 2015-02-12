@@ -24,15 +24,19 @@
 /* yAxis - The Y axis of the graph. This cannot be assigned but it's properties can be*/
 @property (nonatomic,readonly) FNKYAxis* yAxis;
 
+/* The label that will show up for the specific object in the graph data */
 @property (nonatomic, copy) CGFloat (^labelValueForObject)(id object);
+
+/* The value for the specific object in the graph data (the length of the bar)*/
 @property (nonatomic, copy) CGFloat (^valueForObject)(id object);
 
+/* The padding between each of the bars (defaults 5)*/
 @property (nonatomic) CGFloat barPadding;
 
+/* When using the bar graph in a UITableViewCell you might have to reset the bar colors when the cell is clicked*/
 -(void)resetBarColors;
 
--(void)drawGraph:(void (^) (void))completion;
-
+/* Provides ability to pass in a value and determines where it would end up on the graph */
 -(double)scaleYValue:(double)value;
 
 @end

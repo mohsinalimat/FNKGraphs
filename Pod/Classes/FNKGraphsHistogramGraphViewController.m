@@ -12,9 +12,6 @@
 
 @interface FNKGraphsHistogramGraphViewController ()
 
-@property (nonatomic) CGFloat radius;
-@property (nonatomic) CGPoint center;
-
 /* xAxis - The X axis of the graph. This cannot be assigned but it's properties can be*/
 @property (nonatomic,strong) FNKXAxis* xAxis;
 
@@ -65,9 +62,9 @@
 
 #pragma mark Drawing
 
--(void)drawGraph
+-(void)drawGraph:(void (^) (void))completion
 {
-    [super drawGraph];
+    [super drawGraph:completion];
     
     self.xAxis.graphHeight = self.graphHeight;
     self.yAxis.graphHeight = self.graphHeight;
@@ -112,6 +109,8 @@
     
     int index = 0;
     
+    dispatch_group_t animationGroup = dispatch_group_create();
+    
     for(NSNumber* barData in self.buckets)
     {
         CGFloat x = index * (self.barWidth + self.barPadding);
@@ -125,18 +124,27 @@
         
         double delay = 0.05*index;
         
+        dispatch_group_enter(animationGroup);
+        __weak __typeof(self) safeSelf = self;
         [UIView animateWithDuration:1
                               delay:delay
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
-                             barView.originalFrame = CGRectMake(x + self.marginLeft, self.marginTop + self.graphHeight, self.barWidth, -barData.floatValue * self.yScaleFactor);
+                             barView.originalFrame = CGRectMake(x + safeSelf.marginLeft, safeSelf.marginTop + safeSelf.graphHeight, safeSelf.barWidth, -barData.floatValue * safeSelf.yScaleFactor);
                              barView.frame = barView.originalFrame;
                          }
                          completion:^(BOOL finished) {
-                             
+                             dispatch_group_leave(animationGroup);
                          }];
         index++;
     }
+    
+    dispatch_group_notify(animationGroup, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        if(completion)
+        {
+            completion();
+        }
+    });
 }
 
 -(void)drawAxii:(UIView*)view
@@ -173,23 +181,35 @@
     [self.xLabelView removeFromSuperview];
 }
 
--(void)transitionBar:(NSMutableArray*)data duration:(CGFloat)duration
+-(void)transitionBar:(NSMutableArray*)data duration:(CGFloat)duration completion:(void (^) (void))completion
 {
     int i = 0;
+    
+    dispatch_group_t animationGroup = dispatch_group_create();
     for(FNKBar* bar in self.barsArray)
     {
         NSNumber* barData = [data objectAtIndex:i];
+        
+        __weak __typeof(self) safeSelf = self;
+        dispatch_group_enter(animationGroup);
         [UIView animateWithDuration:duration
                               delay:0
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
-                             bar.frame = CGRectMake(bar.originalFrame.origin.x, bar.originalFrame.origin.y, bar.originalFrame.size.width, -barData.floatValue * self.yScaleFactor);
+                             bar.frame = CGRectMake(bar.originalFrame.origin.x, bar.originalFrame.origin.y, bar.originalFrame.size.width, -barData.floatValue * safeSelf.yScaleFactor);
                          }
                          completion:^(BOOL finished) {
-                             
+                             dispatch_group_leave(animationGroup);
                          }];
         i++;
     }
+    
+    dispatch_group_notify(animationGroup, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        if(completion)
+        {
+            completion();
+        }
+    });
 }
 
 #pragma mark max min calculations
@@ -233,7 +253,7 @@
     self.yAxis.axisMin = self.yAxisNum;
 }
 
--(void)filterBars:(NSMutableArray*)filteredData duration:(CGFloat)duration
+-(void)filterBars:(NSMutableArray*)filteredData duration:(CGFloat)duration completion:(void (^)(void))completion
 {
     if(filteredData)
     {
@@ -262,7 +282,14 @@
         }
         
         [self calcMaxMin:filteredBuckets];
-        [self transitionBar:filteredBuckets duration:duration];
+        [self transitionBar:filteredBuckets
+                   duration:duration
+                 completion:^{
+                     if(completion)
+                     {
+                         completion();
+                     }
+                 }];
         
         [self removeTicks];
         [self addTicks];
@@ -270,7 +297,14 @@
     else
     {
         [self calcMaxMin:self.buckets];
-        [self transitionBar:self.buckets duration:duration];
+        [self transitionBar:self.buckets
+                   duration:duration
+                 completion:^{
+                     if(completion)
+                     {
+                         completion();
+                     }
+                 }];
         
         [self removeTicks];
         [self addTicks];
@@ -286,65 +320,6 @@
 }
 
 #pragma mark Handle touches
-
-// we capture the touch move events by overriding touchesMoved method
-
--(void)touchedGraphAtPoint:(CGPoint)point userGenerated:(BOOL)userGenerated
-{
-    CGFloat value = [self valueAtPoint:point];
-    
-    [self.delegate touchedGraph:self val:value point:point userGenerated:userGenerated];
-}
-
--(void)handlePan:(UIPanGestureRecognizer*)recognizer
-{
-    //ViewController should override
-    CGPoint point = [recognizer locationInView:self.view];
-    
-    if(recognizer.state == UIGestureRecognizerStateEnded)
-    {
-        [self removeSelection];
-        [self.delegate graphTouchesEnded:self];
-    }
-    else
-    {
-        [self handleGesture:point];
-    }
-}
-
--(void)handleTap:(UITapGestureRecognizer*)recognizer
-{
-    CGPoint point = [recognizer locationInView:self.view];
-    
-    [self handleGesture:point];
-}
-
--(void) handleGesture:(CGPoint)point
-{
-    if(point.x > self.graphWidth + self.marginLeft || point.x < self.marginLeft)
-    {
-        [self removeSelection];
-        [self.delegate graphTouchesEnded:self];
-    }
-    else
-    {
-        [self touchedGraphAtPoint:point userGenerated:YES];
-    }
-}
-
--(void) focusAtPoint:(CGPoint)point show:(BOOL)show
-{
-    //ViewController should override
-}
-
--(CGFloat)valueAtPoint:(CGPoint)point
-{
-    //This function handles selecting a piece of the pie
-//    CGFloat xValue = point.x - self.center.x;
-    CGFloat yValue = point.y - self.center.y;
-    
-    return yValue;
-}
 
 - (NSInteger) daysBetweenMinDate:(NSDate*)minDate maxDate:(NSDate*)maxDate calendar:(NSCalendar*)calendar
 {
