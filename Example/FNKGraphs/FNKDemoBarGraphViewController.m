@@ -43,7 +43,7 @@
         
         NSDate* date = [NSDate dateWithTimeIntervalSince1970: [dateNumber integerValue]/1000];
         
-        NSDateComponents *components = [cal components:kCFCalendarUnitMonth fromDate:date];
+        NSDateComponents *components = [cal components:NSCalendarUnitMonth fromDate:date];
         
         int month = (int)[components month];
         

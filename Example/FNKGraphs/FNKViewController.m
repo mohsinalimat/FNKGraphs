@@ -29,8 +29,9 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    [self.paceChartsVC drawGraph];
-    [self.elevationChartsVC drawGraph];
+    [super viewDidAppear:animated];
+    [self.paceChartsVC drawGraph:nil];
+    [self.elevationChartsVC drawGraph:nil];
 }
 
 -(void)addPaceChart

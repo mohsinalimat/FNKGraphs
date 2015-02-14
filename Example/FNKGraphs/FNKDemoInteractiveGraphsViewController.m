@@ -23,6 +23,7 @@
 
 -(void)viewDidLoad
 {
+    [super viewDidLoad];
     [self setupDataSet];
     [self addPieChart];
     [self addLineChart];
@@ -32,9 +33,9 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self.pieGraphVC drawGraph];
-    [self.lineGraphVC drawGraph];
-    [self.barGraphVC drawGraph];
+    [self.pieGraphVC drawGraph:nil];
+    [self.lineGraphVC drawGraph:nil];
+    [self.barGraphVC drawGraph:nil];
 }
 
 //rainfall by day of week
@@ -367,8 +368,8 @@
 {
     if(sliceIndex == -1)
     {
-        [self.lineGraphVC filterLine:nil duration:fnkAnimationDuration];
-        [self.barGraphVC filterBars:nil duration:fnkAnimationDuration];
+        [self.lineGraphVC filterLine:nil duration:fnkAnimationDuration completion:nil];
+        [self.barGraphVC filterBars:nil duration:fnkAnimationDuration completion:nil];
         return;
     }
     
@@ -386,8 +387,8 @@
         }
     }
     
-    [self.lineGraphVC filterLine:self.filteredDataSet duration:fnkAnimationDuration];
-    [self.barGraphVC filterBars:self.filteredDataSet duration:fnkAnimationDuration];
+    [self.lineGraphVC filterLine:self.filteredDataSet duration:fnkAnimationDuration completion:nil];
+    [self.barGraphVC filterBars:self.filteredDataSet duration:fnkAnimationDuration completion:nil];
 }
 
 @end
