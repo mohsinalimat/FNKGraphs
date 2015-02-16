@@ -10,13 +10,11 @@
 
 @implementation FNKAxis
 
--(FNKAxis*)initWithMarginLeft:(CGFloat)marginLeft marginRight:(CGFloat)marginRight marginTop:(CGFloat)marginTop marginBottom:(CGFloat)marginBottom
+-(FNKAxis*)initWithMarginLeft:(CGFloat)marginLeft marginBottom:(CGFloat)marginBottom
 {
     if(self = [super init])
     {
         self.marginLeft = marginLeft;
-        self.marginRight = marginRight;
-        self.marginTop = marginTop;
         self.marginBottom = marginBottom;
         self.tickFont = [UIFont fontWithName:@"Avenir" size:9];
     }

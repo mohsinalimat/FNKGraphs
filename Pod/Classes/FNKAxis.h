@@ -17,8 +17,6 @@ typedef enum {
 
 //Graph Sizes
 @property (nonatomic) CGFloat marginLeft;
-@property (nonatomic) CGFloat marginTop;
-@property (nonatomic) CGFloat marginRight;
 @property (nonatomic) CGFloat marginBottom;
 @property (nonatomic) CGFloat graphHeight;
 @property (nonatomic) CGFloat graphWidth;
@@ -41,7 +39,7 @@ typedef enum {
 
 @property (nonatomic, copy) NSString* (^tickFormat)(CGFloat value);
 
--(FNKAxis*)initWithMarginLeft:(CGFloat)marginLeft marginRight:(CGFloat)marginRight marginTop:(CGFloat)marginTop marginBottom:(CGFloat)marginBottom;
+-(FNKAxis*)initWithMarginLeft:(CGFloat)marginLeft marginBottom:(CGFloat)marginBottom;
 
 -(UIView*) addTicksToView:(UIView*) view;
 

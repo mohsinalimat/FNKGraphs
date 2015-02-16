@@ -6,16 +6,16 @@
 //  Copyright (c) 2014 Phillip Connaughton. All rights reserved.
 //
 
-#import "FNKViewController.h"
+#import "FNKDemoLineGraphViewController.h"
 #import <FNKGraphs/FNKGraphsViewController.h>
 #import <FNKGraphs/FNKChartOverlayBars.h>
 #import "FNKPointValues.h"
 
-@interface FNKViewController ()
+@interface FNKDemoLineGraphViewController ()
 
 @end
 
-@implementation FNKViewController
+@implementation FNKDemoLineGraphViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

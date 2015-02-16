@@ -10,7 +10,7 @@
 
 #import <FNKGraphs/FNKGraphsLineGraphViewController.h>
 
-@interface FNKViewController : UIViewController<FNKChartsViewDelegate>
+@interface FNKDemoLineGraphViewController : UIViewController<FNKChartsViewDelegate>
 
 
 @property (nonatomic, strong) FNKGraphsLineGraphViewController* paceChartsVC;

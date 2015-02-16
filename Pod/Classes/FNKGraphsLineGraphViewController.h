@@ -50,6 +50,9 @@
 -(void)filterLine:(NSMutableArray*)filteredData duration:(CGFloat)duration completion:(void (^)(void))completion;
 
 /* Returns the point that an object would exist at in the graph*/
+-(CGPoint)normalizedPointForPoint:(CGPoint)point;
+
+/* Returns the point that an object would exist at in the graph*/
 -(CGPoint)normalizedPointForObject:(id)object;
 
 /* Draws a linear trend line that starts at the left and extends to the right side*/

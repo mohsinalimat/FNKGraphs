@@ -27,6 +27,15 @@
 
 @implementation FNKGraphsPieGraphViewController
 
+-(FNKGraphsPieGraphViewController*)initWithFrame:(CGRect)frame
+{
+    return [self initWithRect:frame
+                   marginLeft:0
+                 marginBottom:0
+                   graphWidth:frame.size.width
+                  graphHeight:frame.size.height];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -47,6 +56,7 @@
 
 -(void)drawGraph:(void (^) (void))completion
 {
+    [super drawGraph:nil];
     self.radius = self.graphHeight >= self.graphWidth ? self.graphWidth / 2 : self.graphHeight / 2;
     self.center = CGPointMake(self.graphWidth/2, self.graphHeight/2);
     
@@ -80,7 +90,11 @@
     }
     
     [self drawPie:self.graphData];
-    completion();
+    
+    if(completion)
+    {
+        completion();
+    }
 }
 
 -(CAShapeLayer*)drawPie:(NSMutableArray*)data

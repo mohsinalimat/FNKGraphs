@@ -19,5 +19,7 @@
 @property (nonatomic, strong) UIColor* sliceBorderColor;
 @property (nonatomic, strong) UIFont* sliceLabelFont;
 
+-(FNKGraphsPieGraphViewController*)initWithFrame:(CGRect)frame;
+
 
 @end

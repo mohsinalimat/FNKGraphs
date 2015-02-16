@@ -13,8 +13,6 @@
 @interface FNKGraphsViewController ()
 
 @property (nonatomic) CGFloat marginLeft;
-@property (nonatomic) CGFloat marginRight;
-@property (nonatomic) CGFloat marginTop;
 @property (nonatomic) CGFloat marginBottom;
 @property (nonatomic) CGFloat graphWidth;
 @property (nonatomic) CGFloat graphHeight;
@@ -28,25 +26,21 @@
 -(FNKGraphsViewController*)initWithFrame:(CGRect)frame
 {
     return [self initWithRect:frame
-                   marginLeft:10
-                  marginRight:10
-                    marginTop:5
+                   marginLeft:20
                  marginBottom:5
-                   graphWidth:frame.size.width - 10 - 10
-                  graphHeight:frame.size.height - 5 - 5];
+                   graphWidth:frame.size.width - 20
+                  graphHeight:frame.size.height - 5];
 }
 
--(FNKGraphsViewController*)initWithRect:(CGRect)rect marginLeft:(CGFloat)marginLeft marginRight:(CGFloat)marginRight marginTop:(CGFloat) marginTop marginBottom:(CGFloat)marginBottom graphWidth:(CGFloat)graphWidth graphHeight:(CGFloat)graphHeight
+-(FNKGraphsViewController*)initWithRect:(CGRect)rect marginLeft:(CGFloat)marginLeft marginBottom:(CGFloat)marginBottom graphWidth:(CGFloat)graphWidth graphHeight:(CGFloat)graphHeight
 {
     if(self = [super init])
-    {        
+    {
         self.marginLeft = marginLeft;
-        self.marginRight = marginRight;
-        self.marginTop = marginTop;
         self.marginBottom = marginBottom;
         self.graphWidth = graphWidth;
         self.graphHeight = graphHeight;
-
+        
         self.drawBars = false;
         
         [self initializers];
@@ -60,7 +54,7 @@
 }
 
 -(void)viewDidLoad
-{    
+{
     [super viewDidLoad];
     
     [self.view setUserInteractionEnabled:YES];
@@ -74,8 +68,8 @@
 
 -(void) drawGraph:(void (^) (void))completion
 {
-    CGFloat height = self.view.frame.size.height - self.marginTop - self.marginBottom;
-    CGFloat width = self.view.frame.size.width - self.marginLeft - self.marginRight;
+    CGFloat height = self.view.frame.size.height - self.marginBottom;
+    CGFloat width = self.view.frame.size.width - self.marginLeft;
     
     self.graphHeight = height;
     self.graphWidth = width;

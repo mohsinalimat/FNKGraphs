@@ -37,8 +37,8 @@
 
 -(void)initializers
 {
-    self.xAxis = [[FNKXAxis alloc] initWithMarginLeft:self.marginLeft marginRight:self.marginRight marginTop:self.marginTop marginBottom:self.marginBottom];
-    self.yAxis = [[FNKYAxis alloc] initWithMarginLeft:self.marginLeft marginRight:self.marginRight marginTop:self.marginTop marginBottom:self.marginBottom];
+    self.xAxis = [[FNKXAxis alloc] initWithMarginLeft:self.marginLeft marginBottom:self.marginBottom];
+    self.yAxis = [[FNKYAxis alloc] initWithMarginLeft:self.marginLeft marginBottom:self.marginBottom];
     self.yAxis.ticks = 5;
     self.xAxis.ticks = 5;
     self.yPadding = 0;
@@ -58,6 +58,8 @@
 
 -(void)drawGraph:(void (^) (void))completion
 {
+    [super drawGraph:completion];
+    
     self.xAxis.graphHeight = self.graphHeight;
     self.yAxis.graphHeight = self.graphHeight;
     
@@ -74,8 +76,6 @@
     if(self.chartOverlay)
     {
         self.chartOverlay.marginBottom = self.marginBottom;
-        self.chartOverlay.marginTop = self.marginTop;
-        self.chartOverlay.marginRight = self.marginRight;
         self.chartOverlay.marginLeft = self.marginLeft;
         self.chartOverlay.graphWidth = self.graphWidth;
         self.chartOverlay.graphHeight = self.graphHeight;
@@ -114,7 +114,7 @@
 -(double)scaleYValue:(double)value
 {
     //yVal needs to be the inverse bc of iOS coordinates
-    return self.graphHeight + self.yAxis.marginTop - ((value - self.yAxis.axisMin) * self.yScaleFactor);
+    return self.graphHeight - ((value - self.yAxis.axisMin) * self.yScaleFactor);
 }
 
 -(void)willAppear
@@ -301,8 +301,8 @@
     
     UIBezierPath* bezPath = [[UIBezierPath alloc] init];
     
-    [bezPath moveToPoint:CGPointMake(point.x, self.yAxis.marginTop)];
-    [bezPath addLineToPoint:CGPointMake(point.x, self.graphHeight + self.yAxis.marginTop)];
+    [bezPath moveToPoint:CGPointMake(point.x, 0)];
+    [bezPath addLineToPoint:CGPointMake(point.x, self.graphHeight)];
     
     self.selectedLineLayer.strokeColor = self.lineStrokeColor.CGColor;
     self.selectedLineLayer.path = bezPath.CGPath;
@@ -313,7 +313,7 @@
     self.selectedLineCircleLayer.fillColor = self.lineStrokeColor.CGColor;
     self.selectedLineCircleLayer.strokeColor = self.lineStrokeColor.CGColor;
     
-    return ((self.yAxis.marginTop + self.graphHeight - yVal) / self.yScaleFactor) + self.yAxis.axisMin;
+    return ((self.graphHeight - yVal) / self.yScaleFactor) + self.yAxis.axisMin;
 }
 
 -(void)removeSelection
@@ -376,10 +376,10 @@
               }];
     
     dispatch_group_notify(animationGroup, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-       if(completion)
-       {
-           completion();
-       }
+        if(completion)
+        {
+            completion();
+        }
     });
 }
 
@@ -539,13 +539,13 @@
     for (NSValue* val in points)
     {
         CGPoint point = [val CGPointValue];
-        [scaledPoints addObject:[NSValue valueWithCGPoint:[self normalizedPoint:point]]];
+        [scaledPoints addObject:[NSValue valueWithCGPoint:[self normalizedPointForPoint:point]]];
     }
     
     return scaledPoints;
 }
 
--(CGPoint)normalizedPoint:(CGPoint)point
+-(CGPoint)normalizedPointForPoint:(CGPoint)point
 {
     CGFloat xVal = ((point.x- self.xAxis.axisMin) * self.xScaleFactor ) + self.yAxis.marginLeft;
     CGFloat yVal = [self scaleYValue:point.y];
@@ -630,6 +630,13 @@
     CGFloat endX = self.graphWidth;
     CGFloat y2 = slope * endX + yIntercept;
     
+    //Don't let the trend line draw off the bottom of the graph area
+    if(y2 > self.graphHeight - self.marginBottom)
+    {
+        y2 = self.graphHeight - self.marginBottom;
+        endX = (y2 - yIntercept) / slope;
+    }
+    
     CGPoint endPoint = CGPointMake(endX, y2);
     
     UIBezierPath* bezPath = [[UIBezierPath alloc] init];
@@ -662,7 +669,7 @@
 
 -(CGPoint)normalizedPointForObject:(id)object
 {
-    return [self normalizedPoint:self.pointForObject(object)];
+    return [self normalizedPointForPoint:self.pointForObject(object)];
 }
 
 #pragma mark gestures

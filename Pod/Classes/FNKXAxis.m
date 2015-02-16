@@ -14,8 +14,8 @@
 -(void) drawAxis:(UIView*) view
 {
     UIBezierPath* bezPath = [[UIBezierPath alloc] init];
-    [bezPath moveToPoint:CGPointMake(self.marginLeft, self.graphHeight + self.marginTop)];
-    [bezPath addLineToPoint:CGPointMake(self.graphWidth + self.marginLeft, self.graphHeight + self.marginTop)];
+    [bezPath moveToPoint:CGPointMake(self.marginLeft, self.graphHeight)];
+    [bezPath addLineToPoint:CGPointMake(self.graphWidth + self.marginLeft, self.graphHeight)];
     [bezPath closePath];
     
     CAShapeLayer* layer = [[CAShapeLayer alloc] init];
@@ -42,7 +42,7 @@
         UIBezierPath* bezPath = [[UIBezierPath alloc] init];
         
         CGFloat xVal = self.marginLeft + (index * tickInterval);
-        CGFloat yVal = self.marginTop + self.graphHeight;
+        CGFloat yVal = self.graphHeight;
         
         [bezPath moveToPoint:CGPointMake(xVal, yVal)];
         [bezPath addLineToPoint:CGPointMake(xVal, yVal + 3)];
@@ -100,7 +100,7 @@
         UIBezierPath* bezPath = [[UIBezierPath alloc] init];
         
         CGFloat xVal = bar.frame.origin.x + bar.frame.size.width / 2;
-        CGFloat yVal = self.marginTop + self.graphHeight;
+        CGFloat yVal = self.graphHeight;
         
         [bezPath moveToPoint:CGPointMake(xVal, yVal)];
         [bezPath addLineToPoint:CGPointMake(xVal, yVal + 3)];

@@ -34,8 +34,8 @@
 
 -(void)initializers
 {
-    self.xAxis = [[FNKXAxis alloc] initWithMarginLeft:self.marginLeft marginRight:self.marginRight marginTop:self.marginTop marginBottom:self.marginBottom];
-    self.yAxis = [[FNKYAxis alloc] initWithMarginLeft:self.marginLeft marginRight:self.marginRight marginTop:self.marginTop marginBottom:self.marginBottom];
+    self.xAxis = [[FNKXAxis alloc] initWithMarginLeft:self.marginLeft marginBottom:self.marginBottom];
+    self.yAxis = [[FNKYAxis alloc] initWithMarginLeft:self.marginLeft marginBottom:self.marginBottom];
     self.yAxis.ticks = 5;
     self.xAxis.ticks = 5;
     
@@ -92,7 +92,7 @@
         //Ensure there is at least some padding
         CGFloat x = index * (self.barWidth + self.barPadding) + self.barPadding;
         
-        FNKBar* barView = [[FNKBar alloc] initWithFrame:CGRectMake(x + self.marginLeft, self.marginTop + self.graphHeight, self.barWidth, 0)];
+        FNKBar* barView = [[FNKBar alloc] initWithFrame:CGRectMake(x + self.marginLeft, self.graphHeight, self.barWidth, 0)];
         barView.backgroundColor = self.barColor;
         barView.alpha = 1.0;
         [self.view insertSubview:barView belowSubview:self.yLabelView];
@@ -108,7 +108,7 @@
                               delay:delay
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
-                             barView.originalFrame = CGRectMake(x + safeSelf.marginLeft, safeSelf.marginTop + safeSelf.graphHeight, safeSelf.barWidth, -[safeSelf scaleYValue:barData.floatValue]);
+                             barView.originalFrame = CGRectMake(x + safeSelf.marginLeft, safeSelf.graphHeight, safeSelf.barWidth, -[safeSelf scaleYValue:barData.floatValue]);
                              barView.frame = barView.originalFrame;
                          }
                          completion:^(BOOL finished) {

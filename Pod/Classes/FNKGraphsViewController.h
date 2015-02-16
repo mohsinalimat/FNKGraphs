@@ -15,9 +15,8 @@
 
 @interface FNKGraphsViewController : UIViewController
 
+/*Margin left determines the width of the the y-axis label*/
 @property (readonly, nonatomic) CGFloat marginLeft;
-@property (readonly, nonatomic) CGFloat marginRight;
-@property (readonly, nonatomic) CGFloat marginTop;
 @property (readonly, nonatomic) CGFloat marginBottom;
 @property (readonly, nonatomic) CGFloat graphWidth;
 @property (readonly, nonatomic) CGFloat graphHeight;
@@ -30,6 +29,8 @@
 @property (nonatomic, strong) FNKChartOverlayBars* chartOverlay;
 
 -(FNKGraphsViewController*)initWithFrame:(CGRect)frame;
+
+-(FNKGraphsViewController*)initWithRect:(CGRect)rect marginLeft:(CGFloat)marginLeft marginBottom:(CGFloat)marginBottom graphWidth:(CGFloat)graphWidth graphHeight:(CGFloat)graphHeight;
 
 -(void) addChartOverlay:(FNKChartOverlayBars*)chartOverlay;
 
