@@ -10,4 +10,6 @@
 
 @interface FNKYAxis : FNKAxis
 
+@property (nonatomic) NSNumber* paddingPercentage;
+
 @end

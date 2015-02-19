@@ -41,7 +41,6 @@
     self.yAxis = [[FNKYAxis alloc] initWithMarginLeft:self.marginLeft marginBottom:self.marginBottom];
     self.yAxis.ticks = 5;
     self.xAxis.ticks = 5;
-    self.yPadding = 0;
     self.selectedLineLayer  = [CAShapeLayer layer];
     self.selectedLineCircleLayer = [CAShapeLayer layer];
 }
@@ -516,8 +515,10 @@
         maxX = self.xAxis.overridingMax.floatValue;
     }
     
-    minY = minY - self.yPadding;
-    maxY = maxY + self.yPadding;
+    CGFloat yPadding = (maxY - minY) * self.yAxis.paddingPercentage.floatValue;
+    
+    minY = minY - yPadding;
+    maxY = maxY + yPadding;
     
     //Okay so now we have the min's and max's
     self.xRange = maxX - minX;
@@ -622,6 +623,15 @@
     d = sumX * sumX;
     
     CGFloat slope = (a - b) / (c - d);
+    
+    if(isnan(slope))
+    {
+        if(completion)
+        {
+            completion();
+        }
+        return;
+    }
     
     CGPoint p1 = [[self.normalizedGraphData firstObject] CGPointValue];
     

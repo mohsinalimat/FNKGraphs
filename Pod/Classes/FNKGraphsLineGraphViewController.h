@@ -33,8 +33,6 @@
 /* yAxis - The Y axis of the graph. This cannot be assigned but it's properties can be*/
 @property (nonatomic,readonly) FNKYAxis* yAxis;
 
-@property (nonatomic) CGFloat yPadding;
-
 @property (nonatomic, copy) CGPoint (^pointForObject)(id object);
 @property (nonatomic, copy) CGFloat (^valueForObject)(id object);
 
