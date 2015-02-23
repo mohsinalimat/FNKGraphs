@@ -59,7 +59,7 @@
         [view.layer addSublayer:layer];
         
         CABasicAnimation* pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-        pathAnimation.duration = 1;
+        pathAnimation.duration = self.animationDuration;
         pathAnimation.fromValue = @(0);
         pathAnimation.toValue = @(1);
         

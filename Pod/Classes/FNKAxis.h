@@ -24,6 +24,7 @@ typedef enum {
 @property (nonatomic) CGFloat axisMin;
 @property (nonatomic, strong) NSNumber* overridingMax;
 @property (nonatomic, strong) NSNumber* overridingMin;
+@property (nonatomic) CGFloat animationDuration;
 
 
 @property (nonatomic) FNKTickType tickType;

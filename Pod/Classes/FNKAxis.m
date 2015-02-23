@@ -17,6 +17,7 @@
         self.marginLeft = marginLeft;
         self.marginBottom = marginBottom;
         self.tickFont = [UIFont fontWithName:@"Avenir" size:9];
+        self.animationDuration = .7;
     }
     return self;
 }

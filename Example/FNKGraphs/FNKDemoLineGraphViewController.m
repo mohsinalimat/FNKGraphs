@@ -38,7 +38,6 @@
 {
     self.paceChartsVC = [[FNKGraphsLineGraphViewController alloc] initWithFrame:CGRectMake(0, 70, 320, 160)];
     [self.paceChartsVC setDataArray:[FNKPointValues addPointsPaceByDistanceTwo]];
-    self.paceChartsVC.yPadding = 50;
     
 //        [self.paceChartsVC addChartOverlay:[[FNKChartOverlayBars alloc] init]];
     
@@ -111,7 +110,6 @@
 {
     self.elevationChartsVC = [[FNKGraphsLineGraphViewController alloc] initWithFrame:CGRectMake(0, 320, 320, 160)];
     [self.elevationChartsVC setDataArray:[FNKPointValues addPointsElevationByDistanceOne]];
-    self.elevationChartsVC.yPadding = 0;
     
     self.elevationChartsVC.yAxis.strokeColor = [UIColor clearColor];
     self.elevationChartsVC.yAxis.fillColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];

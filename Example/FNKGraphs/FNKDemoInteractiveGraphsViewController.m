@@ -163,7 +163,6 @@
 {
     self.lineGraphVC = [[FNKGraphsLineGraphViewController alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
     [self.lineGraphVC setDataArray:[self dataSet]];
-    self.lineGraphVC.yPadding = 50;
     
     //    [self.paceChartsVC addChartOverlay:[[FNKChartOverlayBars alloc] init]];
     
