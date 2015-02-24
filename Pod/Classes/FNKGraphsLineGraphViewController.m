@@ -80,22 +80,17 @@
         self.chartOverlay.graphHeight = self.graphHeight;
     }
     
-    __weak __typeof(self) safeSelf = self;
     
     [self drawAxii:self.view];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        [safeSelf loadData:self.dataArray];
-        [safeSelf drawData:completion];
-        
-        if (safeSelf.chartOverlay != nil)
-        {
-            [safeSelf.chartOverlay drawInView:safeSelf.view];
-            safeSelf.yLabelView.userInteractionEnabled = false;
-        }
-        
-    });
+    [self loadData:self.dataArray];
+    [self drawData:completion];
+    
+    if (self.chartOverlay != nil)
+    {
+        [self.chartOverlay drawInView:self.view];
+        self.yLabelView.userInteractionEnabled = false;
+    }
 }
 
 -(void)loadData:(NSMutableArray*)data
