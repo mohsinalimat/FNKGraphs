@@ -315,6 +315,22 @@
     return points;
 }
 
++(NSMutableArray*) addAllZerosTest
+{
+    NSMutableArray* points = [NSMutableArray array];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    return points;
+}
+
 +(NSMutableArray*) addPointsPaceByDistanceTwo
 {
     NSMutableArray* points = [NSMutableArray array];

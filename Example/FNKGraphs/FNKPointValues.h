@@ -14,4 +14,6 @@
 +(NSMutableArray*) addPointsPaceByDistanceTwo;
 +(NSMutableArray*) addPointsElevationByDistanceOne;
 
++(NSMutableArray*) addAllZerosTest;
+
 @end

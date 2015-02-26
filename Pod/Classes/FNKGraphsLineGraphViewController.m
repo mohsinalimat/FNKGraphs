@@ -83,7 +83,11 @@
     
     [self drawAxii:self.view];
     
-    [self loadData:self.dataArray];
+    if(![self loadData:self.dataArray])
+    {
+        return;
+    }
+    
     [self drawData:completion];
     
     if (self.chartOverlay != nil)
@@ -93,7 +97,7 @@
     }
 }
 
--(void)loadData:(NSMutableArray*)data
+-(BOOL)loadData:(NSMutableArray*)data
 {
     self.graphData = [NSMutableArray array];
     for(id obj in data)
@@ -101,8 +105,14 @@
         [self.graphData addObject:[NSValue valueWithCGPoint:self.pointForObject(obj)]];
     }
     
-    [self calcMaxMin:self.graphData];
+    if(![self calcMaxMin:self.graphData])
+    {
+        return NO;
+    }
+        
     self.normalizedGraphData = [self normalizePoints:self.graphData];
+    
+    return YES;
 }
 
 -(double)scaleYValue:(double)value
@@ -459,7 +469,7 @@
     [CATransaction commit];
 }
 
--(void)calcMaxMin:(NSArray*)points
+-(BOOL)calcMaxMin:(NSArray*)points
 {
     CGFloat maxX= DBL_MIN;
     CGFloat minX = DBL_MAX;
@@ -515,6 +525,12 @@
     minY = minY - yPadding;
     maxY = maxY + yPadding;
     
+    if(maxX == DBL_MIN || minX == DBL_MAX || maxY == DBL_MIN || minY == DBL_MAX)
+    {
+        NSLog(@"FNKGraphsLineGraphViewController: The max or min on one of your axii is infinite!");
+        return NO;
+    }
+    
     //Okay so now we have the min's and max's
     self.xRange = maxX - minX;
     self.yRange = maxY - minY;
@@ -526,6 +542,8 @@
     self.yAxis.scaleFactor = self.yScaleFactor;
     self.yAxis.axisMin = minY;
     self.xAxis.axisMin = minX;
+    
+    return YES;
 }
 
 -(NSMutableArray*)normalizePoints:(NSArray*)points
