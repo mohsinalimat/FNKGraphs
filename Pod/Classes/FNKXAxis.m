@@ -95,9 +95,9 @@
     UIView* labelView = [[UIView alloc] initWithFrame:CGRectMake(0, view.frame.size.height, view.frame.size.width, 20)];
     
     //Let's show 5 ticks at most.
-    int tickInterval = (int)bars.count/5;
+    int tickInterval = (int)bars.count/5 != 0 ? (int)bars.count/5 : 1;
     
-    for (int index = 0 ; index < (int)bars.count ; index++)
+    for (int index = 0 ; index < (int)bars.count+1 ; index++)
     {
         if(index%tickInterval != 0)
             continue;
