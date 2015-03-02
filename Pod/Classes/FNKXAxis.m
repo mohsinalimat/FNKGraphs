@@ -94,9 +94,15 @@
 {
     UIView* labelView = [[UIView alloc] initWithFrame:CGRectMake(0, view.frame.size.height, view.frame.size.width, 20)];
     
-    int index = 0;
-    for (FNKBar* bar in bars)
+    //Let's show 5 ticks at most.
+    int tickInterval = (int)bars.count/5;
+    
+    for (int index = 0 ; index < (int)bars.count ; index++)
     {
+        if(index%tickInterval != 0)
+            continue;
+        
+        FNKBar* bar = [bars objectAtIndex:index];
         UIBezierPath* bezPath = [[UIBezierPath alloc] init];
         
         CGFloat xVal = bar.frame.origin.x + bar.frame.size.width / 2;
