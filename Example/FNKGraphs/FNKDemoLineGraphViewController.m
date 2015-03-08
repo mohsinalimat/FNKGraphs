@@ -123,6 +123,9 @@
     self.elevationChartsVC.xAxis.tickStrokeColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
     
     self.elevationChartsVC.lineStrokeColor = [UIColor colorWithRed:0.6640625 green:0.875 blue:0.39453125 alpha:1];
+    self.elevationChartsVC.graphFillColor = [UIColor colorWithRed:0.6640625 green:0.875 blue:0.39453125 alpha:.6];
+    [self.elevationChartsVC setFillGraph:YES];
+    
     
     __weak __typeof(self) safeSelf = self;
     

@@ -18,6 +18,9 @@
 // This is the color that the line graphs line will be
 @property (nonatomic, strong) UIColor* lineStrokeColor;
 
+//This is the color that the line graph will be filled in with
+@property (nonatomic, strong) UIColor* graphFillColor;
+
 @property (nonatomic, strong) CAShapeLayer* selectedLineLayer;
 @property (nonatomic, strong) CAShapeLayer* selectedLineCircleLayer;
 
@@ -32,6 +35,8 @@
 
 /* yAxis - The Y axis of the graph. This cannot be assigned but it's properties can be*/
 @property (nonatomic,readonly) FNKYAxis* yAxis;
+
+@property (nonatomic) BOOL fillGraph;
 
 @property (nonatomic, copy) CGPoint (^pointForObject)(id object);
 @property (nonatomic, copy) CGFloat (^valueForObject)(id object);

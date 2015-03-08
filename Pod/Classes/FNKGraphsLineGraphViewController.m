@@ -18,7 +18,6 @@
 
 @property (nonatomic, weak) CAShapeLayer* lineLayer;
 @property (nonatomic, weak) CAShapeLayer* comparisonLine;
-@property (nonatomic) BOOL fillGraph;
 
 //Graph variables
 @property (nonatomic) CGFloat xScaleFactor;
@@ -136,17 +135,35 @@
     [self addTicks];
     
     __weak __typeof(self) safeSelf = self;
-    self.lineLayer = [self drawLine:self.normalizedGraphData
-                              color:self.lineStrokeColor
-                         completion:^{
-                             double yValue = [safeSelf scaleYValue:safeSelf.averageLine];
-                             [safeSelf drawAverageLine:yValue];
-                             
-                             if(completion)
-                             {
-                                 completion();
-                             }
-                         }];
+    
+    if(self.fillGraph)
+    {
+        self.lineLayer = [self drawLineFilled:self.normalizedGraphData
+                                  color:self.lineStrokeColor
+                             completion:^{
+                                 double yValue = [safeSelf scaleYValue:safeSelf.averageLine];
+                                 [safeSelf drawAverageLine:yValue];
+                                 
+                                 if(completion)
+                                 {
+                                     completion();
+                                 }
+                             }];
+    }
+    else
+    {
+        self.lineLayer = [self drawLine:self.normalizedGraphData
+                                  color:self.lineStrokeColor
+                             completion:^{
+                                 double yValue = [safeSelf scaleYValue:safeSelf.averageLine];
+                                 [safeSelf drawAverageLine:yValue];
+                                 
+                                 if(completion)
+                                 {
+                                     completion();
+                                 }
+                             }];
+    }
 }
 
 -(void)drawAxii:(UIView*)view
@@ -166,6 +183,63 @@
 {
     [self.yLabelView removeFromSuperview];
     [self.xLabelView removeFromSuperview];
+}
+
+-(CAShapeLayer*)drawLineFilled:(NSMutableArray*)data color:(UIColor*)color completion:(void (^)())completion
+{
+    //Create a path along the x-axis that has an equal number of points to the endPath
+    UIBezierPath* startPath = [[UIBezierPath alloc] init];
+    
+    BOOL firstPoint = YES;
+    for (NSValue *value in data)
+    {
+        CGPoint pt = [value CGPointValue];
+        if(firstPoint)
+        {
+            [startPath moveToPoint:CGPointMake(pt.x, self.graphHeight)];
+            [startPath addLineToPoint:CGPointMake(pt.x, self.graphHeight)];
+            firstPoint = NO;
+        }
+        [startPath addLineToPoint:CGPointMake(pt.x, self.graphHeight)];
+    }
+    
+    [startPath addLineToPoint:CGPointMake([[data lastObject] CGPointValue].x, self.graphHeight)];
+    [startPath closePath];
+    
+    UIBezierPath* endPath = [self pathFromPointsFilled:data];
+    
+    CAShapeLayer* layer = [[CAShapeLayer alloc] init];
+    layer.path = startPath.CGPath;
+    
+    layer.fillColor = self.graphFillColor.CGColor;
+    layer.strokeColor = color.CGColor;
+    layer.lineWidth = 2;
+    layer.lineCap = @"round";
+    layer.lineJoin = @"round";
+    
+    [self.view.layer insertSublayer:layer below:self.yLabelView.layer];
+    
+    [CATransaction begin];
+    
+    [CATransaction setCompletionBlock:^{
+        if(completion)
+        {
+            completion();
+        }
+    }];
+    
+    CABasicAnimation* pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
+    pathAnimation.duration = 1;
+    pathAnimation.fromValue = (__bridge id)startPath.CGPath;
+    pathAnimation.toValue = (__bridge id) endPath.CGPath;
+    pathAnimation.removedOnCompletion = NO;
+    pathAnimation.fillMode = kCAFillModeBoth;
+    
+    [layer addAnimation:pathAnimation forKey:@"path"];
+    
+    [CATransaction commit];
+    
+    return layer;
 }
 
 -(CAShapeLayer*)drawLine:(NSMutableArray*)data color:(UIColor*)color completion:(void (^)())completion
@@ -235,40 +309,47 @@
     BOOL firstPoint = YES;
     
     UIBezierPath* bezPath = [[UIBezierPath alloc] init];
-    
-    if(self.fillGraph)
+    for (NSValue* val in data)
     {
-        [bezPath moveToPoint:CGPointMake(0, self.graphHeight)];
-        
-        CGPoint lastPoint = CGPointMake(0, self.graphHeight);
-        
-        for (NSValue* val in data)
+        CGPoint point = [val CGPointValue];
+        if (firstPoint)
         {
-            CGPoint point = [val CGPointValue];
+            [bezPath moveToPoint:point];
+            firstPoint = false;
+        }
+        else
+        {
             [bezPath addLineToPoint:point];
-            
-            lastPoint = point;
         }
-        
-        [bezPath addLineToPoint:CGPointMake(lastPoint.x, self.graphHeight)];
-        [bezPath closePath];
     }
-    else
+    
+    return bezPath;
+}
+
+-(UIBezierPath*)pathFromPointsFilled:(NSMutableArray*)data
+{
+    UIBezierPath* bezPath = [[UIBezierPath alloc] init];
+    
+    BOOL firstPoint = YES;
+    
+    for (NSValue* val in data)
     {
-        for (NSValue* val in data)
+        CGPoint point = [val CGPointValue];
+        if(firstPoint)
         {
-            CGPoint point = [val CGPointValue];
-            if (firstPoint)
-            {
-                [bezPath moveToPoint:point];
-                firstPoint = false;
-            }
-            else
-            {
-                [bezPath addLineToPoint:point];
-            }
+            [bezPath moveToPoint:CGPointMake(point.x, self.graphHeight)];
+            [bezPath addLineToPoint:CGPointMake(point.x, self.graphHeight)];
+            [bezPath addLineToPoint:point];
+            firstPoint = NO;
+        }
+        else
+        {
+            [bezPath addLineToPoint:point];
         }
     }
+    
+    [bezPath addLineToPoint:CGPointMake([[data lastObject] CGPointValue].x, self.graphHeight)];
+    [bezPath closePath];
     
     return bezPath;
 }
