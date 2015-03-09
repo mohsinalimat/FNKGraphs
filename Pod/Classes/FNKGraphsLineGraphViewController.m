@@ -740,6 +740,11 @@
         y2 = self.graphHeight - self.marginBottom;
         endX = (y2 - yIntercept) / slope;
     }
+    else if(y2 < 0)
+    {
+        y2 = 0;
+        endX = (y2 - yIntercept) / slope;
+    }
     
     CGPoint endPoint = CGPointMake(endX, y2);
     
