@@ -601,16 +601,16 @@
         maxX = self.xAxis.overridingMax.floatValue;
     }
     
-    CGFloat yPadding = (maxY - minY) * self.yAxis.paddingPercentage.floatValue;
-    
-    minY = minY - yPadding;
-    maxY = maxY + yPadding;
-    
     if(maxX == DBL_MIN || minX == DBL_MAX || maxY == DBL_MIN || minY == DBL_MAX)
     {
         NSLog(@"FNKGraphsLineGraphViewController: The max or min on one of your axii is infinite!");
         return NO;
     }
+    
+    CGFloat yPadding = (maxY - minY) * self.yAxis.paddingPercentage.floatValue;
+    
+    minY = minY - yPadding;
+    maxY = maxY + yPadding;
     
     //Okay so now we have the min's and max's
     self.xRange = maxX - minX;
