@@ -583,22 +583,22 @@
         }
     }
     
-    if(self.yAxis.overridingMin)
+    if(self.yAxis.overridingMin && self.yAxis.overridingMin.floatValue < minY)
     {
         minY = self.yAxis.overridingMin.floatValue;
     }
     
-    if(self.yAxis.overridingMax)
+    if(self.yAxis.overridingMax && self.yAxis.overridingMax.floatValue > maxY)
     {
         maxY = self.yAxis.overridingMax.floatValue;
     }
     
-    if(self.xAxis.overridingMin)
+    if(self.xAxis.overridingMin && self.xAxis.overridingMin.floatValue < minX)
     {
         minX = self.xAxis.overridingMin.floatValue;
     }
     
-    if(self.xAxis.overridingMax)
+    if(self.xAxis.overridingMax && self.xAxis.overridingMax.floatValue > maxX)
     {
         maxX = self.xAxis.overridingMax.floatValue;
     }
@@ -617,6 +617,15 @@
     //Okay so now we have the min's and max's
     self.xRange = maxX - minX;
     self.yRange = maxY - minY;
+    
+    if(self.yRange == 0)
+    {
+        //Just make a range of 10%
+        double percentRange = maxY * 0.1;
+        maxY = maxY + percentRange;
+        minY = minY - percentRange;
+        self.yRange = maxY - minY;
+    }
     
     self.xScaleFactor = self.graphWidth / self.xRange;
     self.yScaleFactor = self.graphHeight / self.yRange;
@@ -733,7 +742,7 @@
     
     CGFloat yIntercept = p1.y - slope * p1.x;
     
-    CGFloat endX = self.graphWidth;
+    CGFloat endX = self.graphWidth + self.marginLeft;
     CGFloat y2 = slope * endX + yIntercept;
     
     //Don't let the trend line draw off the bottom of the graph area
