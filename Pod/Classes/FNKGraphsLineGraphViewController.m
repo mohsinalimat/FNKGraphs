@@ -108,7 +108,7 @@
     {
         return NO;
     }
-        
+    
     self.normalizedGraphData = [self normalizePoints:self.graphData];
     
     return YES;
@@ -139,16 +139,16 @@
     if(self.fillGraph)
     {
         self.lineLayer = [self drawLineFilled:self.normalizedGraphData
-                                  color:self.lineStrokeColor
-                             completion:^{
-                                 double yValue = [safeSelf scaleYValue:safeSelf.averageLine];
-                                 [safeSelf drawAverageLine:yValue];
-                                 
-                                 if(completion)
-                                 {
-                                     completion();
-                                 }
-                             }];
+                                        color:self.lineStrokeColor
+                                   completion:^{
+                                       double yValue = [safeSelf scaleYValue:safeSelf.averageLine];
+                                       [safeSelf drawAverageLine:yValue];
+                                       
+                                       if(completion)
+                                       {
+                                           completion();
+                                       }
+                                   }];
     }
     else
     {
@@ -356,17 +356,18 @@
 
 -(CGFloat)valueAtPoint:(CGPoint)point
 {
-    CGFloat xValue = point.x;
+    CGFloat xVal = point.x;
     CGFloat yVal = 0;
     
     if(self.filteredGraphData.count > 0)
     {
         for (NSValue* val in self.filteredGraphData)
         {
-            CGPoint point = [val CGPointValue];
-            if(point.x >= xValue)
+            CGPoint p1 = [val CGPointValue];
+            if(p1.x >= xVal)
             {
-                yVal = point.y;
+                yVal = p1.y;
+                xVal = p1.x;
                 break;
             }
         }
@@ -375,10 +376,11 @@
     {
         for (NSValue* val in self.normalizedGraphData)
         {
-            CGPoint point = [val CGPointValue];
-            if(point.x >= xValue)
+            CGPoint p1 = [val CGPointValue];
+            if(p1.x >= xVal)
             {
-                yVal = point.y;
+                yVal = p1.y;
+                xVal = p1.x;
                 break;
             }
         }
@@ -386,15 +388,15 @@
     
     UIBezierPath* bezPath = [[UIBezierPath alloc] init];
     
-    [bezPath moveToPoint:CGPointMake(point.x, 0)];
-    [bezPath addLineToPoint:CGPointMake(point.x, self.graphHeight)];
+    [bezPath moveToPoint:CGPointMake(xVal, 0)];
+    [bezPath addLineToPoint:CGPointMake(xVal, self.graphHeight)];
     
     self.selectedLineLayer.strokeColor = self.lineStrokeColor.CGColor;
     self.selectedLineLayer.path = bezPath.CGPath;
     
     CGFloat radius = 5;
     
-    self.selectedLineCircleLayer.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(point.x - radius/2, yVal-radius/2, radius, radius)].CGPath;
+    self.selectedLineCircleLayer.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(xVal - radius/2, yVal-radius/2, radius, radius)].CGPath;
     self.selectedLineCircleLayer.fillColor = self.lineStrokeColor.CGColor;
     self.selectedLineCircleLayer.strokeColor = self.lineStrokeColor.CGColor;
     
