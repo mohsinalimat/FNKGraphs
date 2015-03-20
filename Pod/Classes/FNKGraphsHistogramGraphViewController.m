@@ -97,54 +97,57 @@
     }
     
     [self drawAxii:self.view];
-    [self calcMaxMin:self.buckets];
     
-    //There are a couple of steps here
-    //First we need to figure out the width of the bars
-    self.barWidth = (self.graphWidth / self.buckets.count) - self.barPadding;
-    
-    [self addTicks];
-    
-    self.barsArray = [NSMutableArray array];
-    
-    int index = 0;
-    
-    dispatch_group_t animationGroup = dispatch_group_create();
-    
-    for(NSNumber* barData in self.buckets)
+    //If we fail to calculate teh max and min, just bail out
+    if([self calcMaxMin:self.buckets])
     {
-        CGFloat x = index * (self.barWidth + self.barPadding);
+        //There are a couple of steps here
+        //First we need to figure out the width of the bars
+        self.barWidth = (self.graphWidth / self.buckets.count) - self.barPadding;
         
-        FNKBar* barView = [[FNKBar alloc] initWithFrame:CGRectMake(x + self.marginLeft, self.graphHeight, self.barWidth, 0)];
-        barView.backgroundColor = self.barColor;
-        barView.alpha = 1.0;
-        [self.view addSubview:barView];
+        [self addTicks];
         
-        [self.barsArray addObject:barView];
+        self.barsArray = [NSMutableArray array];
         
-        double delay = 0.05*index;
+        int index = 0;
         
-        dispatch_group_enter(animationGroup);
-        __weak __typeof(self) safeSelf = self;
-        [UIView animateWithDuration:1
-                              delay:delay
-                            options:UIViewAnimationOptionCurveEaseIn
-                         animations:^{
-                             barView.originalFrame = CGRectMake(x + safeSelf.marginLeft, safeSelf.graphHeight, safeSelf.barWidth, -barData.floatValue * safeSelf.yScaleFactor);
-                             barView.frame = barView.originalFrame;
-                         }
-                         completion:^(BOOL finished) {
-                             dispatch_group_leave(animationGroup);
-                         }];
-        index++;
-    }
-    
-    dispatch_group_notify(animationGroup, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        if(completion)
+        dispatch_group_t animationGroup = dispatch_group_create();
+        
+        for(NSNumber* barData in self.buckets)
         {
-            completion();
+            CGFloat x = index * (self.barWidth + self.barPadding);
+            
+            FNKBar* barView = [[FNKBar alloc] initWithFrame:CGRectMake(x + self.marginLeft, self.graphHeight, self.barWidth, 0)];
+            barView.backgroundColor = self.barColor;
+            barView.alpha = 1.0;
+            [self.view addSubview:barView];
+            
+            [self.barsArray addObject:barView];
+            
+            double delay = 0.05*index;
+            
+            dispatch_group_enter(animationGroup);
+            __weak __typeof(self) safeSelf = self;
+            [UIView animateWithDuration:1
+                                  delay:delay
+                                options:UIViewAnimationOptionCurveEaseIn
+                             animations:^{
+                                 barView.originalFrame = CGRectMake(x + safeSelf.marginLeft, safeSelf.graphHeight, safeSelf.barWidth, -barData.floatValue * safeSelf.yScaleFactor);
+                                 barView.frame = barView.originalFrame;
+                             }
+                             completion:^(BOOL finished) {
+                                 dispatch_group_leave(animationGroup);
+                             }];
+            index++;
         }
-    });
+        
+        dispatch_group_notify(animationGroup, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            if(completion)
+            {
+                completion();
+            }
+        });
+    }
 }
 
 -(void)drawAxii:(UIView*)view
@@ -214,7 +217,7 @@
 
 #pragma mark max min calculations
 
--(void)calcMaxMin:(NSArray*)buckets
+-(BOOL)calcMaxMin:(NSArray*)buckets
 {
     CGFloat maxY = DBL_MIN;
     CGFloat minY = DBL_MAX;
@@ -244,6 +247,12 @@
         self.yAxisNum = minY;
     }
     
+    if(maxY == DBL_MIN || minY == DBL_MAX)
+    {
+        NSLog(@"FNKGraphsHistogramGraphViewController: The max or min on one of your axii is infinite!");
+        return NO;
+    }
+    
     //Okay so now we have the min's and max's
     self.yRange = maxY - minY;
     
@@ -251,6 +260,8 @@
     
     self.yAxis.scaleFactor = self.yScaleFactor;
     self.yAxis.axisMin = self.yAxisNum;
+    
+    return YES;
 }
 
 -(void)filterBars:(NSMutableArray*)filteredData duration:(CGFloat)duration completion:(void (^)(void))completion

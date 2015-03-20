@@ -627,6 +627,15 @@
         self.yRange = maxY - minY;
     }
     
+    if(self.xRange == 0)
+    {
+        //Just make a range of 10%
+        double percentRange = maxX * 0.1;
+        maxX = maxX + percentRange;
+        minX = minX - percentRange;
+        self.xRange = maxX - minX;
+    }
+    
     self.xScaleFactor = self.graphWidth / self.xRange;
     self.yScaleFactor = self.graphHeight / self.yRange;
     
