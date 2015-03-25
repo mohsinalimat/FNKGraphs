@@ -9,6 +9,10 @@
 #import "FNKPieGraphViewController.h"
 #import <FNKGraphs/FNKGraphsPieGraphViewController.h>
 #import <FNKGraphs/FNKPieSectionData.h>
+
+#define fnkName @"name"
+#define fnkDist @"distance"
+
 @interface FNKPieGraphViewController ()
 
 @end
@@ -22,16 +26,61 @@
     [self addPieGraph];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.pieChartsVC drawGraph:^{}];
+}
+
 -(void)addPieGraph
 {
     self.pieChartsVC = [[FNKGraphsPieGraphViewController alloc] initWithFrame:CGRectMake(0, 70, 320, 160)];
     
-    NSMutableArray* dataArray = [NSMutableArray array];
-    [dataArray addObject:[FNKPieSectionData pieSectionWithName:@"1-2 miles" color:[UIColor greenColor] percentage:.1]];
-    [dataArray addObject:[FNKPieSectionData pieSectionWithName:@"2-4 miles" color:[UIColor purpleColor] percentage:.2]];
-    [dataArray addObject:[FNKPieSectionData pieSectionWithName:@"4-7 miles" color:[UIColor redColor] percentage:.3]];
-    [dataArray addObject:[FNKPieSectionData pieSectionWithName:@"7-10 miles" color:[UIColor yellowColor] percentage:.4]];
-    [self.pieChartsVC setDataArray:dataArray];
+    NSArray* dataArray = @[@{fnkName : @"1-2 miles", fnkDist : @(10)},
+                           @{fnkName : @"2-4 miles", fnkDist : @(20)},
+                           @{fnkName : @"4-7 miles", fnkDist : @(30)},
+                           @{fnkName : @"7-10 miles", fnkDist : @(40)},];
+    
+    [self.pieChartsVC setDataArray:[NSMutableArray arrayWithArray:dataArray]];
+    
+    [self.pieChartsVC setNumberOfSlices:^int{
+        return (int)dataArray.count;
+    }];
+    
+    [self.pieChartsVC setSliceForObject:^NSInteger(id object) {
+        return [dataArray indexOfObject:object];
+    }];
+    
+    [self.pieChartsVC setValueForObject:^CGFloat(id object) {
+        NSDictionary* obj = (NSDictionary*)object;
+        NSNumber* num = [obj objectForKey:fnkDist];
+        return num.floatValue;
+    }];
+    
+    [self.pieChartsVC setNameForSlice:^NSString *(int num) {
+        NSDictionary* dict = [dataArray objectAtIndex:num];
+        return [dict objectForKey:fnkName];
+    }];
+    
+    [self.pieChartsVC setColorForSlice:^UIColor *(int slice) {
+        if(slice == 0)
+        {
+            return [UIColor purpleColor];
+        }
+        else if(slice == 1)
+        {
+            return [UIColor yellowColor];
+        }
+        else if(slice == 2)
+        {
+            return [UIColor orangeColor];
+        }
+        else if(slice == 3)
+        {
+            return [UIColor redColor];
+        }
+        return nil;
+    }];
     
     self.pieChartsVC.delegate = self;
     
