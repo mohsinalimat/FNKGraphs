@@ -48,7 +48,7 @@
 @property (nonatomic) CGFloat barPadding;
 
 /* The time bucket that this object will fit into*/
-@property (nonatomic, copy) void (^barAdded)(FNKBar* bar);
+@property (nonatomic, copy) void (^barAdded)(FNKBar* bar, int barNum);
 
 /* Pass in new data and the bars will animate to their new positins */
 -(void)filterBars:(NSMutableArray*)filteredData duration:(CGFloat)duration completion:(void (^)(void))completion;

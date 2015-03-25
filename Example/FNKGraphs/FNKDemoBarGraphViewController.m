@@ -75,7 +75,7 @@
     
     
     __weak __typeof(self) safeSelf = self;
-    [self.barGraphVC setBarAdded:^(FNKBar *barView) {
+    [self.barGraphVC setBarAdded:^(FNKBar *barView, int barNum) {
         UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 30, 20)];
         [label setText:@"val"];
         [label setTextColor:[UIColor greenColor]];

@@ -284,6 +284,51 @@
         return [UIColor orangeColor];
     }];
     
+    __weak __typeof(self) safeSelf = self;
+    [self.barGraphVC setBarAdded:^(FNKBar * barView, int barNum) {
+        UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 30, 20)];
+        
+        FNKWeatherDay* day = (FNKWeatherDay*)[safeSelf.dataSet objectAtIndex:barNum];
+        [label setText:[NSString stringWithFormat:@"%4.f", day.percipitation]];
+        [label setTextColor:[UIColor greenColor]];
+        [label setTextAlignment:NSTextAlignmentCenter];
+        [label setAlpha:0.0];
+        [label setMinimumScaleFactor:.1];
+        [label setAdjustsFontSizeToFitWidth:YES];
+        
+        [label setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [safeSelf.barGraphVC.view addSubview:label];
+        
+        [safeSelf.barGraphVC.view addConstraint:[NSLayoutConstraint constraintWithItem:label
+                                                                             attribute:NSLayoutAttributeLeft
+                                                                             relatedBy:NSLayoutRelationEqual
+                                                                                toItem:barView
+                                                                             attribute:NSLayoutAttributeLeft
+                                                                            multiplier:1.0
+                                                                              constant:0.0]];
+        [safeSelf.barGraphVC.view addConstraint:[NSLayoutConstraint constraintWithItem:label
+                                                                             attribute:NSLayoutAttributeRight
+                                                                             relatedBy:NSLayoutRelationEqual
+                                                                                toItem:barView
+                                                                             attribute:NSLayoutAttributeRight
+                                                                            multiplier:1.0
+                                                                              constant:0.0]];
+        
+        [safeSelf.barGraphVC.view addConstraint:[NSLayoutConstraint constraintWithItem:label
+                                                                             attribute:NSLayoutAttributeBottom
+                                                                             relatedBy:NSLayoutRelationEqual
+                                                                                toItem:barView
+                                                                             attribute:NSLayoutAttributeTop
+                                                                            multiplier:1.0
+                                                                              constant:2.0]];
+        [safeSelf.barGraphVC.view layoutSubviews];
+        
+        [UIView animateWithDuration:1.5
+                         animations:^{
+                             [label setAlpha:1.0];
+                         }];
+    }];
+    
     self.barGraphVC.delegate = self;
     
     [self addChildViewController:self.barGraphVC];

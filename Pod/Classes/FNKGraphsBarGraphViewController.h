@@ -36,7 +36,7 @@
 @property (nonatomic) CGFloat barPadding;
 
 /* The time bucket that this object will fit into*/
-@property (nonatomic, copy) void (^barAdded)(FNKBar* bar);
+@property (nonatomic, copy) void (^barAdded)(FNKBar* bar, int barNum);
 
 /* When using the bar graph in a UITableViewCell you might have to reset the bar colors when the cell is clicked*/
 -(void)resetBarColors;

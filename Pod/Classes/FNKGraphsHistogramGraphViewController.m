@@ -158,7 +158,7 @@
             
             if(self.barAdded != NULL)
             {
-                self.barAdded(barView);
+                self.barAdded(barView, index);
             }
             
             double delay = 0.05*index;
