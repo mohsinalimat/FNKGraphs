@@ -43,6 +43,9 @@
     
     [self.pieChartsVC setDataArray:[NSMutableArray arrayWithArray:dataArray]];
     
+    [self.pieChartsVC setXLabelPosPercentOfRadius:50];
+    [self.pieChartsVC setYLabelPosPercentOfRadius:50];
+    
     [self.pieChartsVC setNumberOfSlices:^int{
         return (int)dataArray.count;
     }];
