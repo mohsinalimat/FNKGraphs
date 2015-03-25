@@ -14,8 +14,6 @@
 
 @interface FNKGraphsBarGraphViewController : FNKGraphsViewController
 
-@property (nonatomic, strong) UIColor* barColor;
-
 @property (nonatomic, strong) UIView* yLabelView;
 @property (nonatomic, strong) UIView* xLabelView;
 
@@ -30,6 +28,9 @@
 
 /* The value for the specific object in the graph data (the length of the bar)*/
 @property (nonatomic, copy) CGFloat (^valueForObject)(id object);
+
+/* The color for the specfic bar given the object */
+@property (nonatomic, copy) UIColor* (^colorForBar)(int object);
 
 /* The padding between each of the bars (defaults 5)*/
 @property (nonatomic) CGFloat barPadding;

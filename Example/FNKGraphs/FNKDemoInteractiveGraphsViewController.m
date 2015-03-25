@@ -280,7 +280,9 @@
         return [dateFormat stringFromDate:date];
     }];
     
-    self.barGraphVC.barColor = [UIColor orangeColor];
+    [self.barGraphVC setColorForBar:^UIColor *(int barNum) {
+        return [UIColor orangeColor];
+    }];
     
     self.barGraphVC.delegate = self;
     

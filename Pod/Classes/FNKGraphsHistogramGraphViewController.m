@@ -118,7 +118,7 @@
             CGFloat x = index * (self.barWidth + self.barPadding);
             
             FNKBar* barView = [[FNKBar alloc] initWithFrame:CGRectMake(x + self.marginLeft, self.graphHeight, self.barWidth, 0)];
-            barView.backgroundColor = self.barColor;
+            barView.backgroundColor = self.colorForBar(index);
             barView.alpha = 1.0;
             [barView setHeightConstraint:[NSLayoutConstraint constraintWithItem:barView
                                                                      attribute:NSLayoutAttributeHeight
@@ -236,7 +236,8 @@
                               delay:0
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
-                             bar.frame = CGRectMake(bar.originalFrame.origin.x, bar.originalFrame.origin.y, bar.originalFrame.size.width, -barData.floatValue * safeSelf.yScaleFactor);
+                             bar.heightConstraint.constant = barData.floatValue * safeSelf.yScaleFactor;
+                             [self.view layoutSubviews];
                          }
                          completion:^(BOOL finished) {
                              dispatch_group_leave(animationGroup);
@@ -361,9 +362,10 @@
 
 -(void)resetBarColors
 {
-    for(FNKBar* bar in self.barsArray)
+    for (int index = 0; index < self.barsArray.count; index++)
     {
-        [bar setBackgroundColor:[UIColor colorWithRed:0.239 green:0.71 blue:0.996 alpha:1.0]];
+        FNKBar* bar = [self.barsArray objectAtIndex:index];
+        [bar setBackgroundColor:self.colorForBar(index)];
     }
 }
 

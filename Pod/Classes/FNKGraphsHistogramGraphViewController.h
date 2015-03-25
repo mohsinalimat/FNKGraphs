@@ -14,8 +14,6 @@
 
 @interface FNKGraphsHistogramGraphViewController : FNKGraphsViewController
 
-@property (nonatomic, strong) UIColor* barColor;
-
 @property (nonatomic, strong) UIView* yLabelView;
 @property (nonatomic, strong) UIView* xLabelView;
 
@@ -33,6 +31,9 @@
 
 /* The value for the specific object in the graph data (the length of the bar)*/
 @property (nonatomic, copy) CGFloat (^valueForObject)(id object);
+
+/* The color for the specfic bar given the object */
+@property (nonatomic, copy) UIColor* (^colorForBar)(int index);
 
 /* Specify a ymin to make your graph more readable*/
 @property (nonatomic) NSNumber* yMin;

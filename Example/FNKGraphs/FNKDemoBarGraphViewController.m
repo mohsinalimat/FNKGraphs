@@ -126,7 +126,9 @@
     self.barGraphVC.xAxis.tickFillColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
     self.barGraphVC.xAxis.tickStrokeColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
     
-    self.barGraphVC.barColor = [UIColor orangeColor];
+    [self.barGraphVC setColorForBar:^UIColor *(int barNum) {
+        return [UIColor orangeColor];        
+    }];
     
     self.barGraphVC.delegate = self;
     
