@@ -10,6 +10,7 @@
 #import "FNKGraphsViewController.h"
 #import "FNKXAxis.h"
 #import "FNKYAxis.h"
+#import "FNKBar.h"
 
 @interface FNKGraphsHistogramGraphViewController : FNKGraphsViewController
 
@@ -44,6 +45,9 @@
 
 /* The padding between each of the bars (defaults 5)*/
 @property (nonatomic) CGFloat barPadding;
+
+/* The time bucket that this object will fit into*/
+@property (nonatomic, copy) void (^barAdded)(FNKBar* bar);
 
 /* Pass in new data and the bars will animate to their new positins */
 -(void)filterBars:(NSMutableArray*)filteredData duration:(CGFloat)duration completion:(void (^)(void))completion;

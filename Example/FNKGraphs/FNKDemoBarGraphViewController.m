@@ -73,6 +73,48 @@
         return [dateFormat stringFromDate:date];
     }];
     
+    
+    __weak __typeof(self) safeSelf = self;
+    [self.barGraphVC setBarAdded:^(FNKBar *barView) {
+        UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 30, 20)];
+        [label setText:@"val"];
+        [label setTextColor:[UIColor greenColor]];
+        [label setTextAlignment:NSTextAlignmentCenter];
+        [label setAlpha:0.0];
+        
+        [label setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [safeSelf.barGraphVC.view addSubview:label];
+        
+        [safeSelf.barGraphVC.view addConstraint:[NSLayoutConstraint constraintWithItem:label
+                                                              attribute:NSLayoutAttributeLeft
+                                                              relatedBy:NSLayoutRelationEqual
+                                                                 toItem:barView
+                                                              attribute:NSLayoutAttributeLeft
+                                                             multiplier:1.0
+                                                               constant:0.0]];
+        [safeSelf.barGraphVC.view addConstraint:[NSLayoutConstraint constraintWithItem:label
+                                                              attribute:NSLayoutAttributeRight
+                                                              relatedBy:NSLayoutRelationEqual
+                                                                 toItem:barView
+                                                              attribute:NSLayoutAttributeRight
+                                                             multiplier:1.0
+                                                               constant:0.0]];
+        
+        [safeSelf.barGraphVC.view addConstraint:[NSLayoutConstraint constraintWithItem:label
+                                                              attribute:NSLayoutAttributeBottom
+                                                              relatedBy:NSLayoutRelationEqual
+                                                                 toItem:barView
+                                                              attribute:NSLayoutAttributeTop
+                                                             multiplier:1.0
+                                                               constant:2.0]];
+        [safeSelf.barGraphVC.view layoutSubviews];
+        
+        [UIView animateWithDuration:1.5
+                         animations:^{
+                             [label setAlpha:1.0];
+                         }];
+    }];
+    
     self.barGraphVC.yAxis.strokeColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
     self.barGraphVC.yAxis.fillColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
     self.barGraphVC.yAxis.tickFillColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];

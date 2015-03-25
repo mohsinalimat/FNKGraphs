@@ -95,9 +95,48 @@
         FNKBar* barView = [[FNKBar alloc] initWithFrame:CGRectMake(x + self.marginLeft, self.graphHeight, self.barWidth, 0)];
         barView.backgroundColor = self.barColor;
         barView.alpha = 1.0;
-        [self.view insertSubview:barView belowSubview:self.yLabelView];
+        [barView setHeightConstraint:[NSLayoutConstraint constraintWithItem:barView
+                                                                  attribute:NSLayoutAttributeHeight
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:nil
+                                                                  attribute:NSLayoutAttributeNotAnAttribute
+                                                                 multiplier:0.0
+                                                                   constant:0.0]];
+        
+        [barView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self.view addSubview:barView];
+        [self.view addConstraint:barView.heightConstraint];
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:barView
+                                                              attribute:NSLayoutAttributeLeft
+                                                              relatedBy:NSLayoutRelationEqual
+                                                                 toItem:self.view
+                                                              attribute:NSLayoutAttributeLeft
+                                                             multiplier:1.0
+                                                               constant:x + self.marginLeft]];
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:barView
+                                                              attribute:NSLayoutAttributeBottom
+                                                              relatedBy:NSLayoutRelationEqual
+                                                                 toItem:self.view
+                                                              attribute:NSLayoutAttributeBottom
+                                                             multiplier:1.0
+                                                               constant:0]];
+        
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:barView
+                                                              attribute:NSLayoutAttributeWidth
+                                                              relatedBy:NSLayoutRelationEqual
+                                                                 toItem:nil
+                                                              attribute:NSLayoutAttributeNotAnAttribute
+                                                             multiplier:1.0
+                                                               constant:self.barWidth]];
         
         [self.barsArray addObject:barView];
+        
+        [self.view insertSubview:barView belowSubview:self.yLabelView];
+        
+        if(self.barAdded != NULL)
+        {
+            self.barAdded(barView);
+        }
         
         double delay = 0.05*index;
         
@@ -108,8 +147,8 @@
                               delay:delay
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
-                             barView.originalFrame = CGRectMake(x + safeSelf.marginLeft, safeSelf.graphHeight, safeSelf.barWidth, -[safeSelf scaleYValue:barData.floatValue]);
-                             barView.frame = barView.originalFrame;
+                             barView.heightConstraint.constant = barData.floatValue * safeSelf.yScaleFactor;
+                             [self.view layoutSubviews];
                          }
                          completion:^(BOOL finished) {
                              dispatch_group_leave(animationGroup);
