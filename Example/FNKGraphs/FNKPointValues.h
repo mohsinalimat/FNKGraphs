@@ -15,5 +15,9 @@
 +(NSMutableArray*) addPointsElevationByDistanceOne;
 
 +(NSMutableArray*) addAllZerosTest;
++(NSMutableArray*) addAllXZerosTest;
++(NSMutableArray*) addAllYZerosTest;
++(NSMutableArray*) addAllOnesTest;
++(NSMutableArray*) addAllNegativeOnesTest;
 
 @end

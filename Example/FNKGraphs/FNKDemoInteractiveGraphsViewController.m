@@ -272,6 +272,11 @@
         return [NSString stringWithFormat:@"%.0f",value];
     }];
     
+    [self.barGraphVC setDateForObject:^NSDate *(id object) {
+        FNKWeatherDay* day = (FNKWeatherDay*)object;
+        return day.date;
+    }];
+    
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"MM/dd"];
     

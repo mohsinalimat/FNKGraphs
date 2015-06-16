@@ -35,6 +35,9 @@
 /* The color for the specfic bar given the object */
 @property (nonatomic, copy) UIColor* (^colorForBar)(int index);
 
+/* The value for the specific object in the graph data (the length of the bar)*/
+@property (nonatomic, copy) NSDate* (^dateForObject)(id object);
+
 /* Specify a ymin to make your graph more readable*/
 @property (nonatomic) NSNumber* yMin;
 

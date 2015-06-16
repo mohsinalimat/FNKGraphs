@@ -331,6 +331,65 @@
     return points;
 }
 
++(NSMutableArray*) addAllXZerosTest
+{
+    NSMutableArray* points = [NSMutableArray array];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,3)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,-3)]];
+    return points;
+}
+
++(NSMutableArray*) addAllYZerosTest
+{
+    NSMutableArray* points = [NSMutableArray array];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(5,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(10,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(0,0)]];
+    return points;
+}
+
++(NSMutableArray*) addAllOnesTest
+{
+    NSMutableArray* points = [NSMutableArray array];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(1,1)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(1,1)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(1,1)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(1,1)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(1,1)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(1,1)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(1,1)]];
+    
+    return points;
+}
+
++(NSMutableArray*) addAllNegativeOnesTest
+{
+    NSMutableArray* points = [NSMutableArray array];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(-1,-1)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(-1,-1)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(-1,-1)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(-1,-1)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(-1,-1)]];
+    [points addObject:[NSValue valueWithCGPoint:CGPointMake(-1,-1)]];
+    
+    return points;
+}
+
 +(NSMutableArray*) addPointsPaceByDistanceTwo
 {
     NSMutableArray* points = [NSMutableArray array];

@@ -128,8 +128,6 @@
         tickLabel.textAlignment = NSTextAlignmentCenter;
         tickLabel.font = self.tickFont;
         [labelView addSubview:tickLabel];
-        
-        index++;
     }
     
     [labelView setAlpha:0.0];

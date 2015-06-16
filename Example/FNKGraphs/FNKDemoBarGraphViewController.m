@@ -61,6 +61,13 @@
         return dist.floatValue;
     }];
     
+    [self.barGraphVC setDateForObject:^NSDate *(id object) {
+        NSDictionary* dict = (NSDictionary*)object;
+        NSNumber* dateNumber = [dict objectForKey:kDateKey];
+        NSDate* date = [NSDate dateWithTimeIntervalSince1970: [dateNumber integerValue]/1000];
+        return date;
+    }];
+    
     [self.barGraphVC.yAxis setTickFormat:^NSString *(CGFloat value) {
         return [NSString stringWithFormat:@"%.0f",value];
     }];

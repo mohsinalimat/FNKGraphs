@@ -609,6 +609,7 @@
         return NO;
     }
     
+    
     CGFloat yPadding = (maxY - minY) * self.yAxis.paddingPercentage.floatValue;
     
     minY = minY - yPadding;

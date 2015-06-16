@@ -37,7 +37,7 @@
 -(void)addPaceChart
 {
     self.paceChartsVC = [[FNKGraphsLineGraphViewController alloc] initWithFrame:CGRectMake(0, 70, 320, 160)];
-    [self.paceChartsVC setDataArray:[FNKPointValues addPointsPaceByDistanceTwo]];
+    [self.paceChartsVC setDataArray:[FNKPointValues addAllNegativeOnesTest]];
     
 //        [self.paceChartsVC addChartOverlay:[[FNKChartOverlayBars alloc] init]];
     

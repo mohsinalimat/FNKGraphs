@@ -1,2654 +1,855 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>0015405252FA708406632EFB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AEBBD40F2A5ED19377FC28B3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>00EC5C210F17BB2ABB3707B6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5E4B61F88592D5386BB0D4BE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>022E9AE24833B7DA43B9DDFA</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-FNKGraphs-environment.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>02525930E32469FD39860F7D</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>50F63DC4E18BC909ABE3D36C</string>
-				<string>28CAEF4900802740A672FDD4</string>
-				<string>00EC5C210F17BB2ABB3707B6</string>
-				<string>55285DC69F0EDF2F9B423DC5</string>
-				<string>79991613EF96AD32D3EAC222</string>
-				<string>AACDCB43E7EE4C79CCE9D91E</string>
-				<string>33BAADF9249AC1900286073C</string>
-				<string>120C592C1AE66CA4CF56515A</string>
-				<string>A1C2C263D5D7D285A8C547D2</string>
-				<string>B6C0B14654954859C384A9B6</string>
-				<string>53B0346CE0727AB9E6EA5326</string>
-				<string>0015405252FA708406632EFB</string>
-				<string>CEA1E66470A225CE5D760FB4</string>
-				<string>D893011AFE54BC440AEC7A1E</string>
-				<string>F86A3D131B31BF36D808236D</string>
-				<string>9A1D5C71EEAA14BD63F609B0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>0286144F22E713B612CDE98B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7DFCA11F56E5FA33EB094E39</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>04A307803BACE10753714A61</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B5861D82592337842F6B454B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>06C1A72C9A65AB08E70A8814</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>FNKGraphsPieGraphViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0839356A8EE08B9C481AE014</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>FNKYAxis.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0A70B815AAF2F3B2BD15D6B8</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FEF125284E6F4D6B776CB874</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>0BC1777C0F72F2E5FB468BED</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FNKGraphsViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0BECDDCC237F1DE319593AA8</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastUpgradeCheck</key>
-				<string>0510</string>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>98B830FE19394CC485F487DF</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>5D355DA7EE0591C940922895</string>
-			<key>productRefGroup</key>
-			<string>49194BE0D6B6C7188C392979</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>DABDF4778E47A0EAD435E822</string>
-				<string>F043AC09836CB8F77190DC10</string>
-				<string>DEB5CFAED35892E332D0F703</string>
-				<string>A56A5A618D709F068A66D0C9</string>
-				<string>A235781F8F234C260E670462</string>
-				<string>F53D1000D701F092535F1B40</string>
-			</array>
-		</dict>
-		<key>0DDA58AA7E4F66D81593F4E5</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>PRODUCT_NAME</key>
-				<string>FNKGraphs</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>bundle</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>107FF566EBBD7394F03D6540</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>109692CD9A1C558400D0A5B7</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-FNKGraphs-FNKGraphs.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>120C592C1AE66CA4CF56515A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5DFF5238760E7DB8FF488471</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>1242AF6F1002B3ECD64ECD56</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AEBBD40F2A5ED19377FC28B3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>12C7A64D34494E35E08A76C9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>FNKChartOverlayBars.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>15FBE01DB1106F387918B0AB</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>RELEASE=1</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>16AAFDAFE00549D4A21DABF9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FNKChartOverlayBase.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>170CB6337DF69B74C8D5B981</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>38FB9053191FBD433E7D133D</string>
-				<string>1BC2B780B94C586299FCE560</string>
-				<string>3BB64A7BB74DCA012E980B9A</string>
-				<string>270A6D004E6823E9248146E3</string>
-				<string>3FC34A16A5A976287BA9F7CE</string>
-				<string>A30A065145ECFECA470CBA7F</string>
-				<string>E3A9966B94EC82C7BCDCF0BB</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods-Tests</string>
-			<key>path</key>
-			<string>Target Support Files/Pods-Tests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>18D4EAF15916DF8C1A0A1842</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>0BECDDCC237F1DE319593AA8</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>F043AC09836CB8F77190DC10</string>
-			<key>remoteInfo</key>
-			<string>Pods-FNKGraphs-FNKGraphs</string>
-		</dict>
-		<key>1B1A6BACAB05969A25E0E0A4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FAB0D1480E0D843665ECA586</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>1BC2B780B94C586299FCE560</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Pods-Tests-acknowledgements.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1F47ACD540F8D5284E36E535</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libPods-FNKGraphs.a</string>
-			<key>path</key>
-			<string>libPods-FNKGraphs.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>23A617E2BDFF3DAD5E43B2B1</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FNKBarSectionData.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>251220BBF3CEF471F9D4CAA5</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>756AF5D131157F4C00686400</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/Pods-Tests-FNKGraphs/Pods-Tests-FNKGraphs-prefix.pch</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>270A6D004E6823E9248146E3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-Tests-environment.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>28CAEF4900802740A672FDD4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7DFCA11F56E5FA33EB094E39</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2B0C1B95D9303A86ADDCCF23</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FNKPieSectionData.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2D85856E7B58636B65CFBF0A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FNKBar.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2FAC8C5C3199AA98929B575D</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>UIKit.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/UIKit.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>3035819ADA6F5E61C2414480</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D40D0CAAE96660BF50B6B866</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>30D7B5C14E90A6C968574270</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>FNKPieSectionData.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>33BAADF9249AC1900286073C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C018C57F7E6E76E323F8A041</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>381CC0943B2DE2BCF4AE92F6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>16AAFDAFE00549D4A21DABF9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>3838688E66832780AD93D6E3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9AB80E38859FE0106203D981</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>3871B5E2A1AA4FF93BD6D2CB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>12C7A64D34494E35E08A76C9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>38FB9053191FBD433E7D133D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>Pods-Tests-acknowledgements.markdown</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3A542D58BB2444E433B0EA51</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>0BECDDCC237F1DE319593AA8</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>F53D1000D701F092535F1B40</string>
-			<key>remoteInfo</key>
-			<string>Pods-Tests-FNKGraphs-FNKGraphs</string>
-		</dict>
-		<key>3A998FA785B75EAD726A220B</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>E3D5197B9FA90035D0FAFE71</string>
-				<string>0286144F22E713B612CDE98B</string>
-				<string>A259DABB241EEA26EE5CA037</string>
-				<string>3871B5E2A1AA4FF93BD6D2CB</string>
-				<string>A4E39ED9418B23CD662709D5</string>
-				<string>3F6CC8FC36784201FF4B0CF0</string>
-				<string>B88953B9229279036274A991</string>
-				<string>6F951AD35265C1B798E047BD</string>
-				<string>3838688E66832780AD93D6E3</string>
-				<string>CED3E56D9E3BED6A1C06EF01</string>
-				<string>53FF19048833683D2D953942</string>
-				<string>1242AF6F1002B3ECD64ECD56</string>
-				<string>BB1BD5BEA43EBF5A10F5B548</string>
-				<string>EBB72C1359CE9F1265B13365</string>
-				<string>A2CC986886A20A7C3B4076DB</string>
-				<string>46401349ED646D1789E6911A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>3BB64A7BB74DCA012E980B9A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-Tests-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3F3CFE217DA6C7069F6D1643</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>3F6CC8FC36784201FF4B0CF0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3F75269DACA64631A642926B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>3F75269DACA64631A642926B</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>FNKChartOverlayData.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3FC34A16A5A976287BA9F7CE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-Tests-resources.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3FECEB31153AABBA6A24A70D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-FNKGraphs-resources.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>42D9126BA91279709C621FA0</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>name</key>
-			<string>Podfile</string>
-			<key>path</key>
-			<string>../Podfile</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-			<key>xcLanguageSpecificationIdentifier</key>
-			<string>xcode.lang.ruby</string>
-		</dict>
-		<key>434DF58EDE51A97B91FE0E69</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>name</key>
-			<string>Pods-Tests-FNKGraphs</string>
-			<key>target</key>
-			<string>A235781F8F234C260E670462</string>
-			<key>targetProxy</key>
-			<string>75F8F70954F7C6796D9CB8A8</string>
-		</dict>
-		<key>45DAB08891F686E4BF9C4455</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2B0C1B95D9303A86ADDCCF23</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4637FB34FA11293E718BF87F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>Pods-Tests-FNKGraphs-prefix.pch</string>
-			<key>path</key>
-			<string>../Pods-Tests-FNKGraphs/Pods-Tests-FNKGraphs-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>46401349ED646D1789E6911A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5F639DB9F3C2D2AEB46042C1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>46D51289FE861A890E81D752</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>F85BE84DEAE11B232DDBD7B5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>477CE51D7910FD084B27BB4B</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>0A70B815AAF2F3B2BD15D6B8</string>
-				<string>567441B663B0AD204CABAE45</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>49194BE0D6B6C7188C392979</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>9C48BBB840523CDBD3257070</string>
-				<string>FBCE1525040714CA678AEC13</string>
-				<string>1F47ACD540F8D5284E36E535</string>
-				<string>58C5DCA2CD6844779BC5CF14</string>
-				<string>FC48A33A47C04E2CF89AE2F7</string>
-				<string>F299C1F92BBAA491221AE211</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4AD8F119E4A769F8DD56A148</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-FNKGraphs-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4F8FAF4A9FB60ECA01F8D6D2</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>A30A065145ECFECA470CBA7F</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>50F63DC4E18BC909ABE3D36C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AE575173A9B723D635091497</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>52587B7C9684C4554E300CC8</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D68512E37E0593AE3046F028</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>53B0346CE0727AB9E6EA5326</key>
-		<dict>
-			<key>fileRef</key>
-			<string>81A3B013BE608EE1EF5131D3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>53FF19048833683D2D953942</key>
-		<dict>
-			<key>fileRef</key>
-			<string>81A3B013BE608EE1EF5131D3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>55285DC69F0EDF2F9B423DC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>12C7A64D34494E35E08A76C9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>567441B663B0AD204CABAE45</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2FAC8C5C3199AA98929B575D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>569FE5676F376571BBB4A54C</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>4F8FAF4A9FB60ECA01F8D6D2</string>
-				<string>C9909E356CBF8C9288AC6835</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>57C0FB41B24BDF061D65498C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>5825DFD2D20DCB1DE7F926BD</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-FNKGraphs-FNKGraphs-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>58C5DCA2CD6844779BC5CF14</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libPods-FNKGraphs-FNKGraphs.a</string>
-			<key>path</key>
-			<string>libPods-FNKGraphs-FNKGraphs.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>59005B210C0B7F242E7C3A54</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>FNKXAxis.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5998E5CA7B4B5ECADA8167AC</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>AD2C32858F26428F9C07CA23</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/Pods-FNKGraphs-FNKGraphs/Pods-FNKGraphs-FNKGraphs-prefix.pch</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>5AC67E06CB9D04E6FC575A3B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FEF125284E6F4D6B776CB874</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5B371187488AE9AE633BE211</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B5861D82592337842F6B454B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5D355DA7EE0591C940922895</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>42D9126BA91279709C621FA0</string>
-				<string>C075FAFF9DD2D560014F0279</string>
-				<string>6DEC5246D03401FE126CA5F6</string>
-				<string>49194BE0D6B6C7188C392979</string>
-				<string>C3A5CE18064475B731782E69</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5D616E332CC5FAF614F664CD</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FNKXAxis.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5DFF5238760E7DB8FF488471</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>FNKGraphsHistogramGraphViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5E4B61F88592D5386BB0D4BE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>FNKBarSectionData.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5E6E72F675875208A595AB2D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FNKGraphsLineGraphViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5EB12CE28E6CDCC2077F06D7</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>958801F5A5C797D1B4FD9C56</string>
-				<string>0DDA58AA7E4F66D81593F4E5</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>5F639DB9F3C2D2AEB46042C1</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>Pods-Tests-FNKGraphs-dummy.m</string>
-			<key>path</key>
-			<string>../Pods-Tests-FNKGraphs/Pods-Tests-FNKGraphs-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>614A6DD2E9F98AC7F9DC33F0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2D85856E7B58636B65CFBF0A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>628A7E111A1C9C3135C71922</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C528D8BC0FB2C93907BE6D16</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pod</string>
-			<key>path</key>
-			<string>Pod</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>65DFCC6F8803FC451E26043A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>5AC67E06CB9D04E6FC575A3B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>6673EB43CFE2FB186499EFB9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DE8CE288B511C3F698333013</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66AC867B197AEF135DCC4C72</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>74F541BB08A9BA2BE17B7770</string>
-				<string>B595A1ECCE529334E03999F6</string>
-				<string>4AD8F119E4A769F8DD56A148</string>
-				<string>022E9AE24833B7DA43B9DDFA</string>
-				<string>3FECEB31153AABBA6A24A70D</string>
-				<string>8C0F08C7B6869D92C5343600</string>
-				<string>F3D7AAFE29552D879EA9A5AB</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods-FNKGraphs</string>
-			<key>path</key>
-			<string>Target Support Files/Pods-FNKGraphs</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>672D42122E4E771679D3F958</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>0BECDDCC237F1DE319593AA8</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>DEB5CFAED35892E332D0F703</string>
-			<key>remoteInfo</key>
-			<string>Pods-FNKGraphs-FNKGraphs-FNKGraphs</string>
-		</dict>
-		<key>68C3025C2803A99FA557168D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E2D50B1AA9635ABD7439A500</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6AB7CD326988EA3B05CE59C1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FAB0D1480E0D843665ECA586</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6DC2998E68384F473783B86B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>72F7FE78BEFC75CA6AFABCBF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6DEC5246D03401FE126CA5F6</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E3A11D82FBCCCD9AC02B9EB4</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6F40A2F2E0EE17D48E7E51CA</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>E597AFAE58A5BC08868B6C0F</string>
-				<string>5998E5CA7B4B5ECADA8167AC</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>6F6C1375EC4920F96873EEEB</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>6F951AD35265C1B798E047BD</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5DFF5238760E7DB8FF488471</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>72F7FE78BEFC75CA6AFABCBF</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FNKYAxis.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7391765137827823587A5CE2</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>F1FD32F97AAFA65AD984CD75</string>
-				<string>E83D8DD3ADA41F9D41FEF06E</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>74F541BB08A9BA2BE17B7770</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>Pods-FNKGraphs-acknowledgements.markdown</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>756AF5D131157F4C00686400</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-Tests-FNKGraphs-Private.xcconfig</string>
-			<key>path</key>
-			<string>../Pods-Tests-FNKGraphs/Pods-Tests-FNKGraphs-Private.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>75F8F70954F7C6796D9CB8A8</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>0BECDDCC237F1DE319593AA8</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>A235781F8F234C260E670462</string>
-			<key>remoteInfo</key>
-			<string>Pods-Tests-FNKGraphs</string>
-		</dict>
-		<key>79991613EF96AD32D3EAC222</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CA3C416A973225B26C2D006E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>79AA24C1BDA6C8902BC9D69E</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>7D53470C1889D4003161709C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>7DFCA11F56E5FA33EB094E39</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>FNKBar.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>80B63C815D39A719C44103E9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>0BC1777C0F72F2E5FB468BED</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>819DE31D4D11D748867415BD</key>
-		<dict>
-			<key>fileRef</key>
-			<string>23A617E2BDFF3DAD5E43B2B1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>81A3B013BE608EE1EF5131D3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>FNKGraphsViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8C0F08C7B6869D92C5343600</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-FNKGraphs.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>941611E62A2940399A425063</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>name</key>
-			<string>Pods-Tests-FNKGraphs-FNKGraphs</string>
-			<key>target</key>
-			<string>F53D1000D701F092535F1B40</string>
-			<key>targetProxy</key>
-			<string>3A542D58BB2444E433B0EA51</string>
-		</dict>
-		<key>9473435A888C7CB4BDBA65FA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5E6E72F675875208A595AB2D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>947F7CBD158879AF10E1E236</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>name</key>
-			<string>Pods-FNKGraphs-FNKGraphs-FNKGraphs</string>
-			<key>target</key>
-			<string>DEB5CFAED35892E332D0F703</string>
-			<key>targetProxy</key>
-			<string>672D42122E4E771679D3F958</string>
-		</dict>
-		<key>958801F5A5C797D1B4FD9C56</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>PRODUCT_NAME</key>
-				<string>FNKGraphs</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>bundle</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>9635D31C06D3D949CDCDFD77</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>B62B2101C7E4167B32C8086F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>98B830FE19394CC485F487DF</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>ABD31472C0A61156677DEED5</string>
-				<string>15FBE01DB1106F387918B0AB</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>9A1D5C71EEAA14BD63F609B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5825DFD2D20DCB1DE7F926BD</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>9AB80E38859FE0106203D981</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>FNKGraphsLineGraphViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9B2F453C2E71BEA5EB317034</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-Tests-FNKGraphs.xcconfig</string>
-			<key>path</key>
-			<string>../Pods-Tests-FNKGraphs/Pods-Tests-FNKGraphs.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9C48BBB840523CDBD3257070</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>FNKGraphs.bundle</string>
-			<key>path</key>
-			<string>FNKGraphs.bundle</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>9E41AB380CE1FF562EB3B550</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>A7403C537336F9C58E6F40D5</string>
-				<string>FCDC2D18464CC17EFEEF8861</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>A0119260D09EF688434D6AC7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2B0C1B95D9303A86ADDCCF23</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A0F21DAEB741F0A1A031DA35</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>109692CD9A1C558400D0A5B7</string>
-				<string>AD2C32858F26428F9C07CA23</string>
-				<string>5825DFD2D20DCB1DE7F926BD</string>
-				<string>DFED0FE447AED79B190E8940</string>
-				<string>9B2F453C2E71BEA5EB317034</string>
-				<string>756AF5D131157F4C00686400</string>
-				<string>5F639DB9F3C2D2AEB46042C1</string>
-				<string>4637FB34FA11293E718BF87F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
-			<key>path</key>
-			<string>Example/Pods/Target Support Files/Pods-FNKGraphs-FNKGraphs</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A1C2C263D5D7D285A8C547D2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9AB80E38859FE0106203D981</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A235781F8F234C260E670462</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>FCDDCDF763233AE5F07E4D31</string>
-			<key>buildPhases</key>
-			<array>
-				<string>3A998FA785B75EAD726A220B</string>
-				<string>477CE51D7910FD084B27BB4B</string>
-				<string>F7C336FA09F5C3EB86F34BD2</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>941611E62A2940399A425063</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-Tests-FNKGraphs</string>
-			<key>productName</key>
-			<string>Pods-Tests-FNKGraphs</string>
-			<key>productReference</key>
-			<string>F299C1F92BBAA491221AE211</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>A259DABB241EEA26EE5CA037</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5E4B61F88592D5386BB0D4BE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A2CC986886A20A7C3B4076DB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>0839356A8EE08B9C481AE014</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A30A065145ECFECA470CBA7F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-Tests.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A4E39ED9418B23CD662709D5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CA3C416A973225B26C2D006E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A56A5A618D709F068A66D0C9</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>569FE5676F376571BBB4A54C</string>
-			<key>buildPhases</key>
-			<array>
-				<string>D2D7CAEC27101034BE02F577</string>
-				<string>65DFCC6F8803FC451E26043A</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>434DF58EDE51A97B91FE0E69</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-Tests</string>
-			<key>productName</key>
-			<string>Pods-Tests</string>
-			<key>productReference</key>
-			<string>FC48A33A47C04E2CF89AE2F7</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>A70E67B16EA9E7D6EE775A23</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2D85856E7B58636B65CFBF0A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A7403C537336F9C58E6F40D5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FEF125284E6F4D6B776CB874</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A7B383643FB4956F6503F902</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>628A7E111A1C9C3135C71922</string>
-				<string>A0F21DAEB741F0A1A031DA35</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>FNKGraphs</string>
-			<key>path</key>
-			<string>../..</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AACDCB43E7EE4C79CCE9D91E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3F75269DACA64631A642926B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>ABD31472C0A61156677DEED5</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>AD2C32858F26428F9C07CA23</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-FNKGraphs-FNKGraphs-Private.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>ADB205707C2737AB0F60C78D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>0BC1777C0F72F2E5FB468BED</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AE575173A9B723D635091497</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>FNKAxis.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AEBBD40F2A5ED19377FC28B3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>FNKOverlayBar.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B0830CEFE9CEEBAA708B9435</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D40D0CAAE96660BF50B6B866</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B2164146038BBC193016C01C</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>8C0F08C7B6869D92C5343600</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>B5861D82592337842F6B454B</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FNKChartOverlayData.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B595A1ECCE529334E03999F6</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Pods-FNKGraphs-acknowledgements.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B62B2101C7E4167B32C8086F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4AD8F119E4A769F8DD56A148</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B6C0B14654954859C384A9B6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>06C1A72C9A65AB08E70A8814</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B88953B9229279036274A991</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C018C57F7E6E76E323F8A041</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BB1BD5BEA43EBF5A10F5B548</key>
-		<dict>
-			<key>fileRef</key>
-			<string>30D7B5C14E90A6C968574270</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C018C57F7E6E76E323F8A041</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>FNKGraphsBarGraphViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C075FAFF9DD2D560014F0279</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>A7B383643FB4956F6503F902</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Development Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C3A5CE18064475B731782E69</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>66AC867B197AEF135DCC4C72</string>
-				<string>170CB6337DF69B74C8D5B981</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Targets Support Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C528D8BC0FB2C93907BE6D16</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E2D50B1AA9635ABD7439A500</string>
-				<string>AE575173A9B723D635091497</string>
-				<string>2D85856E7B58636B65CFBF0A</string>
-				<string>7DFCA11F56E5FA33EB094E39</string>
-				<string>23A617E2BDFF3DAD5E43B2B1</string>
-				<string>5E4B61F88592D5386BB0D4BE</string>
-				<string>D68512E37E0593AE3046F028</string>
-				<string>12C7A64D34494E35E08A76C9</string>
-				<string>16AAFDAFE00549D4A21DABF9</string>
-				<string>CA3C416A973225B26C2D006E</string>
-				<string>B5861D82592337842F6B454B</string>
-				<string>3F75269DACA64631A642926B</string>
-				<string>DE8CE288B511C3F698333013</string>
-				<string>C018C57F7E6E76E323F8A041</string>
-				<string>E14ADA55AB653B4AC49229D9</string>
-				<string>5DFF5238760E7DB8FF488471</string>
-				<string>5E6E72F675875208A595AB2D</string>
-				<string>9AB80E38859FE0106203D981</string>
-				<string>D40D0CAAE96660BF50B6B866</string>
-				<string>06C1A72C9A65AB08E70A8814</string>
-				<string>0BC1777C0F72F2E5FB468BED</string>
-				<string>81A3B013BE608EE1EF5131D3</string>
-				<string>FAB0D1480E0D843665ECA586</string>
-				<string>AEBBD40F2A5ED19377FC28B3</string>
-				<string>2B0C1B95D9303A86ADDCCF23</string>
-				<string>30D7B5C14E90A6C968574270</string>
-				<string>5D616E332CC5FAF614F664CD</string>
-				<string>59005B210C0B7F242E7C3A54</string>
-				<string>72F7FE78BEFC75CA6AFABCBF</string>
-				<string>0839356A8EE08B9C481AE014</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Classes</string>
-			<key>path</key>
-			<string>Classes</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C63EB53CE0C8D1AD9D6338F4</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>756AF5D131157F4C00686400</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/Pods-Tests-FNKGraphs/Pods-Tests-FNKGraphs-prefix.pch</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>C66E6230D83E88EE230FAA9E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E14ADA55AB653B4AC49229D9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C6D54C80922B414BEB169283</key>
-		<dict>
-			<key>fileRef</key>
-			<string>72F7FE78BEFC75CA6AFABCBF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C6E3A1C44C9A6A2FF1EEA943</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3BB64A7BB74DCA012E980B9A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C8BF16B2C77464027D447F9F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>23A617E2BDFF3DAD5E43B2B1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C9909E356CBF8C9288AC6835</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>E3A9966B94EC82C7BCDCF0BB</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>CA3C416A973225B26C2D006E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>FNKChartOverlayBase.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CABE9B72C1719104C68F2E9D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E14ADA55AB653B4AC49229D9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CC22DACD1E97020C2B524BF1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DE8CE288B511C3F698333013</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CCA71ED02AE5637EC813BFDA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>name</key>
-			<string>Pods-FNKGraphs-FNKGraphs</string>
-			<key>target</key>
-			<string>F043AC09836CB8F77190DC10</string>
-			<key>targetProxy</key>
-			<string>18D4EAF15916DF8C1A0A1842</string>
-		</dict>
-		<key>CEA1E66470A225CE5D760FB4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>30D7B5C14E90A6C968574270</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CED3E56D9E3BED6A1C06EF01</key>
-		<dict>
-			<key>fileRef</key>
-			<string>06C1A72C9A65AB08E70A8814</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CF9B5ED4333CBA3E44796FF3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>16AAFDAFE00549D4A21DABF9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D19A3BD428AD6674BBAD3D56</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5D616E332CC5FAF614F664CD</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D2D7CAEC27101034BE02F577</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>C6E3A1C44C9A6A2FF1EEA943</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D40D0CAAE96660BF50B6B866</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FNKGraphsPieGraphViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D68512E37E0593AE3046F028</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FNKChartOverlayBars.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D6B55B8A32E0DA10BB85E070</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>F3D7AAFE29552D879EA9A5AB</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>D6C591BB9D3E466F9BBF0D91</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E2D50B1AA9635ABD7439A500</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D893011AFE54BC440AEC7A1E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>59005B210C0B7F242E7C3A54</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DABDF4778E47A0EAD435E822</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>F53320D8C24855718F20D075</string>
-			<key>buildPhases</key>
-			<array>
-				<string>9635D31C06D3D949CDCDFD77</string>
-				<string>46D51289FE861A890E81D752</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>CCA71ED02AE5637EC813BFDA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-FNKGraphs</string>
-			<key>productName</key>
-			<string>Pods-FNKGraphs</string>
-			<key>productReference</key>
-			<string>1F47ACD540F8D5284E36E535</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>DE8CE288B511C3F698333013</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FNKGraphsBarGraphViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DEB5CFAED35892E332D0F703</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>7391765137827823587A5CE2</string>
-			<key>buildPhases</key>
-			<array>
-				<string>6F6C1375EC4920F96873EEEB</string>
-				<string>7D53470C1889D4003161709C</string>
-				<string>107FF566EBBD7394F03D6540</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-FNKGraphs-FNKGraphs-FNKGraphs</string>
-			<key>productName</key>
-			<string>Pods-FNKGraphs-FNKGraphs-FNKGraphs</string>
-			<key>productReference</key>
-			<string>FBCE1525040714CA678AEC13</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle</string>
-		</dict>
-		<key>DFED0FE447AED79B190E8940</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-FNKGraphs-FNKGraphs-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E0548008832F9FD4F744DE1E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D68512E37E0593AE3046F028</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E14ADA55AB653B4AC49229D9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FNKGraphsHistogramGraphViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E2D50B1AA9635ABD7439A500</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FNKAxis.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E3A11D82FBCCCD9AC02B9EB4</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>FEF125284E6F4D6B776CB874</string>
-				<string>2FAC8C5C3199AA98929B575D</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>iOS</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E3A9966B94EC82C7BCDCF0BB</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-Tests.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E3D5197B9FA90035D0FAFE71</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AE575173A9B723D635091497</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E5748E8381661546C0C5568E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5D616E332CC5FAF614F664CD</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E597AFAE58A5BC08868B6C0F</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>AD2C32858F26428F9C07CA23</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/Pods-FNKGraphs-FNKGraphs/Pods-FNKGraphs-FNKGraphs-prefix.pch</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>E83D8DD3ADA41F9D41FEF06E</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>PRODUCT_NAME</key>
-				<string>FNKGraphs</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>bundle</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>EBB72C1359CE9F1265B13365</key>
-		<dict>
-			<key>fileRef</key>
-			<string>59005B210C0B7F242E7C3A54</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F043AC09836CB8F77190DC10</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>6F40A2F2E0EE17D48E7E51CA</string>
-			<key>buildPhases</key>
-			<array>
-				<string>02525930E32469FD39860F7D</string>
-				<string>9E41AB380CE1FF562EB3B550</string>
-				<string>F6B3D5A5B336E8D2461E10A3</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>947F7CBD158879AF10E1E236</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-FNKGraphs-FNKGraphs</string>
-			<key>productName</key>
-			<string>Pods-FNKGraphs-FNKGraphs</string>
-			<key>productReference</key>
-			<string>58C5DCA2CD6844779BC5CF14</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>F1FD32F97AAFA65AD984CD75</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>PRODUCT_NAME</key>
-				<string>FNKGraphs</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>bundle</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>F299C1F92BBAA491221AE211</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libPods-Tests-FNKGraphs.a</string>
-			<key>path</key>
-			<string>libPods-Tests-FNKGraphs.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>F3D7AAFE29552D879EA9A5AB</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-FNKGraphs.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F53320D8C24855718F20D075</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>B2164146038BBC193016C01C</string>
-				<string>D6B55B8A32E0DA10BB85E070</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>F53D1000D701F092535F1B40</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>5EB12CE28E6CDCC2077F06D7</string>
-			<key>buildPhases</key>
-			<array>
-				<string>57C0FB41B24BDF061D65498C</string>
-				<string>79AA24C1BDA6C8902BC9D69E</string>
-				<string>3F3CFE217DA6C7069F6D1643</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-Tests-FNKGraphs-FNKGraphs</string>
-			<key>productName</key>
-			<string>Pods-Tests-FNKGraphs-FNKGraphs</string>
-			<key>productReference</key>
-			<string>9C48BBB840523CDBD3257070</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle</string>
-		</dict>
-		<key>F6B3D5A5B336E8D2461E10A3</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>D6C591BB9D3E466F9BBF0D91</string>
-				<string>A70E67B16EA9E7D6EE775A23</string>
-				<string>819DE31D4D11D748867415BD</string>
-				<string>52587B7C9684C4554E300CC8</string>
-				<string>CF9B5ED4333CBA3E44796FF3</string>
-				<string>04A307803BACE10753714A61</string>
-				<string>CC22DACD1E97020C2B524BF1</string>
-				<string>CABE9B72C1719104C68F2E9D</string>
-				<string>9473435A888C7CB4BDBA65FA</string>
-				<string>B0830CEFE9CEEBAA708B9435</string>
-				<string>80B63C815D39A719C44103E9</string>
-				<string>1B1A6BACAB05969A25E0E0A4</string>
-				<string>45DAB08891F686E4BF9C4455</string>
-				<string>E5748E8381661546C0C5568E</string>
-				<string>C6D54C80922B414BEB169283</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>F79128B80145D199DD4FAB65</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5E6E72F675875208A595AB2D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F7C336FA09F5C3EB86F34BD2</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>68C3025C2803A99FA557168D</string>
-				<string>614A6DD2E9F98AC7F9DC33F0</string>
-				<string>C8BF16B2C77464027D447F9F</string>
-				<string>E0548008832F9FD4F744DE1E</string>
-				<string>381CC0943B2DE2BCF4AE92F6</string>
-				<string>5B371187488AE9AE633BE211</string>
-				<string>6673EB43CFE2FB186499EFB9</string>
-				<string>C66E6230D83E88EE230FAA9E</string>
-				<string>F79128B80145D199DD4FAB65</string>
-				<string>3035819ADA6F5E61C2414480</string>
-				<string>ADB205707C2737AB0F60C78D</string>
-				<string>6AB7CD326988EA3B05CE59C1</string>
-				<string>A0119260D09EF688434D6AC7</string>
-				<string>D19A3BD428AD6674BBAD3D56</string>
-				<string>6DC2998E68384F473783B86B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>F85BE84DEAE11B232DDBD7B5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FEF125284E6F4D6B776CB874</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F86A3D131B31BF36D808236D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>0839356A8EE08B9C481AE014</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FAB0D1480E0D843665ECA586</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FNKOverlayBar.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FBCE1525040714CA678AEC13</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>FNKGraphs.bundle</string>
-			<key>path</key>
-			<string>FNKGraphs.bundle</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>FC48A33A47C04E2CF89AE2F7</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libPods-Tests.a</string>
-			<key>path</key>
-			<string>libPods-Tests.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>FCDC2D18464CC17EFEEF8861</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2FAC8C5C3199AA98929B575D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FCDDCDF763233AE5F07E4D31</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>C63EB53CE0C8D1AD9D6338F4</string>
-				<string>251220BBF3CEF471F9D4CAA5</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>FEF125284E6F4D6B776CB874</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>0BECDDCC237F1DE319593AA8</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0015405252FA708406632EFB /* FNKOverlayBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBBD40F2A5ED19377FC28B3 /* FNKOverlayBar.m */; };
+		00EC5C210F17BB2ABB3707B6 /* FNKBarSectionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4B61F88592D5386BB0D4BE /* FNKBarSectionData.m */; };
+		04A307803BACE10753714A61 /* FNKChartOverlayData.h in Headers */ = {isa = PBXBuildFile; fileRef = B5861D82592337842F6B454B /* FNKChartOverlayData.h */; };
+		120C592C1AE66CA4CF56515A /* FNKGraphsHistogramGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF5238760E7DB8FF488471 /* FNKGraphsHistogramGraphViewController.m */; };
+		1B1A6BACAB05969A25E0E0A4 /* FNKOverlayBar.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB0D1480E0D843665ECA586 /* FNKOverlayBar.h */; };
+		28CAEF4900802740A672FDD4 /* FNKBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFCA11F56E5FA33EB094E39 /* FNKBar.m */; };
+		33BAADF9249AC1900286073C /* FNKGraphsBarGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C018C57F7E6E76E323F8A041 /* FNKGraphsBarGraphViewController.m */; };
+		3D44C95E1AD85EDD00640A37 /* FNKPointUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D44C95D1AD85EDD00640A37 /* FNKPointUtils.m */; };
+		3D44C9611AD85FE300640A37 /* FNKLineGraphRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D44C9601AD85FE300640A37 /* FNKLineGraphRange.m */; };
+		3D44C9791AD8627900640A37 /* Pods_FNKGraphs_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D44C9781AD8627900640A37 /* Pods_FNKGraphs_Tests.m */; };
+		3D44C97A1AD8627900640A37 /* libPods-FNKGraphs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F47ACD540F8D5284E36E535 /* libPods-FNKGraphs.a */; };
+		3D7D5B8B1B306FC8001D5DF7 /* FNKHistogramBucketData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D5B8A1B306FC8001D5DF7 /* FNKHistogramBucketData.m */; };
+		45DAB08891F686E4BF9C4455 /* FNKPieSectionData.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B0C1B95D9303A86ADDCCF23 /* FNKPieSectionData.h */; };
+		50F63DC4E18BC909ABE3D36C /* FNKAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = AE575173A9B723D635091497 /* FNKAxis.m */; };
+		52587B7C9684C4554E300CC8 /* FNKChartOverlayBars.h in Headers */ = {isa = PBXBuildFile; fileRef = D68512E37E0593AE3046F028 /* FNKChartOverlayBars.h */; };
+		53B0346CE0727AB9E6EA5326 /* FNKGraphsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A3B013BE608EE1EF5131D3 /* FNKGraphsViewController.m */; };
+		55285DC69F0EDF2F9B423DC5 /* FNKChartOverlayBars.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C7A64D34494E35E08A76C9 /* FNKChartOverlayBars.m */; };
+		79991613EF96AD32D3EAC222 /* FNKChartOverlayBase.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3C416A973225B26C2D006E /* FNKChartOverlayBase.m */; };
+		80B63C815D39A719C44103E9 /* FNKGraphsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0BC1777C0F72F2E5FB468BED /* FNKGraphsViewController.h */; };
+		819DE31D4D11D748867415BD /* FNKBarSectionData.h in Headers */ = {isa = PBXBuildFile; fileRef = 23A617E2BDFF3DAD5E43B2B1 /* FNKBarSectionData.h */; };
+		9473435A888C7CB4BDBA65FA /* FNKGraphsLineGraphViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E6E72F675875208A595AB2D /* FNKGraphsLineGraphViewController.h */; };
+		9A1D5C71EEAA14BD63F609B0 /* Pods-FNKGraphs-FNKGraphs-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5825DFD2D20DCB1DE7F926BD /* Pods-FNKGraphs-FNKGraphs-dummy.m */; };
+		A1C2C263D5D7D285A8C547D2 /* FNKGraphsLineGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB80E38859FE0106203D981 /* FNKGraphsLineGraphViewController.m */; };
+		A70E67B16EA9E7D6EE775A23 /* FNKBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D85856E7B58636B65CFBF0A /* FNKBar.h */; };
+		A7403C537336F9C58E6F40D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF125284E6F4D6B776CB874 /* Foundation.framework */; };
+		AACDCB43E7EE4C79CCE9D91E /* FNKChartOverlayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F75269DACA64631A642926B /* FNKChartOverlayData.m */; };
+		B0830CEFE9CEEBAA708B9435 /* FNKGraphsPieGraphViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D40D0CAAE96660BF50B6B866 /* FNKGraphsPieGraphViewController.h */; };
+		B62B2101C7E4167B32C8086F /* Pods-FNKGraphs-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD8F119E4A769F8DD56A148 /* Pods-FNKGraphs-dummy.m */; };
+		B6C0B14654954859C384A9B6 /* FNKGraphsPieGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C1A72C9A65AB08E70A8814 /* FNKGraphsPieGraphViewController.m */; };
+		C6D54C80922B414BEB169283 /* FNKYAxis.h in Headers */ = {isa = PBXBuildFile; fileRef = 72F7FE78BEFC75CA6AFABCBF /* FNKYAxis.h */; };
+		CABE9B72C1719104C68F2E9D /* FNKGraphsHistogramGraphViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E14ADA55AB653B4AC49229D9 /* FNKGraphsHistogramGraphViewController.h */; };
+		CC22DACD1E97020C2B524BF1 /* FNKGraphsBarGraphViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DE8CE288B511C3F698333013 /* FNKGraphsBarGraphViewController.h */; };
+		CEA1E66470A225CE5D760FB4 /* FNKPieSectionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D7B5C14E90A6C968574270 /* FNKPieSectionData.m */; };
+		CF9B5ED4333CBA3E44796FF3 /* FNKChartOverlayBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 16AAFDAFE00549D4A21DABF9 /* FNKChartOverlayBase.h */; };
+		D6C591BB9D3E466F9BBF0D91 /* FNKAxis.h in Headers */ = {isa = PBXBuildFile; fileRef = E2D50B1AA9635ABD7439A500 /* FNKAxis.h */; };
+		D893011AFE54BC440AEC7A1E /* FNKXAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = 59005B210C0B7F242E7C3A54 /* FNKXAxis.m */; };
+		E5748E8381661546C0C5568E /* FNKXAxis.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D616E332CC5FAF614F664CD /* FNKXAxis.h */; };
+		F85BE84DEAE11B232DDBD7B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF125284E6F4D6B776CB874 /* Foundation.framework */; };
+		F86A3D131B31BF36D808236D /* FNKYAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0839356A8EE08B9C481AE014 /* FNKYAxis.m */; };
+		FCDC2D18464CC17EFEEF8861 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FAC8C5C3199AA98929B575D /* UIKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		18D4EAF15916DF8C1A0A1842 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0BECDDCC237F1DE319593AA8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F043AC09836CB8F77190DC10;
+			remoteInfo = "Pods-FNKGraphs-FNKGraphs";
+		};
+		3D44C97B1AD8627900640A37 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0BECDDCC237F1DE319593AA8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DABDF4778E47A0EAD435E822;
+			remoteInfo = "Pods-FNKGraphs";
+		};
+		672D42122E4E771679D3F958 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0BECDDCC237F1DE319593AA8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DEB5CFAED35892E332D0F703;
+			remoteInfo = "Pods-FNKGraphs-FNKGraphs-FNKGraphs";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		022E9AE24833B7DA43B9DDFA /* Pods-FNKGraphs-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FNKGraphs-environment.h"; sourceTree = "<group>"; };
+		06C1A72C9A65AB08E70A8814 /* FNKGraphsPieGraphViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FNKGraphsPieGraphViewController.m; sourceTree = "<group>"; };
+		0839356A8EE08B9C481AE014 /* FNKYAxis.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FNKYAxis.m; sourceTree = "<group>"; };
+		0BC1777C0F72F2E5FB468BED /* FNKGraphsViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FNKGraphsViewController.h; sourceTree = "<group>"; };
+		109692CD9A1C558400D0A5B7 /* Pods-FNKGraphs-FNKGraphs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FNKGraphs-FNKGraphs.xcconfig"; sourceTree = "<group>"; };
+		12C7A64D34494E35E08A76C9 /* FNKChartOverlayBars.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FNKChartOverlayBars.m; sourceTree = "<group>"; };
+		16AAFDAFE00549D4A21DABF9 /* FNKChartOverlayBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FNKChartOverlayBase.h; sourceTree = "<group>"; };
+		1BC2B780B94C586299FCE560 /* Pods-Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		1F47ACD540F8D5284E36E535 /* libPods-FNKGraphs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FNKGraphs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		23A617E2BDFF3DAD5E43B2B1 /* FNKBarSectionData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FNKBarSectionData.h; sourceTree = "<group>"; };
+		270A6D004E6823E9248146E3 /* Pods-Tests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tests-environment.h"; sourceTree = "<group>"; };
+		2B0C1B95D9303A86ADDCCF23 /* FNKPieSectionData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FNKPieSectionData.h; sourceTree = "<group>"; };
+		2D85856E7B58636B65CFBF0A /* FNKBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FNKBar.h; sourceTree = "<group>"; };
+		2FAC8C5C3199AA98929B575D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		30D7B5C14E90A6C968574270 /* FNKPieSectionData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FNKPieSectionData.m; sourceTree = "<group>"; };
+		38FB9053191FBD433E7D133D /* Pods-Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3BB64A7BB74DCA012E980B9A /* Pods-Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tests-dummy.m"; sourceTree = "<group>"; };
+		3D44C95C1AD85EDD00640A37 /* FNKPointUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNKPointUtils.h; sourceTree = "<group>"; };
+		3D44C95D1AD85EDD00640A37 /* FNKPointUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNKPointUtils.m; sourceTree = "<group>"; };
+		3D44C95F1AD85FE300640A37 /* FNKLineGraphRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNKLineGraphRange.h; sourceTree = "<group>"; };
+		3D44C9601AD85FE300640A37 /* FNKLineGraphRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNKLineGraphRange.m; sourceTree = "<group>"; };
+		3D44C9741AD8627800640A37 /* Pods-FNKGraphs Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pods-FNKGraphs Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D44C9771AD8627900640A37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D44C9781AD8627900640A37 /* Pods_FNKGraphs_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pods_FNKGraphs_Tests.m; sourceTree = "<group>"; };
+		3D7D5B891B306FC8001D5DF7 /* FNKHistogramBucketData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNKHistogramBucketData.h; sourceTree = "<group>"; };
+		3D7D5B8A1B306FC8001D5DF7 /* FNKHistogramBucketData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNKHistogramBucketData.m; sourceTree = "<group>"; };
+		3F75269DACA64631A642926B /* FNKChartOverlayData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FNKChartOverlayData.m; sourceTree = "<group>"; };
+		3FC34A16A5A976287BA9F7CE /* Pods-Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-resources.sh"; sourceTree = "<group>"; };
+		3FECEB31153AABBA6A24A70D /* Pods-FNKGraphs-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FNKGraphs-resources.sh"; sourceTree = "<group>"; };
+		42D9126BA91279709C621FA0 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		4637FB34FA11293E718BF87F /* Pods-Tests-FNKGraphs-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-Tests-FNKGraphs-prefix.pch"; path = "../Pods-Tests-FNKGraphs/Pods-Tests-FNKGraphs-prefix.pch"; sourceTree = "<group>"; };
+		4AD8F119E4A769F8DD56A148 /* Pods-FNKGraphs-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FNKGraphs-dummy.m"; sourceTree = "<group>"; };
+		5825DFD2D20DCB1DE7F926BD /* Pods-FNKGraphs-FNKGraphs-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FNKGraphs-FNKGraphs-dummy.m"; sourceTree = "<group>"; };
+		58C5DCA2CD6844779BC5CF14 /* libPods-FNKGraphs-FNKGraphs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FNKGraphs-FNKGraphs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		59005B210C0B7F242E7C3A54 /* FNKXAxis.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FNKXAxis.m; sourceTree = "<group>"; };
+		5D616E332CC5FAF614F664CD /* FNKXAxis.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FNKXAxis.h; sourceTree = "<group>"; };
+		5DFF5238760E7DB8FF488471 /* FNKGraphsHistogramGraphViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FNKGraphsHistogramGraphViewController.m; sourceTree = "<group>"; };
+		5E4B61F88592D5386BB0D4BE /* FNKBarSectionData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FNKBarSectionData.m; sourceTree = "<group>"; };
+		5E6E72F675875208A595AB2D /* FNKGraphsLineGraphViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FNKGraphsLineGraphViewController.h; sourceTree = "<group>"; };
+		5F639DB9F3C2D2AEB46042C1 /* Pods-Tests-FNKGraphs-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-Tests-FNKGraphs-dummy.m"; path = "../Pods-Tests-FNKGraphs/Pods-Tests-FNKGraphs-dummy.m"; sourceTree = "<group>"; };
+		72F7FE78BEFC75CA6AFABCBF /* FNKYAxis.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FNKYAxis.h; sourceTree = "<group>"; };
+		74F541BB08A9BA2BE17B7770 /* Pods-FNKGraphs-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FNKGraphs-acknowledgements.markdown"; sourceTree = "<group>"; };
+		756AF5D131157F4C00686400 /* Pods-Tests-FNKGraphs-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-FNKGraphs-Private.xcconfig"; path = "../Pods-Tests-FNKGraphs/Pods-Tests-FNKGraphs-Private.xcconfig"; sourceTree = "<group>"; };
+		7DFCA11F56E5FA33EB094E39 /* FNKBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FNKBar.m; sourceTree = "<group>"; };
+		81A3B013BE608EE1EF5131D3 /* FNKGraphsViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FNKGraphsViewController.m; sourceTree = "<group>"; };
+		8C0F08C7B6869D92C5343600 /* Pods-FNKGraphs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FNKGraphs.debug.xcconfig"; sourceTree = "<group>"; };
+		9AB80E38859FE0106203D981 /* FNKGraphsLineGraphViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FNKGraphsLineGraphViewController.m; sourceTree = "<group>"; };
+		9B2F453C2E71BEA5EB317034 /* Pods-Tests-FNKGraphs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-FNKGraphs.xcconfig"; path = "../Pods-Tests-FNKGraphs/Pods-Tests-FNKGraphs.xcconfig"; sourceTree = "<group>"; };
+		A30A065145ECFECA470CBA7F /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		AD2C32858F26428F9C07CA23 /* Pods-FNKGraphs-FNKGraphs-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FNKGraphs-FNKGraphs-Private.xcconfig"; sourceTree = "<group>"; };
+		AE575173A9B723D635091497 /* FNKAxis.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FNKAxis.m; sourceTree = "<group>"; };
+		AEBBD40F2A5ED19377FC28B3 /* FNKOverlayBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FNKOverlayBar.m; sourceTree = "<group>"; };
+		B5861D82592337842F6B454B /* FNKChartOverlayData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FNKChartOverlayData.h; sourceTree = "<group>"; };
+		B595A1ECCE529334E03999F6 /* Pods-FNKGraphs-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FNKGraphs-acknowledgements.plist"; sourceTree = "<group>"; };
+		C018C57F7E6E76E323F8A041 /* FNKGraphsBarGraphViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FNKGraphsBarGraphViewController.m; sourceTree = "<group>"; };
+		CA3C416A973225B26C2D006E /* FNKChartOverlayBase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FNKChartOverlayBase.m; sourceTree = "<group>"; };
+		D40D0CAAE96660BF50B6B866 /* FNKGraphsPieGraphViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FNKGraphsPieGraphViewController.h; sourceTree = "<group>"; };
+		D68512E37E0593AE3046F028 /* FNKChartOverlayBars.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FNKChartOverlayBars.h; sourceTree = "<group>"; };
+		DE8CE288B511C3F698333013 /* FNKGraphsBarGraphViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FNKGraphsBarGraphViewController.h; sourceTree = "<group>"; };
+		DFED0FE447AED79B190E8940 /* Pods-FNKGraphs-FNKGraphs-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FNKGraphs-FNKGraphs-prefix.pch"; sourceTree = "<group>"; };
+		E14ADA55AB653B4AC49229D9 /* FNKGraphsHistogramGraphViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FNKGraphsHistogramGraphViewController.h; sourceTree = "<group>"; };
+		E2D50B1AA9635ABD7439A500 /* FNKAxis.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FNKAxis.h; sourceTree = "<group>"; };
+		E3A9966B94EC82C7BCDCF0BB /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		F3D7AAFE29552D879EA9A5AB /* Pods-FNKGraphs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FNKGraphs.release.xcconfig"; sourceTree = "<group>"; };
+		FAB0D1480E0D843665ECA586 /* FNKOverlayBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FNKOverlayBar.h; sourceTree = "<group>"; };
+		FBCE1525040714CA678AEC13 /* FNKGraphs.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FNKGraphs.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEF125284E6F4D6B776CB874 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3D44C9711AD8627800640A37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D44C97A1AD8627900640A37 /* libPods-FNKGraphs.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46D51289FE861A890E81D752 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F85BE84DEAE11B232DDBD7B5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D53470C1889D4003161709C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E41AB380CE1FF562EB3B550 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7403C537336F9C58E6F40D5 /* Foundation.framework in Frameworks */,
+				FCDC2D18464CC17EFEEF8861 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		170CB6337DF69B74C8D5B981 /* Pods-Tests */ = {
+			isa = PBXGroup;
+			children = (
+				38FB9053191FBD433E7D133D /* Pods-Tests-acknowledgements.markdown */,
+				1BC2B780B94C586299FCE560 /* Pods-Tests-acknowledgements.plist */,
+				3BB64A7BB74DCA012E980B9A /* Pods-Tests-dummy.m */,
+				270A6D004E6823E9248146E3 /* Pods-Tests-environment.h */,
+				3FC34A16A5A976287BA9F7CE /* Pods-Tests-resources.sh */,
+				A30A065145ECFECA470CBA7F /* Pods-Tests.debug.xcconfig */,
+				E3A9966B94EC82C7BCDCF0BB /* Pods-Tests.release.xcconfig */,
+			);
+			name = "Pods-Tests";
+			path = "Target Support Files/Pods-Tests";
+			sourceTree = "<group>";
+		};
+		3D44C9751AD8627800640A37 /* Pods-FNKGraphs Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3D44C9781AD8627900640A37 /* Pods_FNKGraphs_Tests.m */,
+				3D44C9761AD8627900640A37 /* Supporting Files */,
+			);
+			path = "Pods-FNKGraphs Tests";
+			sourceTree = "<group>";
+		};
+		3D44C9761AD8627900640A37 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3D44C9771AD8627900640A37 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		49194BE0D6B6C7188C392979 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FBCE1525040714CA678AEC13 /* FNKGraphs.bundle */,
+				1F47ACD540F8D5284E36E535 /* libPods-FNKGraphs.a */,
+				58C5DCA2CD6844779BC5CF14 /* libPods-FNKGraphs-FNKGraphs.a */,
+				3D44C9741AD8627800640A37 /* Pods-FNKGraphs Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5D355DA7EE0591C940922895 = {
+			isa = PBXGroup;
+			children = (
+				42D9126BA91279709C621FA0 /* Podfile */,
+				C075FAFF9DD2D560014F0279 /* Development Pods */,
+				3D44C9751AD8627800640A37 /* Pods-FNKGraphs Tests */,
+				6DEC5246D03401FE126CA5F6 /* Frameworks */,
+				49194BE0D6B6C7188C392979 /* Products */,
+				C3A5CE18064475B731782E69 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		628A7E111A1C9C3135C71922 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				C528D8BC0FB2C93907BE6D16 /* Classes */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		66AC867B197AEF135DCC4C72 /* Pods-FNKGraphs */ = {
+			isa = PBXGroup;
+			children = (
+				74F541BB08A9BA2BE17B7770 /* Pods-FNKGraphs-acknowledgements.markdown */,
+				B595A1ECCE529334E03999F6 /* Pods-FNKGraphs-acknowledgements.plist */,
+				4AD8F119E4A769F8DD56A148 /* Pods-FNKGraphs-dummy.m */,
+				022E9AE24833B7DA43B9DDFA /* Pods-FNKGraphs-environment.h */,
+				3FECEB31153AABBA6A24A70D /* Pods-FNKGraphs-resources.sh */,
+				8C0F08C7B6869D92C5343600 /* Pods-FNKGraphs.debug.xcconfig */,
+				F3D7AAFE29552D879EA9A5AB /* Pods-FNKGraphs.release.xcconfig */,
+			);
+			name = "Pods-FNKGraphs";
+			path = "Target Support Files/Pods-FNKGraphs";
+			sourceTree = "<group>";
+		};
+		6DEC5246D03401FE126CA5F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E3A11D82FBCCCD9AC02B9EB4 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A0F21DAEB741F0A1A031DA35 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				109692CD9A1C558400D0A5B7 /* Pods-FNKGraphs-FNKGraphs.xcconfig */,
+				AD2C32858F26428F9C07CA23 /* Pods-FNKGraphs-FNKGraphs-Private.xcconfig */,
+				5825DFD2D20DCB1DE7F926BD /* Pods-FNKGraphs-FNKGraphs-dummy.m */,
+				DFED0FE447AED79B190E8940 /* Pods-FNKGraphs-FNKGraphs-prefix.pch */,
+				9B2F453C2E71BEA5EB317034 /* Pods-Tests-FNKGraphs.xcconfig */,
+				756AF5D131157F4C00686400 /* Pods-Tests-FNKGraphs-Private.xcconfig */,
+				5F639DB9F3C2D2AEB46042C1 /* Pods-Tests-FNKGraphs-dummy.m */,
+				4637FB34FA11293E718BF87F /* Pods-Tests-FNKGraphs-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Pods-FNKGraphs-FNKGraphs";
+			sourceTree = "<group>";
+		};
+		A7B383643FB4956F6503F902 /* FNKGraphs */ = {
+			isa = PBXGroup;
+			children = (
+				628A7E111A1C9C3135C71922 /* Pod */,
+				A0F21DAEB741F0A1A031DA35 /* Support Files */,
+			);
+			name = FNKGraphs;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		C075FAFF9DD2D560014F0279 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A7B383643FB4956F6503F902 /* FNKGraphs */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		C3A5CE18064475B731782E69 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				66AC867B197AEF135DCC4C72 /* Pods-FNKGraphs */,
+				170CB6337DF69B74C8D5B981 /* Pods-Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		C528D8BC0FB2C93907BE6D16 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E2D50B1AA9635ABD7439A500 /* FNKAxis.h */,
+				AE575173A9B723D635091497 /* FNKAxis.m */,
+				2D85856E7B58636B65CFBF0A /* FNKBar.h */,
+				7DFCA11F56E5FA33EB094E39 /* FNKBar.m */,
+				23A617E2BDFF3DAD5E43B2B1 /* FNKBarSectionData.h */,
+				5E4B61F88592D5386BB0D4BE /* FNKBarSectionData.m */,
+				D68512E37E0593AE3046F028 /* FNKChartOverlayBars.h */,
+				12C7A64D34494E35E08A76C9 /* FNKChartOverlayBars.m */,
+				16AAFDAFE00549D4A21DABF9 /* FNKChartOverlayBase.h */,
+				CA3C416A973225B26C2D006E /* FNKChartOverlayBase.m */,
+				B5861D82592337842F6B454B /* FNKChartOverlayData.h */,
+				3F75269DACA64631A642926B /* FNKChartOverlayData.m */,
+				DE8CE288B511C3F698333013 /* FNKGraphsBarGraphViewController.h */,
+				C018C57F7E6E76E323F8A041 /* FNKGraphsBarGraphViewController.m */,
+				E14ADA55AB653B4AC49229D9 /* FNKGraphsHistogramGraphViewController.h */,
+				5DFF5238760E7DB8FF488471 /* FNKGraphsHistogramGraphViewController.m */,
+				5E6E72F675875208A595AB2D /* FNKGraphsLineGraphViewController.h */,
+				9AB80E38859FE0106203D981 /* FNKGraphsLineGraphViewController.m */,
+				D40D0CAAE96660BF50B6B866 /* FNKGraphsPieGraphViewController.h */,
+				06C1A72C9A65AB08E70A8814 /* FNKGraphsPieGraphViewController.m */,
+				0BC1777C0F72F2E5FB468BED /* FNKGraphsViewController.h */,
+				81A3B013BE608EE1EF5131D3 /* FNKGraphsViewController.m */,
+				FAB0D1480E0D843665ECA586 /* FNKOverlayBar.h */,
+				AEBBD40F2A5ED19377FC28B3 /* FNKOverlayBar.m */,
+				2B0C1B95D9303A86ADDCCF23 /* FNKPieSectionData.h */,
+				30D7B5C14E90A6C968574270 /* FNKPieSectionData.m */,
+				5D616E332CC5FAF614F664CD /* FNKXAxis.h */,
+				59005B210C0B7F242E7C3A54 /* FNKXAxis.m */,
+				72F7FE78BEFC75CA6AFABCBF /* FNKYAxis.h */,
+				0839356A8EE08B9C481AE014 /* FNKYAxis.m */,
+				3D44C95C1AD85EDD00640A37 /* FNKPointUtils.h */,
+				3D44C95F1AD85FE300640A37 /* FNKLineGraphRange.h */,
+				3D44C9601AD85FE300640A37 /* FNKLineGraphRange.m */,
+				3D44C95D1AD85EDD00640A37 /* FNKPointUtils.m */,
+				3D7D5B891B306FC8001D5DF7 /* FNKHistogramBucketData.h */,
+				3D7D5B8A1B306FC8001D5DF7 /* FNKHistogramBucketData.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		E3A11D82FBCCCD9AC02B9EB4 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				FEF125284E6F4D6B776CB874 /* Foundation.framework */,
+				2FAC8C5C3199AA98929B575D /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		F6B3D5A5B336E8D2461E10A3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6C591BB9D3E466F9BBF0D91 /* FNKAxis.h in Headers */,
+				A70E67B16EA9E7D6EE775A23 /* FNKBar.h in Headers */,
+				819DE31D4D11D748867415BD /* FNKBarSectionData.h in Headers */,
+				52587B7C9684C4554E300CC8 /* FNKChartOverlayBars.h in Headers */,
+				CF9B5ED4333CBA3E44796FF3 /* FNKChartOverlayBase.h in Headers */,
+				04A307803BACE10753714A61 /* FNKChartOverlayData.h in Headers */,
+				CC22DACD1E97020C2B524BF1 /* FNKGraphsBarGraphViewController.h in Headers */,
+				CABE9B72C1719104C68F2E9D /* FNKGraphsHistogramGraphViewController.h in Headers */,
+				9473435A888C7CB4BDBA65FA /* FNKGraphsLineGraphViewController.h in Headers */,
+				B0830CEFE9CEEBAA708B9435 /* FNKGraphsPieGraphViewController.h in Headers */,
+				80B63C815D39A719C44103E9 /* FNKGraphsViewController.h in Headers */,
+				1B1A6BACAB05969A25E0E0A4 /* FNKOverlayBar.h in Headers */,
+				45DAB08891F686E4BF9C4455 /* FNKPieSectionData.h in Headers */,
+				E5748E8381661546C0C5568E /* FNKXAxis.h in Headers */,
+				C6D54C80922B414BEB169283 /* FNKYAxis.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3D44C9731AD8627800640A37 /* Pods-FNKGraphs Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D44C97D1AD8627900640A37 /* Build configuration list for PBXNativeTarget "Pods-FNKGraphs Tests" */;
+			buildPhases = (
+				3D44C9701AD8627800640A37 /* Sources */,
+				3D44C9711AD8627800640A37 /* Frameworks */,
+				3D44C9721AD8627800640A37 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3D44C97C1AD8627900640A37 /* PBXTargetDependency */,
+			);
+			name = "Pods-FNKGraphs Tests";
+			productName = "Pods-FNKGraphs Tests";
+			productReference = 3D44C9741AD8627800640A37 /* Pods-FNKGraphs Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DABDF4778E47A0EAD435E822 /* Pods-FNKGraphs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F53320D8C24855718F20D075 /* Build configuration list for PBXNativeTarget "Pods-FNKGraphs" */;
+			buildPhases = (
+				9635D31C06D3D949CDCDFD77 /* Sources */,
+				46D51289FE861A890E81D752 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CCA71ED02AE5637EC813BFDA /* PBXTargetDependency */,
+			);
+			name = "Pods-FNKGraphs";
+			productName = "Pods-FNKGraphs";
+			productReference = 1F47ACD540F8D5284E36E535 /* libPods-FNKGraphs.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		DEB5CFAED35892E332D0F703 /* Pods-FNKGraphs-FNKGraphs-FNKGraphs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7391765137827823587A5CE2 /* Build configuration list for PBXNativeTarget "Pods-FNKGraphs-FNKGraphs-FNKGraphs" */;
+			buildPhases = (
+				6F6C1375EC4920F96873EEEB /* Sources */,
+				7D53470C1889D4003161709C /* Frameworks */,
+				107FF566EBBD7394F03D6540 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-FNKGraphs-FNKGraphs-FNKGraphs";
+			productName = "Pods-FNKGraphs-FNKGraphs-FNKGraphs";
+			productReference = FBCE1525040714CA678AEC13 /* FNKGraphs.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		F043AC09836CB8F77190DC10 /* Pods-FNKGraphs-FNKGraphs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F40A2F2E0EE17D48E7E51CA /* Build configuration list for PBXNativeTarget "Pods-FNKGraphs-FNKGraphs" */;
+			buildPhases = (
+				02525930E32469FD39860F7D /* Sources */,
+				9E41AB380CE1FF562EB3B550 /* Frameworks */,
+				F6B3D5A5B336E8D2461E10A3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				947F7CBD158879AF10E1E236 /* PBXTargetDependency */,
+			);
+			name = "Pods-FNKGraphs-FNKGraphs";
+			productName = "Pods-FNKGraphs-FNKGraphs";
+			productReference = 58C5DCA2CD6844779BC5CF14 /* libPods-FNKGraphs-FNKGraphs.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0BECDDCC237F1DE319593AA8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				TargetAttributes = {
+					3D44C9731AD8627800640A37 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+				};
+			};
+			buildConfigurationList = 98B830FE19394CC485F487DF /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5D355DA7EE0591C940922895;
+			productRefGroup = 49194BE0D6B6C7188C392979 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DABDF4778E47A0EAD435E822 /* Pods-FNKGraphs */,
+				F043AC09836CB8F77190DC10 /* Pods-FNKGraphs-FNKGraphs */,
+				DEB5CFAED35892E332D0F703 /* Pods-FNKGraphs-FNKGraphs-FNKGraphs */,
+				3D44C9731AD8627800640A37 /* Pods-FNKGraphs Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		107FF566EBBD7394F03D6540 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D44C9721AD8627800640A37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		02525930E32469FD39860F7D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50F63DC4E18BC909ABE3D36C /* FNKAxis.m in Sources */,
+				28CAEF4900802740A672FDD4 /* FNKBar.m in Sources */,
+				00EC5C210F17BB2ABB3707B6 /* FNKBarSectionData.m in Sources */,
+				55285DC69F0EDF2F9B423DC5 /* FNKChartOverlayBars.m in Sources */,
+				79991613EF96AD32D3EAC222 /* FNKChartOverlayBase.m in Sources */,
+				AACDCB43E7EE4C79CCE9D91E /* FNKChartOverlayData.m in Sources */,
+				33BAADF9249AC1900286073C /* FNKGraphsBarGraphViewController.m in Sources */,
+				120C592C1AE66CA4CF56515A /* FNKGraphsHistogramGraphViewController.m in Sources */,
+				A1C2C263D5D7D285A8C547D2 /* FNKGraphsLineGraphViewController.m in Sources */,
+				B6C0B14654954859C384A9B6 /* FNKGraphsPieGraphViewController.m in Sources */,
+				53B0346CE0727AB9E6EA5326 /* FNKGraphsViewController.m in Sources */,
+				0015405252FA708406632EFB /* FNKOverlayBar.m in Sources */,
+				CEA1E66470A225CE5D760FB4 /* FNKPieSectionData.m in Sources */,
+				D893011AFE54BC440AEC7A1E /* FNKXAxis.m in Sources */,
+				F86A3D131B31BF36D808236D /* FNKYAxis.m in Sources */,
+				9A1D5C71EEAA14BD63F609B0 /* Pods-FNKGraphs-FNKGraphs-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D44C9701AD8627800640A37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D44C9791AD8627900640A37 /* Pods_FNKGraphs_Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F6C1375EC4920F96873EEEB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9635D31C06D3D949CDCDFD77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D44C95E1AD85EDD00640A37 /* FNKPointUtils.m in Sources */,
+				3D7D5B8B1B306FC8001D5DF7 /* FNKHistogramBucketData.m in Sources */,
+				B62B2101C7E4167B32C8086F /* Pods-FNKGraphs-dummy.m in Sources */,
+				3D44C9611AD85FE300640A37 /* FNKLineGraphRange.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3D44C97C1AD8627900640A37 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DABDF4778E47A0EAD435E822 /* Pods-FNKGraphs */;
+			targetProxy = 3D44C97B1AD8627900640A37 /* PBXContainerItemProxy */;
+		};
+		947F7CBD158879AF10E1E236 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-FNKGraphs-FNKGraphs-FNKGraphs";
+			target = DEB5CFAED35892E332D0F703 /* Pods-FNKGraphs-FNKGraphs-FNKGraphs */;
+			targetProxy = 672D42122E4E771679D3F958 /* PBXContainerItemProxy */;
+		};
+		CCA71ED02AE5637EC813BFDA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-FNKGraphs-FNKGraphs";
+			target = F043AC09836CB8F77190DC10 /* Pods-FNKGraphs-FNKGraphs */;
+			targetProxy = 18D4EAF15916DF8C1A0A1842 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		15FBE01DB1106F387918B0AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				STRIP_INSTALLED_PRODUCT = NO;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3D44C97E1AD8627900640A37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "Pods-FNKGraphs Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3D44C97F1AD8627900640A37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "Pods-FNKGraphs Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		5998E5CA7B4B5ECADA8167AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD2C32858F26428F9C07CA23 /* Pods-FNKGraphs-FNKGraphs-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-FNKGraphs-FNKGraphs/Pods-FNKGraphs-FNKGraphs-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		ABD31472C0A61156677DEED5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+			};
+			name = Debug;
+		};
+		B2164146038BBC193016C01C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C0F08C7B6869D92C5343600 /* Pods-FNKGraphs.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D6B55B8A32E0DA10BB85E070 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3D7AAFE29552D879EA9A5AB /* Pods-FNKGraphs.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		E597AFAE58A5BC08868B6C0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD2C32858F26428F9C07CA23 /* Pods-FNKGraphs-FNKGraphs-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-FNKGraphs-FNKGraphs/Pods-FNKGraphs-FNKGraphs-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		E83D8DD3ADA41F9D41FEF06E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = FNKGraphs;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		F1FD32F97AAFA65AD984CD75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = FNKGraphs;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3D44C97D1AD8627900640A37 /* Build configuration list for PBXNativeTarget "Pods-FNKGraphs Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D44C97E1AD8627900640A37 /* Debug */,
+				3D44C97F1AD8627900640A37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6F40A2F2E0EE17D48E7E51CA /* Build configuration list for PBXNativeTarget "Pods-FNKGraphs-FNKGraphs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E597AFAE58A5BC08868B6C0F /* Debug */,
+				5998E5CA7B4B5ECADA8167AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7391765137827823587A5CE2 /* Build configuration list for PBXNativeTarget "Pods-FNKGraphs-FNKGraphs-FNKGraphs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1FD32F97AAFA65AD984CD75 /* Debug */,
+				E83D8DD3ADA41F9D41FEF06E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98B830FE19394CC485F487DF /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABD31472C0A61156677DEED5 /* Debug */,
+				15FBE01DB1106F387918B0AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F53320D8C24855718F20D075 /* Build configuration list for PBXNativeTarget "Pods-FNKGraphs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2164146038BBC193016C01C /* Debug */,
+				D6B55B8A32E0DA10BB85E070 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0BECDDCC237F1DE319593AA8 /* Project object */;
+}
