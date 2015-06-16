@@ -10,10 +10,9 @@
 #import "FNKGraphsViewController.h"
 #import "FNKXAxis.h"
 #import "FNKYAxis.h"
+#import "FNKBar.h"
 
 @interface FNKGraphsHistogramGraphViewController : FNKGraphsViewController
-
-@property (nonatomic, strong) UIColor* barColor;
 
 @property (nonatomic, strong) UIView* yLabelView;
 @property (nonatomic, strong) UIView* xLabelView;
@@ -33,6 +32,12 @@
 /* The value for the specific object in the graph data (the length of the bar)*/
 @property (nonatomic, copy) CGFloat (^valueForObject)(id object);
 
+/* The color for the specfic bar given the object */
+@property (nonatomic, copy) UIColor* (^colorForBar)(int index);
+
+/* The value for the specific object in the graph data (the length of the bar)*/
+@property (nonatomic, copy) NSDate* (^dateForObject)(id object);
+
 /* Specify a ymin to make your graph more readable*/
 @property (nonatomic) NSNumber* yMin;
 
@@ -44,6 +49,9 @@
 
 /* The padding between each of the bars (defaults 5)*/
 @property (nonatomic) CGFloat barPadding;
+
+/* The time bucket that this object will fit into*/
+@property (nonatomic, copy) void (^barAdded)(FNKBar* bar, int barNum);
 
 /* Pass in new data and the bars will animate to their new positins */
 -(void)filterBars:(NSMutableArray*)filteredData duration:(CGFloat)duration completion:(void (^)(void))completion;

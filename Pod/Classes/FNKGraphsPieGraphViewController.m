@@ -148,8 +148,12 @@
 -(UILabel*)addLabelForSlice:(FNKPieSectionData*) data startAngle:(CGFloat)startAngle endAngle:(CGFloat)endAngle
 {
     CGFloat labelAngle = startAngle + (endAngle - startAngle)/2;
-    CGFloat labelX = self.center.x + self.radius * cos(DEG2RAD(labelAngle));
-    CGFloat labelY = self.center.y + self.radius * sin(DEG2RAD(-labelAngle));
+    
+    CGFloat xDistFromRadius = (self.xLabelPosPercentOfRadius == 0) ? 1.0 : (self.xLabelPosPercentOfRadius / 100);
+    CGFloat yDistFromRadius = (self.yLabelPosPercentOfRadius == 0) ? 1.0 : (self.yLabelPosPercentOfRadius / 100);
+    
+    CGFloat labelX = self.center.x + (self.radius * xDistFromRadius) * cos(DEG2RAD(labelAngle));
+    CGFloat labelY = self.center.y + (self.radius * yDistFromRadius) * sin(DEG2RAD(-labelAngle));
     
     UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(labelX-50, labelY-10, 100, 20)];
     [label setTextColor:self.sliceLabelColor];

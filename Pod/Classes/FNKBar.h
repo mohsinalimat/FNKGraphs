@@ -13,6 +13,7 @@
 
 @property (nonatomic) CGFloat adjustmentHeight;
 @property (nonatomic) CGRect originalFrame;
+@property (nonatomic, strong) NSLayoutConstraint* heightConstraint;
 //@property (nonatomic, strong) FNKBarSectionData* data;
 
 //-(FNKBar*)initWithData:(FNKBarSectionData*)data frame:(CGRect)frame;

@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <FNKGraphs/FNKGraphsViewController.h>
+#import <FNKGraphs/FNKGraphsPieGraphViewController.h>
 
 @interface FNKPieGraphViewController : UIViewController<FNKChartsViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView *pieContainerView;
-@property (nonatomic, strong) FNKGraphsViewController* pieChartsVC;
+@property (nonatomic, strong) FNKGraphsPieGraphViewController* pieChartsVC;
 @property (strong, nonatomic) IBOutlet UILabel *degreesLabel;
 
 @end

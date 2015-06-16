@@ -10,6 +10,9 @@
 
 @interface FNKGraphsPieGraphViewController : FNKGraphsViewController
 
+@property (nonatomic) CGFloat xLabelPosPercentOfRadius;
+@property (nonatomic) CGFloat yLabelPosPercentOfRadius;
+
 @property (nonatomic, copy) int (^numberOfSlices)();
 @property (nonatomic, copy) NSInteger (^sliceForObject)(id object);
 @property (nonatomic, copy) CGFloat (^valueForObject)(id object);

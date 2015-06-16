@@ -9,6 +9,7 @@
 #import "FNKGraphsHistogramGraphViewController.h"
 #import "FNKBarSectionData.h"
 #import "FNKBar.h"
+#import "FNKHistogramBucketData.h"
 
 @interface FNKGraphsHistogramGraphViewController ()
 
@@ -85,15 +86,18 @@
     //Initialize all the values to 0
     for(int i = 0; i < self.numberOfBuckets() ; i++)
     {
-        [self.buckets addObject:@(0)];
+        [self.buckets addObject:[[FNKHistogramBucketData alloc] init]];
+
     }
     
     //Increment the info
     for(FNKBarSectionData* data in self.graphData)
     {
         CGFloat val = self.valueForObject(data.data);
-        NSNumber* num = (NSNumber*)[self.buckets objectAtIndex:data.bucket];
-        [self.buckets replaceObjectAtIndex:data.bucket withObject:@(val + num.floatValue)];
+        FNKHistogramBucketData* bucketData = (FNKHistogramBucketData*)[self.buckets objectAtIndex:data.bucket];
+        bucketData.data = @(val + bucketData.data.floatValue);
+        [bucketData addDate:self.dateForObject(data.data)];
+
     }
     
     [self drawAxii:self.view];
@@ -105,25 +109,67 @@
         //First we need to figure out the width of the bars
         self.barWidth = (self.graphWidth / self.buckets.count) - self.barPadding;
         
-        [self addTicks];
-        
         self.barsArray = [NSMutableArray array];
+        
+        //First create the bars
+        for(int index = 0 ; index < (int)self.buckets.count ; index++)
+        {
+            CGFloat x = index * (self.barWidth + self.barPadding);
+            
+            FNKBar* barView = [[FNKBar alloc] initWithFrame:CGRectMake(x + self.marginLeft, self.graphHeight, self.barWidth, 0)];
+            barView.backgroundColor = self.colorForBar(index);
+            barView.alpha = 1.0;
+            [barView setHeightConstraint:[NSLayoutConstraint constraintWithItem:barView
+                                                                      attribute:NSLayoutAttributeHeight
+                                                                      relatedBy:NSLayoutRelationEqual
+                                                                         toItem:nil
+                                                                      attribute:NSLayoutAttributeNotAnAttribute
+                                                                     multiplier:0.0
+                                                                       constant:0.0]];
+            
+            [barView setTranslatesAutoresizingMaskIntoConstraints:NO];
+            [self.view addSubview:barView];
+            [self.view addConstraint:barView.heightConstraint];
+            [self.view addConstraint:[NSLayoutConstraint constraintWithItem:barView
+                                                                  attribute:NSLayoutAttributeLeft
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:self.view
+                                                                  attribute:NSLayoutAttributeLeft
+                                                                 multiplier:1.0
+                                                                   constant:x + self.marginLeft]];
+            [self.view addConstraint:[NSLayoutConstraint constraintWithItem:barView
+                                                                  attribute:NSLayoutAttributeBottom
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:self.view
+                                                                  attribute:NSLayoutAttributeBottom
+                                                                 multiplier:1.0
+                                                                   constant:0]];
+            
+            [self.view addConstraint:[NSLayoutConstraint constraintWithItem:barView
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:nil
+                                                                  attribute:NSLayoutAttributeNotAnAttribute
+                                                                 multiplier:1.0
+                                                                   constant:self.barWidth]];
+            
+            [self.barsArray addObject:barView];
+            
+            if(self.barAdded != NULL)
+            {
+                self.barAdded(barView, index);
+            }
+        }
+        
+        [self addTicks];
         
         int index = 0;
         
         dispatch_group_t animationGroup = dispatch_group_create();
         
-        for(NSNumber* barData in self.buckets)
+        for(FNKBar* barView in self.barsArray)
         {
-            CGFloat x = index * (self.barWidth + self.barPadding);
-            
-            FNKBar* barView = [[FNKBar alloc] initWithFrame:CGRectMake(x + self.marginLeft, self.graphHeight, self.barWidth, 0)];
-            barView.backgroundColor = self.barColor;
-            barView.alpha = 1.0;
-            [self.view addSubview:barView];
-            
-            [self.barsArray addObject:barView];
-            
+            FNKHistogramBucketData* bucketData = [self.buckets objectAtIndex:index];
             double delay = 0.05*index;
             
             dispatch_group_enter(animationGroup);
@@ -132,8 +178,8 @@
                                   delay:delay
                                 options:UIViewAnimationOptionCurveEaseIn
                              animations:^{
-                                 barView.originalFrame = CGRectMake(x + safeSelf.marginLeft, safeSelf.graphHeight, safeSelf.barWidth, -barData.floatValue * safeSelf.yScaleFactor);
-                                 barView.frame = barView.originalFrame;
+                                 barView.heightConstraint.constant = bucketData.data.floatValue * safeSelf.yScaleFactor;
+                                 [self.view layoutSubviews];
                              }
                              completion:^(BOOL finished) {
                                  dispatch_group_leave(animationGroup);
@@ -162,20 +208,32 @@
     self.yLabelView = [self.yAxis addTicksToView:self.view];
     
     __weak __typeof(self) safeSelf = self;
-    self.xLabelView = [self.xAxis addTicksToView:self.view tickFormat:^NSString *(CGFloat value) {
-        //Need to figure out which bar we are closest to.
-        int bar = (int)(value/(safeSelf.barPadding + safeSelf.barWidth));
-        
-        //maxDate - minDate = days between
-        NSInteger daysBetween = [safeSelf daysBetweenMinDate:safeSelf.minDate maxDate:safeSelf.maxDate calendar:[NSCalendar currentCalendar]];
-        
-        //daysBetween/barNumbers = days per bar
-        CGFloat daysPerBar = daysBetween / safeSelf.numberOfBuckets();
-        
-        //date = minDate + daysPerBar*Bar;
-        NSDate* date = [safeSelf dateByAddingDays:safeSelf.minDate numDays:(daysPerBar*bar)];
-        return safeSelf.xAxis.tickFormat([date timeIntervalSince1970]);
-    }];
+    if(self.xAxis.ticks > self.buckets.count)
+    {
+        self.xLabelView = [self.xAxis addTicksToView:self.view
+                                              atBars:self.barsArray
+                                          tickFormat:^NSString *(int index) {
+                                              FNKHistogramBucketData* bucketData = [safeSelf.buckets objectAtIndex:index];
+                                              return safeSelf.xAxis.tickFormat([bucketData.minDate timeIntervalSince1970]);
+                                          }];
+    }
+    else
+    {
+        self.xLabelView = [self.xAxis addTicksToView:self.view tickFormat:^NSString *(CGFloat value) {
+            //Need to figure out which bar we are closest to.
+            int bar = (int)(value/(safeSelf.barPadding + safeSelf.barWidth));
+            
+            //maxDate - minDate = days between
+            NSInteger daysBetween = [safeSelf daysBetweenMinDate:safeSelf.minDate maxDate:safeSelf.maxDate calendar:[NSCalendar currentCalendar]];
+            
+            //daysBetween/barNumbers = days per bar
+            CGFloat daysPerBar = daysBetween / safeSelf.numberOfBuckets();
+            
+            //date = minDate + daysPerBar*Bar;
+            NSDate* date = [safeSelf dateByAddingDays:safeSelf.minDate numDays:(daysPerBar*bar)];
+            return safeSelf.xAxis.tickFormat([date timeIntervalSince1970]);
+        }];
+    }
 }
 
 -(void)removeTicks
@@ -191,7 +249,7 @@
     dispatch_group_t animationGroup = dispatch_group_create();
     for(FNKBar* bar in self.barsArray)
     {
-        NSNumber* barData = [data objectAtIndex:i];
+        FNKHistogramBucketData* bucketData = [data objectAtIndex:i];
         
         __weak __typeof(self) safeSelf = self;
         dispatch_group_enter(animationGroup);
@@ -199,7 +257,8 @@
                               delay:0
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
-                             bar.frame = CGRectMake(bar.originalFrame.origin.x, bar.originalFrame.origin.y, bar.originalFrame.size.width, -barData.floatValue * safeSelf.yScaleFactor);
+                             bar.heightConstraint.constant = bucketData.data.floatValue * safeSelf.yScaleFactor;
+                             [self.view layoutSubviews];
                          }
                          completion:^(BOOL finished) {
                              dispatch_group_leave(animationGroup);
@@ -222,16 +281,16 @@
     CGFloat maxY = DBL_MIN;
     CGFloat minY = DBL_MAX;
     
-    for (NSNumber* data in buckets)
+    for (FNKHistogramBucketData* bucketData in buckets)
     {
-        if(data.floatValue > maxY)
+        if(bucketData.data.floatValue > maxY)
         {
-            maxY = data.floatValue;
+            maxY = bucketData.data.floatValue;
         }
         
-        if(data.floatValue < minY)
+        if(bucketData.data.floatValue < minY)
         {
-            minY = data.floatValue;
+            minY = bucketData.data.floatValue;
         }
     }
     
@@ -281,15 +340,16 @@
         //Initialize all the values to 0
         for(int i = 0; i < self.numberOfBuckets() ; i++)
         {
-            [filteredBuckets addObject:@(0)];
+            [filteredBuckets addObject:[[FNKHistogramBucketData alloc] init]];
         }
         
         //Increment the info
         for(FNKBarSectionData* data in filteredGraphData)
-        {
+        {            
             CGFloat val = self.valueForObject(data.data);
-            NSNumber* num = (NSNumber*)[filteredBuckets objectAtIndex:data.bucket];
-            [filteredBuckets replaceObjectAtIndex:data.bucket withObject:@(val + num.floatValue)];
+            FNKHistogramBucketData* bucketData = (FNKHistogramBucketData*)[filteredBuckets objectAtIndex:data.bucket];
+            bucketData.data = @(val + bucketData.data.floatValue);
+            [bucketData addDate:self.dateForObject(data.data)];
         }
         
         [self calcMaxMin:filteredBuckets];
@@ -324,9 +384,10 @@
 
 -(void)resetBarColors
 {
-    for(FNKBar* bar in self.barsArray)
+    for (int index = 0; index < self.barsArray.count; index++)
     {
-        [bar setBackgroundColor:[UIColor colorWithRed:0.239 green:0.71 blue:0.996 alpha:1.0]];
+        FNKBar* bar = [self.barsArray objectAtIndex:index];
+        [bar setBackgroundColor:self.colorForBar(index)];
     }
 }
 
