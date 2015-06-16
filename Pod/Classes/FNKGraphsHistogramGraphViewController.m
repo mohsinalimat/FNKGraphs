@@ -143,7 +143,7 @@
                                                                      toItem:self.view
                                                                   attribute:NSLayoutAttributeBottom
                                                                  multiplier:1.0
-                                                                   constant:0]];
+                                                                   constant:-self.marginBottom]];
             
             [self.view addConstraint:[NSLayoutConstraint constraintWithItem:barView
                                                                   attribute:NSLayoutAttributeWidth
