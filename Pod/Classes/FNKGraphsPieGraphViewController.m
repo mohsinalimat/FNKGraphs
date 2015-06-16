@@ -340,7 +340,7 @@
     
     if(degrees < 0)
     {
-        degrees = abs(degrees);
+        degrees = fabs(degrees);
     }
     else
     {
