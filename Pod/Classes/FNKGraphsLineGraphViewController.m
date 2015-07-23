@@ -390,9 +390,11 @@
     
     [bezPath moveToPoint:CGPointMake(xVal, 0)];
     [bezPath addLineToPoint:CGPointMake(xVal, self.graphHeight)];
+    [bezPath setLineWidth: (self.selectedLineWidth > 0 ? self.selectedLineWidth : 1.0)];
     
-    self.selectedLineLayer.strokeColor = self.lineStrokeColor.CGColor;
+    self.selectedLineLayer.strokeColor = self.selectedLineColor ? self.selectedLineColor.CGColor :  self.lineStrokeColor.CGColor;
     self.selectedLineLayer.path = bezPath.CGPath;
+    
     
     CGFloat radius = 5;
     

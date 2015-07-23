@@ -24,6 +24,10 @@
 @property (nonatomic, strong) CAShapeLayer* selectedLineLayer;
 @property (nonatomic, strong) CAShapeLayer* selectedLineCircleLayer;
 
+@property (nonatomic, strong) UIColor* selectedLineColor;
+
+@property (nonatomic) CGFloat selectedLineWidth;
+
 /* averageLineColor - Is the color that the average will show up as*/
 @property (nonatomic, strong) UIColor* averageLineColor;
 
