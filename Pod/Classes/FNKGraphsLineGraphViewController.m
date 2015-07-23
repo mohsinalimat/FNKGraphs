@@ -399,8 +399,8 @@
     CGFloat radius = 5;
     
     self.selectedLineCircleLayer.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(xVal - radius/2, yVal-radius/2, radius, radius)].CGPath;
-    self.selectedLineCircleLayer.fillColor = self.lineStrokeColor.CGColor;
-    self.selectedLineCircleLayer.strokeColor = self.lineStrokeColor.CGColor;
+    self.selectedLineCircleLayer.fillColor = self.selectedLineColor ? self.selectedLineColor.CGColor :  self.lineStrokeColor.CGColor;
+    self.selectedLineCircleLayer.strokeColor = self.selectedLineColor ? self.selectedLineColor.CGColor :  self.lineStrokeColor.CGColor;
     
     return ((self.graphHeight - yVal) / self.yScaleFactor) + self.yAxis.axisMin;
 }
