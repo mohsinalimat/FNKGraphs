@@ -36,7 +36,7 @@
 
 -(void)addPaceChart
 {
-    self.paceChartsVC = [[FNKGraphsLineGraphViewController alloc] initWithFrame:CGRectMake(0, 70, 320, 160)];
+    self.paceChartsVC = [[FNKGraphsLineGraphViewController alloc] initWithRect:CGRectMake(0, 70, 320, 160) marginLeft:0 marginBottom:0 graphWidth:0 graphHeight:0];
     [self.paceChartsVC setDataArray:[FNKPointValues addAllNegativeOnesTest]];
     
 //        [self.paceChartsVC addChartOverlay:[[FNKChartOverlayBars alloc] init]];
@@ -108,14 +108,14 @@
 
 -(void) addElevationChart
 {
-    self.elevationChartsVC = [[FNKGraphsLineGraphViewController alloc] initWithFrame:CGRectMake(0, 320, 320, 160)];
+    self.elevationChartsVC = [[FNKGraphsLineGraphViewController alloc] initWithRect:CGRectMake(0, 320, 320, 160) marginLeft:5 marginBottom:0 graphWidth:0 graphHeight:0];
     [self.elevationChartsVC setDataArray:[FNKPointValues addPointsElevationByDistanceOne]];
     
     self.elevationChartsVC.yAxis.strokeColor = [UIColor clearColor];
     self.elevationChartsVC.yAxis.fillColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
     self.elevationChartsVC.yAxis.tickFillColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
     self.elevationChartsVC.yAxis.tickStrokeColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
-    self.elevationChartsVC.yAxis.tickType = FNKTickTypeBehind;
+    self.elevationChartsVC.yAxis.tickType = FNKTickTypeAbove;
     
     self.elevationChartsVC.xAxis.strokeColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];
     self.elevationChartsVC.xAxis.fillColor = [UIColor colorWithRed:0.91015625 green:0.91015625 blue:0.91015625 alpha:0.7];

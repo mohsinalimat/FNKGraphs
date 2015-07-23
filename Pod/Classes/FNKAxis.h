@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 
 typedef enum {
-    FNKTickTypeOutside, FNKTickTypeBehind
+    FNKTickTypeOutside, FNKTickTypeBehind, FNKTickTypeAbove
 } FNKTickType;
 
 @interface FNKAxis : NSObject
@@ -37,6 +37,8 @@ typedef enum {
 @property (nonatomic, strong) UIColor* tickStrokeColor;
 
 @property (nonatomic, strong) UIFont* tickFont;
+@property (nonatomic, strong) UIColor* tickLabelColor;
+
 
 @property (nonatomic, copy) NSString* (^tickFormat)(CGFloat value);
 
