@@ -9,6 +9,8 @@
 #import "FNKXAxis.h"
 #import "FNKBar.h"
 
+static const CGFloat FNKTallTickHeight = 10;
+
 @implementation FNKXAxis
 
 -(void) drawAxis:(UIView*) view
@@ -35,17 +37,30 @@
 {
     CGFloat tickInterval = self.graphWidth / self.ticks;
     
-    UIView* labelView = [[UIView alloc] initWithFrame:CGRectMake(0, view.frame.size.height, view.frame.size.width, 20)];
+    CGFloat labelYLoc = self.tickType == FNKTickTypeTallTickBelow ? view.frame.size.height + FNKTallTickHeight/2 : view.frame.size.height;
+    
+    UIView* labelView = [[UIView alloc] initWithFrame:CGRectMake(0, labelYLoc, view.frame.size.width, 20)];
     
     for (int index = 0 ; index < self.ticks+1 ; index++)
     {
         UIBezierPath* bezPath = [[UIBezierPath alloc] init];
         
         CGFloat xVal = self.marginLeft + (index * tickInterval);
-        CGFloat yVal = self.graphHeight;
         
-        [bezPath moveToPoint:CGPointMake(xVal, yVal)];
-        [bezPath addLineToPoint:CGPointMake(xVal, yVal + 3)];
+        if(self.tickType == FNKTickTypeTallTickBelow)
+        {
+            CGFloat yVal = self.graphHeight - FNKTallTickHeight / 2;
+            
+            [bezPath moveToPoint:CGPointMake(xVal, yVal)];
+            [bezPath addLineToPoint:CGPointMake(xVal, yVal + FNKTallTickHeight)];
+        }
+        else
+        {
+            CGFloat yVal = self.graphWidth;
+            
+            [bezPath moveToPoint:CGPointMake(xVal, yVal)];
+            [bezPath addLineToPoint:CGPointMake(xVal, yVal + 3)];
+        }
         
         CAShapeLayer* layer = [[CAShapeLayer alloc] init];
         layer.path = bezPath.CGPath;
@@ -74,6 +89,7 @@
         tickLabel.frame = CGRectMake( xVal - textWidth/2, 0, textWidth, 10);
         tickLabel.textAlignment = NSTextAlignmentCenter;
         tickLabel.font = self.tickFont;
+        tickLabel.textColor = self.tickLabelColor;
         [labelView addSubview:tickLabel];
     }
     
@@ -127,6 +143,7 @@
         tickLabel.frame = CGRectMake( xVal - textWidth/2, 0, textWidth, 10);
         tickLabel.textAlignment = NSTextAlignmentCenter;
         tickLabel.font = self.tickFont;
+        tickLabel.textColor = self.tickLabelColor;
         [labelView addSubview:tickLabel];
     }
     

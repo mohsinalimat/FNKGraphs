@@ -42,15 +42,15 @@
         
         [bezPath moveToPoint:CGPointMake(xVal, yVal)];
         
-        if(self.tickType == FNKTickTypeOutside)
+        if(self.tickType == FNKYTickTypeOutside)
         {
             [bezPath addLineToPoint:CGPointMake(self.graphWidth, yVal)];
         }
-        else if(self.tickType == FNKTickTypeBehind)
+        else if(self.tickType == FNKYTickTypeBehind)
         {
             [bezPath addLineToPoint:CGPointMake(xVal + self.graphWidth, yVal)];
         }
-        else if(self.tickType == FNKTickTypeAbove)
+        else if(self.tickType == FNKYTickTypeAbove)
         {
             [bezPath addLineToPoint:CGPointMake(xVal + self.graphWidth, yVal)];
         }
@@ -73,17 +73,15 @@
 
 -(UIView*) addTicksToView:(UIView*) view
 {
-//    [view setBackgroundColor:[UIColor purpleColor]];
     CGFloat tickInterval = self.graphHeight / self.ticks;
     
     UIView* labelView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40,  view.frame.size.height)];
     [labelView setAlpha:0.0];
-//    [labelView setBackgroundColor:[UIColor orangeColor]];
     [view addSubview:labelView];
     labelView.translatesAutoresizingMaskIntoConstraints = NO;
     NSDictionary *labelViewDictionary = NSDictionaryOfVariableBindings(labelView);
     
-    if(self.tickType == FNKTickTypeBehind)
+    if(self.tickType == FNKYTickTypeBehind)
     {
         NSArray *widthConstraints = [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"|-0-[labelView(%ld)]",(long)@(self.marginLeft).integerValue]
                                                                             options:0
@@ -91,7 +89,7 @@
                                                                               views:labelViewDictionary];
         [view addConstraints:widthConstraints];
     }
-    else if(self.tickType == FNKTickTypeAbove)
+    else if(self.tickType == FNKYTickTypeAbove)
     {
         NSArray *widthConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[labelView]"
                                                                             options:0
@@ -115,7 +113,7 @@
             continue;
         }
         
-        CGFloat yVal = self.tickType == FNKTickTypeAbove ? (index * tickInterval) - self.tickFont.capHeight :  (index * tickInterval);
+        CGFloat yVal = self.tickType == FNKYTickTypeAbove ? (index * tickInterval) - self.tickFont.capHeight :  (index * tickInterval);
         
         //Okay those are the ticks. Now we need the labels
         UILabel* tickLabel = [[UILabel alloc] init];
@@ -123,7 +121,7 @@
         CGFloat originalVal = ((self.graphHeight - yVal) / self.scaleFactor) + self.axisMin;
         tickLabel.text = self.tickFormat(originalVal);
         
-        if(self.tickType == FNKTickTypeAbove)
+        if(self.tickType == FNKYTickTypeAbove)
         {
             tickLabel.textAlignment = NSTextAlignmentLeft;
         }
@@ -142,7 +140,7 @@
         NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(tickLabel);
         
         NSString *constraintString = nil;
-        if(self.tickType == FNKTickTypeAbove)
+        if(self.tickType == FNKYTickTypeAbove)
         {
             constraintString = [NSString stringWithFormat:@"|-(%f)-[tickLabel]-2-|", self.marginLeft];
         }

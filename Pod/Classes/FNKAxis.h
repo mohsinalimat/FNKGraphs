@@ -9,10 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-typedef enum {
-    FNKTickTypeOutside, FNKTickTypeBehind, FNKTickTypeAbove
-} FNKTickType;
-
 @interface FNKAxis : NSObject
 
 //Graph Sizes
@@ -25,9 +21,6 @@ typedef enum {
 @property (nonatomic, strong) NSNumber* overridingMax;
 @property (nonatomic, strong) NSNumber* overridingMin;
 @property (nonatomic) CGFloat animationDuration;
-
-
-@property (nonatomic) FNKTickType tickType;
 
 @property (nonatomic) int ticks;
 @property (nonatomic, strong) UIColor* fillColor;

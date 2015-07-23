@@ -8,7 +8,13 @@
 
 #import "FNKAxis.h"
 
+typedef enum {
+    FNKYTickTypeOutside, FNKYTickTypeBehind, FNKYTickTypeAbove
+} FNKYTickType;
+
 @interface FNKYAxis : FNKAxis
+
+@property (nonatomic) FNKYTickType tickType;
 
 @property (nonatomic) NSNumber* paddingPercentage;
 
