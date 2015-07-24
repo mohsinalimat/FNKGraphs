@@ -54,7 +54,7 @@
         {
             [bezPath addLineToPoint:CGPointMake(xVal + self.graphWidth, yVal)];
         }
-    
+        
         CAShapeLayer* layer  = [[CAShapeLayer alloc] init];
         layer.path = bezPath.CGPath;
         layer.fillColor = self.tickFillColor.CGColor;
@@ -134,6 +134,7 @@
         [tickLabel setTextColor: self.tickLabelColor ? self.tickLabelColor : [UIColor blackColor]];
         [tickLabel setAdjustsFontSizeToFitWidth:YES];
         [tickLabel setMinimumScaleFactor:.5];
+        [tickLabel setBackgroundColor:[[UIColor whiteColor] colorWithAlphaComponent:.5]];
         [labelView addSubview:tickLabel];
         
         tickLabel.translatesAutoresizingMaskIntoConstraints = NO;

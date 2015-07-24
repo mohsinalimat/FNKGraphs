@@ -86,8 +86,24 @@ static const CGFloat FNKTallTickHeight = 10;
         }
         [tickLabel sizeToFit];
         CGFloat textWidth = tickLabel.frame.size.width;
-        tickLabel.frame = CGRectMake( xVal - textWidth/2, 0, textWidth, 10);
-        tickLabel.textAlignment = NSTextAlignmentCenter;
+        
+        if(index == 0)
+        {
+            tickLabel.frame = CGRectMake(xVal - 2, 0, textWidth, 10);
+            tickLabel.textAlignment = NSTextAlignmentLeft;
+        }
+        else if(index == self.ticks)
+        {
+            tickLabel.frame = CGRectMake(xVal - textWidth + 2, 0, textWidth, 10);
+            tickLabel.textAlignment = NSTextAlignmentRight;
+        }
+        else
+        {
+            tickLabel.frame = CGRectMake( xVal - textWidth/2, 0, textWidth, 10);
+            tickLabel.textAlignment = NSTextAlignmentCenter;
+        }
+        
+        
         tickLabel.font = self.tickFont;
         tickLabel.textColor = self.tickLabelColor;
         [labelView addSubview:tickLabel];
@@ -141,7 +157,23 @@ static const CGFloat FNKTallTickHeight = 10;
         [tickLabel sizeToFit];
         CGFloat textWidth = tickLabel.frame.size.width;
         tickLabel.frame = CGRectMake( xVal - textWidth/2, 0, textWidth, 10);
-        tickLabel.textAlignment = NSTextAlignmentCenter;
+        
+        if(index == 0)
+        {
+            tickLabel.frame = CGRectMake(xVal - 2, 0, textWidth, 10);
+            tickLabel.textAlignment = NSTextAlignmentLeft;
+        }
+        else if(index == bars.count)
+        {
+            tickLabel.frame = CGRectMake(xVal - textWidth + 2, 0, textWidth, 10);
+            tickLabel.textAlignment = NSTextAlignmentRight;
+        }
+        else
+        {
+            tickLabel.frame = CGRectMake( xVal - textWidth/2, 0, textWidth, 10);
+            tickLabel.textAlignment = NSTextAlignmentCenter;
+        }
+        
         tickLabel.font = self.tickFont;
         tickLabel.textColor = self.tickLabelColor;
         [labelView addSubview:tickLabel];
