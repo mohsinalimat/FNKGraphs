@@ -47,6 +47,9 @@
 /* Specify a min date to add padding to the right side of the graph */
 @property (nonatomic) NSDate* maxDate;
 
+/* The corner radius for each bars (defaults 0)*/
+@property (nonatomic) CGFloat barCornerRadius;
+
 /* The padding between each of the bars (defaults 5)*/
 @property (nonatomic) CGFloat barPadding;
 

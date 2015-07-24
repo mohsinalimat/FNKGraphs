@@ -93,6 +93,9 @@
         CGFloat x = index * (self.barWidth + self.barPadding) + self.barPadding;
         
         FNKBar* barView = [[FNKBar alloc] initWithFrame:CGRectMake(x + self.marginLeft, self.graphHeight, self.barWidth, 0)];
+        
+        [barView.layer setCornerRadius:self.barCornerRadius];
+        
         barView.backgroundColor = self.colorForBar(index);
         barView.alpha = 1.0;
         [barView setHeightConstraint:[NSLayoutConstraint constraintWithItem:barView

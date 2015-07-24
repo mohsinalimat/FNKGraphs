@@ -35,6 +35,9 @@
 /* The padding between each of the bars (defaults 5)*/
 @property (nonatomic) CGFloat barPadding;
 
+/* The corner radius for each bars (defaults 0)*/
+@property (nonatomic) CGFloat barCornerRadius;
+
 /* The time bucket that this object will fit into*/
 @property (nonatomic, copy) void (^barAdded)(FNKBar* bar, int barNum);
 
