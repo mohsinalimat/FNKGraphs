@@ -200,7 +200,7 @@
             if(![d isEqual:self.selectedSlice])
             {
                 CABasicAnimation *colorAnimation = [CABasicAnimation animationWithKeyPath:@"fillColor"];
-                colorAnimation.toValue = (id)[UIColor grayColor].CGColor;
+                colorAnimation.toValue = (id)CFBridgingRelease(CGColorCreateCopyWithAlpha(d.color.CGColor, .2));
                 [colorAnimation setRemovedOnCompletion:NO];
                 [colorAnimation setFillMode:kCAFillModeForwards];
                 
