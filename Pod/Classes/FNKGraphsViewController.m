@@ -60,9 +60,11 @@
     [self.view setUserInteractionEnabled:YES];
     
     UIPanGestureRecognizer* panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+    [panGesture setDelegate:self];
     [self.view addGestureRecognizer:panGesture];
     
     UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(handleTap:)];
+    [tapGesture setDelegate:self];
     [self.view addGestureRecognizer:tapGesture];
 }
 

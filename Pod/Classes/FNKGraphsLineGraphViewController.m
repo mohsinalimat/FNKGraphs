@@ -882,4 +882,9 @@
     }
 }
 
+- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)panGestureRecognizer {
+    CGPoint velocity = [panGestureRecognizer velocityInView:self.view];
+    return fabs(velocity.y) < fabs(velocity.x);
+}
+
 @end

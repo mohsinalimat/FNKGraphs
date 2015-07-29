@@ -13,7 +13,7 @@
 
 @protocol FNKChartsViewDelegate;
 
-@interface FNKGraphsViewController : UIViewController
+@interface FNKGraphsViewController : UIViewController<UIGestureRecognizerDelegate>
 
 /*Margin left determines the width of the the y-axis label*/
 @property (readonly, nonatomic) CGFloat marginLeft;
