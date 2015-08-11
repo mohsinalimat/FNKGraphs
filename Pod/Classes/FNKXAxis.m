@@ -156,7 +156,8 @@ static const CGFloat FNKTallTickHeight = 10;
         tickLabel.text = graphTickFormat(index);
         [tickLabel sizeToFit];
         CGFloat textWidth = tickLabel.frame.size.width;
-        tickLabel.frame = CGRectMake( xVal - textWidth/2, 0, textWidth, 10);
+        CGFloat textHeight = tickLabel.frame.size.height;
+        tickLabel.frame = CGRectMake( xVal - textWidth/2, 0, textWidth, textHeight);
         
         if(index == 0)
         {
@@ -165,12 +166,12 @@ static const CGFloat FNKTallTickHeight = 10;
         }
         else if(index == bars.count)
         {
-            tickLabel.frame = CGRectMake(xVal - textWidth + 2, 0, textWidth, 10);
+            tickLabel.frame = CGRectMake(xVal - textWidth + 2, 0, textWidth, textHeight);
             tickLabel.textAlignment = NSTextAlignmentRight;
         }
         else
         {
-            tickLabel.frame = CGRectMake( xVal - textWidth/2, 0, textWidth, 10);
+            tickLabel.frame = CGRectMake( xVal - textWidth/2, 0, textWidth, textHeight);
             tickLabel.textAlignment = NSTextAlignmentCenter;
         }
         
