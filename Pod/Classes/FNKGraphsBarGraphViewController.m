@@ -10,6 +10,9 @@
 #import "FNKBarSectionData.h"
 #import "FNKBar.h"
 
+static const CGFloat FNKMinBarWidth = 0.5;
+
+
 @interface FNKGraphsBarGraphViewController ()
 
 /* xAxis - The X axis of the graph. This cannot be assigned but it's properties can be*/
@@ -78,6 +81,13 @@
     //There are a couple of steps here
     //First we need to figure out the width of the bars
     self.barWidth = (self.graphWidth / self.graphData.count) - self.barPadding;
+    
+    if(self.barWidth < FNKMinBarWidth)
+    {
+        self.barWidth = FNKMinBarWidth;
+        
+        self.barPadding = (self.graphWidth / self.graphData.count) - self.barWidth;
+    }
     
     [self addTicks];
     
