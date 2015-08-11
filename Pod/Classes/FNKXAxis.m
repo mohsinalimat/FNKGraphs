@@ -41,6 +41,8 @@ static const CGFloat FNKTallTickHeight = 10;
     
     UIView* labelView = [[UIView alloc] initWithFrame:CGRectMake(0, labelYLoc, view.frame.size.width, 20)];
     
+    CGFloat textHeight = 0;
+    
     for (int index = 0 ; index < self.ticks+1 ; index++)
     {
         UIBezierPath* bezPath = [[UIBezierPath alloc] init];
@@ -97,6 +99,9 @@ static const CGFloat FNKTallTickHeight = 10;
         [labelView addSubview:tickLabel];
     }
     
+    [labelView setFrame:CGRectMake(labelView.frame.origin.x, labelView.frame.origin.y, labelView.frame.size.width, textHeight)];
+    
+    
     [labelView setAlpha:0.0];
     
     [view addSubview:labelView];
@@ -143,7 +148,7 @@ static const CGFloat FNKTallTickHeight = 10;
         UILabel* tickLabel = [[UILabel alloc] init];
         tickLabel.text = graphTickFormat(index);
         [tickLabel sizeToFit];
-
+        
         CGFloat textWidth = tickLabel.frame.size.width;
         CGFloat textHeight = tickLabel.frame.size.height;
         
