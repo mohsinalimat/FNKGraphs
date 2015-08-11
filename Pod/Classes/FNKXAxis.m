@@ -85,24 +85,12 @@ static const CGFloat FNKTallTickHeight = 10;
             tickLabel.text = self.tickFormat(((xVal - self.marginLeft) / self.scaleFactor) + self.axisMin);
         }
         [tickLabel sizeToFit];
+        
         CGFloat textWidth = tickLabel.frame.size.width;
+        CGFloat textHeight = tickLabel.frame.size.height;
         
-        if(index == 0)
-        {
-            tickLabel.frame = CGRectMake(xVal - 2, 0, textWidth, 10);
-            tickLabel.textAlignment = NSTextAlignmentLeft;
-        }
-        else if(index == self.ticks)
-        {
-            tickLabel.frame = CGRectMake(xVal - textWidth + 2, 0, textWidth, 10);
-            tickLabel.textAlignment = NSTextAlignmentRight;
-        }
-        else
-        {
-            tickLabel.frame = CGRectMake( xVal - textWidth/2, 0, textWidth, 10);
-            tickLabel.textAlignment = NSTextAlignmentCenter;
-        }
-        
+        tickLabel.frame = CGRectMake( xVal - textWidth/2, 0, textWidth, textHeight);
+        tickLabel.textAlignment = NSTextAlignmentCenter;
         
         tickLabel.font = self.tickFont;
         tickLabel.textColor = self.tickLabelColor;
@@ -155,25 +143,12 @@ static const CGFloat FNKTallTickHeight = 10;
         UILabel* tickLabel = [[UILabel alloc] init];
         tickLabel.text = graphTickFormat(index);
         [tickLabel sizeToFit];
+
         CGFloat textWidth = tickLabel.frame.size.width;
         CGFloat textHeight = tickLabel.frame.size.height;
-        tickLabel.frame = CGRectMake( xVal - textWidth/2, 0, textWidth, textHeight);
         
-        if(index == 0)
-        {
-            tickLabel.frame = CGRectMake(xVal - 2, 0, textWidth, 10);
-            tickLabel.textAlignment = NSTextAlignmentLeft;
-        }
-        else if(index == bars.count)
-        {
-            tickLabel.frame = CGRectMake(xVal - textWidth + 2, 0, textWidth, textHeight);
-            tickLabel.textAlignment = NSTextAlignmentRight;
-        }
-        else
-        {
-            tickLabel.frame = CGRectMake( xVal - textWidth/2, 0, textWidth, textHeight);
-            tickLabel.textAlignment = NSTextAlignmentCenter;
-        }
+        tickLabel.frame = CGRectMake( xVal - textWidth/2, 0, textWidth, textHeight);
+        tickLabel.textAlignment = NSTextAlignmentCenter;
         
         tickLabel.font = self.tickFont;
         tickLabel.textColor = self.tickLabelColor;
