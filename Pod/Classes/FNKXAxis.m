@@ -91,12 +91,12 @@ static const CGFloat FNKTallTickHeight = 10;
         CGFloat textWidth = tickLabel.frame.size.width;
         CGFloat textHeight = tickLabel.frame.size.height;
         
-        if(index == 0)
+        if(index == 0 && xVal == 0)
         {
             tickLabel.frame = CGRectMake(xVal - 2, 0, textWidth, textHeight);
             tickLabel.textAlignment = NSTextAlignmentLeft;
         }
-        else if(index == self.ticks)
+        else if(index == self.ticks && xVal == labelView.frame.size.width)
         {
             tickLabel.frame = CGRectMake(xVal - textWidth + 2, 0, textWidth, textHeight);
             tickLabel.textAlignment = NSTextAlignmentRight;
@@ -165,12 +165,14 @@ static const CGFloat FNKTallTickHeight = 10;
         CGFloat textWidth = tickLabel.frame.size.width;
         CGFloat textHeight = tickLabel.frame.size.height;
         
-        if(index == 0)
+        tickLabel.textAlignment = NSTextAlignmentCenter;
+        
+        if(index == 0 && xVal == 0)
         {
             tickLabel.frame = CGRectMake(xVal - 2, 0, textWidth, textHeight);
             tickLabel.textAlignment = NSTextAlignmentLeft;
         }
-        else if(index == self.ticks)
+        else if(index == self.ticks && xVal == labelView.frame.size.width)
         {
             tickLabel.frame = CGRectMake(xVal - textWidth + 2, 0, textWidth, textHeight);
             tickLabel.textAlignment = NSTextAlignmentRight;
