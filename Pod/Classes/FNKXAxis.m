@@ -91,8 +91,21 @@ static const CGFloat FNKTallTickHeight = 10;
         CGFloat textWidth = tickLabel.frame.size.width;
         CGFloat textHeight = tickLabel.frame.size.height;
         
-        tickLabel.frame = CGRectMake( xVal - textWidth/2, 0, textWidth, textHeight);
-        tickLabel.textAlignment = NSTextAlignmentCenter;
+        if(index == 0)
+        {
+            tickLabel.frame = CGRectMake(xVal - 2, 0, textWidth, textHeight);
+            tickLabel.textAlignment = NSTextAlignmentLeft;
+        }
+        else if(index == self.ticks)
+        {
+            tickLabel.frame = CGRectMake(xVal - textWidth + 2, 0, textWidth, textHeight);
+            tickLabel.textAlignment = NSTextAlignmentRight;
+        }
+        else
+        {
+            tickLabel.frame = CGRectMake( xVal - textWidth/2, 0, textWidth, textHeight);
+            tickLabel.textAlignment = NSTextAlignmentCenter;
+        }
         
         tickLabel.font = self.tickFont;
         tickLabel.textColor = self.tickLabelColor;
@@ -152,8 +165,21 @@ static const CGFloat FNKTallTickHeight = 10;
         CGFloat textWidth = tickLabel.frame.size.width;
         CGFloat textHeight = tickLabel.frame.size.height;
         
-        tickLabel.frame = CGRectMake( xVal - textWidth/2, 0, textWidth, textHeight);
-        tickLabel.textAlignment = NSTextAlignmentCenter;
+        if(index == 0)
+        {
+            tickLabel.frame = CGRectMake(xVal - 2, 0, textWidth, textHeight);
+            tickLabel.textAlignment = NSTextAlignmentLeft;
+        }
+        else if(index == self.ticks)
+        {
+            tickLabel.frame = CGRectMake(xVal - textWidth + 2, 0, textWidth, textHeight);
+            tickLabel.textAlignment = NSTextAlignmentRight;
+        }
+        else
+        {
+            tickLabel.frame = CGRectMake( xVal - textWidth/2, 0, textWidth, textHeight);
+            tickLabel.textAlignment = NSTextAlignmentCenter;
+        }
         
         tickLabel.font = self.tickFont;
         tickLabel.textColor = self.tickLabelColor;
