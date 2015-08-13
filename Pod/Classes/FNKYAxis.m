@@ -113,7 +113,8 @@
             continue;
         }
         
-        CGFloat yVal = self.tickType == FNKYTickTypeAbove ? (index * tickInterval) - self.tickFont.capHeight :  (index * tickInterval);
+        CGFloat yLoc = self.tickType == FNKYTickTypeAbove ? (index * tickInterval) - self.tickFont.capHeight :  (index * tickInterval);
+        CGFloat yVal = self.tickType == FNKYTickTypeAbove ? (index * tickInterval) :  (index * tickInterval);
         
         //Okay those are the ticks. Now we need the labels
         UILabel* tickLabel = [[UILabel alloc] init];
@@ -157,7 +158,7 @@
         [labelView addConstraints:widthConstraints];
         
         //TODO: This is a bit of a hack since I don't know what the height of the label is actually going to be
-        constraintString = [NSString stringWithFormat:@"V:|-(%f)-[tickLabel]", yVal - 5];
+        constraintString = [NSString stringWithFormat:@"V:|-(%f)-[tickLabel]", yLoc - 5];
         NSArray *heightConstraints = [NSLayoutConstraint constraintsWithVisualFormat:constraintString
                                                                              options:0
                                                                              metrics:nil
