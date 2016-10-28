@@ -187,8 +187,20 @@
 
 -(CAShapeLayer*)drawLineFilled:(NSMutableArray*)data color:(UIColor*)color completion:(void (^)())completion
 {
-    //Create a path along the x-axis that has an equal number of points to the endPath
-    UIBezierPath* startPath = [[UIBezierPath alloc] init];
+    /*
+     /   Since we don't want lines to enclose the entire fill area, we'll divide the animation into 2 parts:
+     /
+     /   1. Animate the fill area "up" from the x-axis
+     /   2. Animate the line path "up" from the x-axis
+     /
+     /   We're dividing the animation this way because it's annoyingly complex to create
+     /   a filled CAShapeLayer with only a portion of its path stroked.
+     */
+    
+    // Part 1 - Create fill area shapes (pre- and post-animation)
+    
+    // Create a starting path on the x-axis for the fill animation
+    UIBezierPath* fillPathStart = [[UIBezierPath alloc] init];
     
     BOOL firstPoint = YES;
     for (NSValue *value in data)
@@ -196,28 +208,60 @@
         CGPoint pt = [value CGPointValue];
         if(firstPoint)
         {
-            [startPath moveToPoint:CGPointMake(pt.x, self.graphHeight)];
-            [startPath addLineToPoint:CGPointMake(pt.x, self.graphHeight)];
+            [fillPathStart moveToPoint:CGPointMake(pt.x, self.graphHeight)];
+            [fillPathStart addLineToPoint:CGPointMake(pt.x, self.graphHeight)];
             firstPoint = NO;
         }
-        [startPath addLineToPoint:CGPointMake(pt.x, self.graphHeight)];
+        [fillPathStart addLineToPoint:CGPointMake(pt.x, self.graphHeight)];
     }
     
-    [startPath addLineToPoint:CGPointMake([[data lastObject] CGPointValue].x, self.graphHeight)];
-    [startPath closePath];
+    [fillPathStart addLineToPoint:CGPointMake([[data lastObject] CGPointValue].x, self.graphHeight)];
+    [fillPathStart closePath];
     
-    UIBezierPath* endPath = [self pathFromPointsFilled:data];
+    // Create the ending path for the fill animation
+    UIBezierPath* fillPathEnd = [self pathFromPointsFilled:data];
     
-    CAShapeLayer* layer = [[CAShapeLayer alloc] init];
-    layer.path = startPath.CGPath;
+    CAShapeLayer* fillLayer = [[CAShapeLayer alloc] init];
+    fillLayer.path = fillPathStart.CGPath;
+    fillLayer.fillColor = self.graphFillColor.CGColor;
     
-    layer.fillColor = self.graphFillColor.CGColor;
-    layer.strokeColor = color.CGColor;
-    layer.lineWidth = 2;
-    layer.lineCap = @"round";
-    layer.lineJoin = @"round";
+    [self.view.layer insertSublayer:fillLayer below:self.yLabelView.layer];
     
-    [self.view.layer insertSublayer:layer below:self.yLabelView.layer];
+    
+    // Part 2 - Create line path shapes (pre- and post-animation)
+    
+    //Create a path along the x-axis that has an equal number of points to the endPath
+    UIBezierPath* linePathStart = [[UIBezierPath alloc] init];
+    
+    firstPoint = YES;
+    for (NSValue *value in data)
+    {
+        CGPoint pt = [value CGPointValue];
+        if(firstPoint)
+        {
+            [linePathStart moveToPoint:CGPointMake(pt.x, self.graphHeight)];
+            firstPoint = NO;
+        }
+        else
+        {
+            [linePathStart addLineToPoint:CGPointMake(pt.x, self.graphHeight)];
+        }
+    }
+    
+    UIBezierPath* linePathEnd = [self pathFromPoints:data];
+    
+    CAShapeLayer* lineLayer = [[CAShapeLayer alloc] init];
+    lineLayer.path = linePathEnd.CGPath;
+    lineLayer.fillColor = [UIColor clearColor].CGColor;
+    lineLayer.strokeColor = color.CGColor;
+    lineLayer.lineWidth = 2;
+    lineLayer.lineCap = @"round";
+    lineLayer.lineJoin = @"round";
+    
+    [self.view.layer insertSublayer:lineLayer above:fillLayer];
+    
+    
+    // Part 3 - Animate
     
     [CATransaction begin];
     
@@ -228,18 +272,27 @@
         }
     }];
     
-    CABasicAnimation* pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
-    pathAnimation.duration = 1;
-    pathAnimation.fromValue = (__bridge id)startPath.CGPath;
-    pathAnimation.toValue = (__bridge id) endPath.CGPath;
-    pathAnimation.removedOnCompletion = NO;
-    pathAnimation.fillMode = kCAFillModeBoth;
+    CABasicAnimation* fillAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
+    fillAnimation.duration = 1;
+    fillAnimation.fromValue = (__bridge id)fillPathStart.CGPath;
+    fillAnimation.toValue = (__bridge id) fillPathEnd.CGPath;
+    fillAnimation.removedOnCompletion = NO;
+    fillAnimation.fillMode = kCAFillModeBoth;
     
-    [layer addAnimation:pathAnimation forKey:@"path"];
+    [fillLayer addAnimation:fillAnimation forKey:@"path"];
+    
+    CABasicAnimation* lineAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
+    lineAnimation.duration = 1;
+    lineAnimation.fromValue = (__bridge id)linePathStart.CGPath;
+    lineAnimation.toValue = (__bridge id) linePathEnd.CGPath;
+    lineAnimation.removedOnCompletion = NO;
+    lineAnimation.fillMode = kCAFillModeBoth;
+    
+    [lineLayer addAnimation:lineAnimation forKey:@"path"];
     
     [CATransaction commit];
     
-    return layer;
+    return lineLayer;
 }
 
 -(CAShapeLayer*)drawLine:(NSMutableArray*)data color:(UIColor*)color completion:(void (^)())completion
