@@ -25,11 +25,7 @@
 
 -(FNKGraphsViewController*)initWithFrame:(CGRect)frame
 {
-    return [self initWithRect:frame
-                   marginLeft:20
-                 marginBottom:5
-                   graphWidth:frame.size.width - 20
-                  graphHeight:frame.size.height - 5];
+    return [self initWithRect:frame marginLeft:40 marginBottom:5 graphWidth:frame.size.width-40 graphHeight:frame.size.height-5];
 }
 
 -(FNKGraphsViewController*)initWithRect:(CGRect)rect marginLeft:(CGFloat)marginLeft marginBottom:(CGFloat)marginBottom graphWidth:(CGFloat)graphWidth graphHeight:(CGFloat)graphHeight
