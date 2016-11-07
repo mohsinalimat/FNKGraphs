@@ -10,6 +10,7 @@
 #import "FNKChartOverlayData.h"
 #import "FNKChartOverlayBars.h"
 
+static const float kYAxisMarginLeft = 40;
 
 @protocol FNKChartsViewDelegate;
 
